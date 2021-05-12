@@ -1,0 +1,36 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.about-hero-sect {
+  &__top {
+    &::before {
+      // decor text
+    }
+  }
+
+  &__title {
+    width: 375px;
+    font-size: 108px;
+  }
+
+  &__pictures {
+    &::before {
+      // decor star
+    }
+  }
+
+  &__pic {
+    &:first-child {}
+
+    &:last-child {}
+  }
+
+  &__descr {}
+
+  &__bottom {}
+
+  &__text {}
+
+  &__p {}
+}

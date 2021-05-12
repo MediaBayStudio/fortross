@@ -1,0 +1,24 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.index-quality-sect {
+  &::before {
+    // decor text
+    left: calc(50vw - 268px);
+  }
+
+  &::after {
+    // decor background
+  }
+
+  &__title {}
+
+  &__pic {
+    width: 145px;
+    height: 175px;
+  }
+
+  &__img {
+  }
+}

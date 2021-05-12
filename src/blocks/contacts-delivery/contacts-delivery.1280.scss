@@ -1,0 +1,29 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.contacts-delivery-sect {
+  padding-top: $sectionPadding1280;
+  padding-bottom: $sectionPadding1280;
+  &::before {
+    // decor logo
+    top: -$sectionPadding1280;
+  }
+  &::after {
+    // decor star
+    width: 160px;
+    height: 160px;
+  }
+  &__wrap {
+    padding: 0 $sectionIndent1280;
+  }
+
+  &__title {}
+
+  &__text {
+  }
+
+  &__p {
+    &:nth-last-child(n+2) {}
+  }
+}

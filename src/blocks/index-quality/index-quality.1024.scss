@@ -1,0 +1,37 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.index-quality-sect {
+  padding-top: $sectionPadding1024;
+  padding-bottom: $sectionPadding1024;
+  &::before {
+    // decor text
+    top: 160px;
+    left: calc(50vw - 480px);
+  }
+
+  &::after {
+    // decor background
+    top: 90px;
+    width: 35%;
+    height: calc(100% - 180px);
+  }
+
+  &__title {
+    margin: 140px 0 140px $sectionPadding1024;
+    max-width: 600px;
+    font-size: 38px;
+    &::before {
+      left: -85px;
+    }
+  }
+
+  &__pic {
+    right: calc(50vw - 480px);
+    width: 305px;
+    height: 385px;
+  }
+
+  &__img {}
+}

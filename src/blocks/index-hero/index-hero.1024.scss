@@ -1,0 +1,84 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.index-hero-sect {
+  padding-top: 210px;
+  &::before {
+    left: calc(50vw - 480px);
+  }
+
+  &__decor-title {
+    left: calc(50vw - 480px);
+  }
+
+  &__title {
+    margin: 0 0 40px $sectionIndent1024;
+  }
+
+  &__link {
+    margin-left: $sectionIndent1024;
+  }
+
+  &__slider {
+    position: absolute;
+    top: 75px;
+    right: calc(50vw - 480px);
+    width: 455px;
+    height: 555px;
+    // overflow: visible;
+    &::before {
+      // decor logo
+      content: '';
+      position: absolute;
+      right: 64px;
+      top: 0;
+      transform: translateX(50%);
+      width: 38px;
+      height: 50px;
+      background: url('../img/decor-logo.svg') center/contain;
+      z-index: 1;
+    }
+    &::after {
+      // decor star
+      bottom: auto;
+      top: 0;
+    }
+    >.slick-list {
+      // overflow: hidden;
+      >.slick-track {}
+    }
+  }
+
+  &__slide {}
+
+  &__pic {
+    margin-bottom: 15px;
+    width: 310px;
+    height: 310px;
+    &:nth-child(2n) {
+      margin-bottom: 0;
+      width: 390px;
+      height: 435px;
+    }
+  }
+
+  &__dots {
+    margin-top: 101px;
+    >.slick-dots {}
+
+    li {
+      &:nth-last-child(n+2) {}
+    }
+
+    .slick-active {
+      >.dot {
+        &::after {}
+      }
+    }
+
+    .dot {
+      &::after {}
+    }
+  }
+}

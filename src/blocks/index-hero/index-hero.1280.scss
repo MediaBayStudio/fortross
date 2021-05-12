@@ -1,0 +1,81 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.index-hero-sect {
+  padding-top: 260px;
+  &::before {
+    top: 105px;
+    left: calc(50vw - 580px);
+  }
+
+  &__decor-title {
+    max-width: 550px;
+    top: 70px;
+    left: calc(50vw - 580px);
+    font-size: 180px;
+  }
+
+  &__title {
+    margin: 0 0 100px $sectionIndent1280;
+    max-width: 530px;
+    font-size: 48px;
+  }
+
+  &__link {
+    margin-left: $sectionIndent1280;
+  }
+
+  &__slider {
+    top: 100px;
+    right: calc(50vw - 580px);
+    width: 580px;
+    height: 580px;
+    &::before {
+      // decor logo
+      right: 98px;
+      top: 15px;
+    }
+    &::after {
+      // decor star
+      top: 60px;
+      width: 120px;
+      height: 120px;
+    }
+    >.slick-list {
+      >.slick-track {}
+    }
+  }
+
+  &__slide {}
+
+  &__pic {
+    margin-bottom: 0;
+    width: 400px;
+    height: 400px;
+    &:nth-child(2n) {
+      width: 480px;
+      height: 535px;
+    }
+  }
+
+  &__dots {
+    margin-top: 22px;
+    >.slick-dots {}
+
+    li {
+      &:nth-last-child(n+2) {}
+    }
+
+    .slick-active {
+      >.dot {
+        &::after {}
+      }
+    }
+
+    .dot {
+      &::after {}
+    }
+  }
+
+}

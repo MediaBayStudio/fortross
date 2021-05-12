@@ -1,0 +1,66 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.about-features {
+  display: flex;
+  flex-wrap: wrap;
+
+  &-sect {
+    padding-bottom: 0;
+    background-size: 50% 100%;
+
+    &::before {
+      // decor text
+      width: 100%;
+    }
+
+    &::after {
+      // decor star
+      content: '';
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      right: calc(50vw - 268px);
+      bottom: 0;
+      transform: translate(50%, 50%);
+      background: center/contain no-repeat;
+    }
+  }
+
+  &.lazyloaded::after {
+    background-image: url('../img/decor-2.svg');
+  }
+
+  &__arrows {
+    display: none;
+  }
+
+  &__prev,
+  &__next {}
+
+  &__prev {}
+
+  &__next {}
+
+  &__counter {}
+
+  &__counter-current {}
+
+  &__counter-total {}
+}
+
+.about-feat {
+  margin: 0 20px 50px 0;
+  width: 258px;
+
+  &:nth-child(2n) {
+    margin-right: 0;
+  }
+
+  &:nth-last-child(n+2) {}
+
+  &__img {}
+
+  &__title {}
+}

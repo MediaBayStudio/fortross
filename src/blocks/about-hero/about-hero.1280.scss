@@ -1,0 +1,48 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.about-hero-sect {
+  padding-top: 100px;
+  padding-bottom: $sectionPadding1280;
+  &__top {
+    margin: 0 0 50px $sectionIndent1280;
+    &::before {
+      // decor text
+    }
+  }
+
+  &__title {}
+
+  &__pictures {
+    grid-template-rows: 180px 360px 30px;
+    grid-template-columns: 100px 380px 100px;
+    &::before {
+      // decor star
+      grid-row: 2/span 2;
+      grid-column: 1/span 2;
+    }
+  }
+
+  &__pic {
+    &:first-child {}
+
+    &:last-child {}
+  }
+
+  &__descr {
+    margin: auto 80px 50px 0;
+  }
+
+  &__bottom {
+    margin-left: $sectionIndent1280;
+    grid-template-columns: 400px 80px auto;
+  }
+
+  &__text {
+    margin-right: 100px;
+    padding-right: 80px;
+  }
+
+  &__p {}
+}

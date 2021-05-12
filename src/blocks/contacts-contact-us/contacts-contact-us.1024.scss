@@ -1,0 +1,76 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.contacts-us-sect {
+  padding: $sectionPadding1024 0;
+  &__form-wrap {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background: linear-gradient(to left, $white 0 0, $white 0 0) 0 0/90% 100% no-repeat;
+    &::before {
+      // decor text
+    }
+  }
+
+  &__title {
+    margin: -10px 0 50px $sectionIndent1024;
+    font-size: 38px;
+    &::before {
+      // decor ring
+      right: -200px;
+      top: -10px;
+      width: 230px;
+      height: 80px;
+    }
+  }
+
+  &__form {
+    padding-left: $sectionIndent1024;
+    width: 720px + $sectionIndent1024;
+    .field {
+      width: 330px;
+      &__inp {}
+
+      &__text {}
+
+      &__textarea {}
+    }
+
+    .field_name,
+    .field_email {
+      margin-right: 60px;
+    }
+
+    .field_name,
+    .field_tel,
+    .field_email,
+    .field_msg {}
+
+    .field_name {}
+
+    .field_tel {}
+
+    .field_email {}
+
+    .field_msg {}
+
+    .form-bottom {
+      margin-top: 40px;
+    }
+
+    .check {
+      width: 365px;
+      font-size: 14px;
+      &__inp {}
+
+      &__text {}
+
+      &__link {}
+    }
+
+    .check_tick {}
+
+    .btn {}
+  }
+}

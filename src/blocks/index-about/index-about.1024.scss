@@ -1,0 +1,53 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.index-about-sect {
+  padding-bottom: $sectionPadding1024;
+  padding-top: $sectionPadding1024;
+  &__title {
+    margin-bottom: 80px;
+    font-size: 36px;
+  }
+
+  &__wrap {
+    $paddingBottom: 70px;
+    padding: 0 0 $paddingBottom $sectionIndent1024;
+    display: flex;
+    align-items: center;
+    &::before {
+      //decor text
+      top: auto;
+      bottom: $paddingBottom;
+      transform-origin: bottom left;
+      transform: rotate(-90deg) translate(0%, 100%);
+    }
+  }
+
+  &__pic {
+    margin: 0 40px 0 0;
+    flex-shrink: 0;
+    width: 390px;
+    height: 390px;
+    &::after {
+      // decor
+      right: 0;
+      transform: translate(50%, 50%);
+      z-index: -1;
+    }
+  }
+
+  &__img {}
+
+  &__text {}
+
+  &__decor-title {
+    transform: translateY(-50%);
+    left: 0;
+    top: 0;
+  }
+
+  &__p {
+    &:nth-last-child(n+2) {}
+  }
+}

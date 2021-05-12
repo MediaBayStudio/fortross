@@ -1,0 +1,13 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.hdr {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  &__logo {
+    &-img {
+      height: 20px;
+    }
+  }
+}

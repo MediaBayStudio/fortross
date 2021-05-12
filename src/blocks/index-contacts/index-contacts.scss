@@ -1,0 +1,138 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.contacts-sect {
+  padding: $sectionPadding320 0;
+
+  &.lazyloaded {
+    .contacts-sect__contacts-wrap::before {
+      background-image: url('../img/decor-logo.svg');
+    }
+
+    .contacts-sect__form-wrap::after {
+      background-image: url('../img/decor-3.svg');
+    }
+  }
+
+  &__left {
+    padding-top: 45px;
+    padding-bottom: 50px;
+    background: $white;
+  }
+
+  &__form-wrap {
+    &::before {
+      // decor text
+      display: none;
+    }
+
+    &::after {
+      // decor star
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 140px;
+      height: 140px;
+      transform: translate(50%, -50%);
+      background: center/contain no-repeat;
+    }
+  }
+
+  &__form {
+    .field {
+      margin: 0 0 45px;
+      width: 100%;
+    }
+
+    .field_name {}
+
+    .field_tel {}
+
+    .field_email {}
+
+    .field_msg {
+      margin: 0;
+    }
+
+    .form-bottom {
+      margin: 30px auto 0;
+      width: 280px;
+      position: relative;
+
+      &::before {
+        // decor ring
+        content: '';
+        position: absolute;
+        left: -10px;
+        bottom: 0;
+        width: 195px;
+        height: 65px;
+        border-radius: 50%;
+        border: 1px solid $lightBeige;
+        transform: rotate(13deg);
+        pointer-events: none;
+      }
+    }
+
+    .btn {
+      margin: 30px auto 0;
+      width: 185px;
+      height: 50px;
+      position: relative;
+    }
+
+    .check {
+      position: relative;
+      max-width: 245px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 30px;
+    font: 500 22px/160% Oswald;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: $darkBrown;
+  }
+
+  &__right {}
+
+  &__contacts-wrap {
+    padding: 60px 0 100px;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    position: relative;
+
+    &::before {
+      // decor logo
+      content: '';
+      position: absolute;
+      bottom: 75px;
+      right: 0;
+      width: 175px;
+      height: 230px;
+      background: center/contain no-repeat;
+      opacity: .05;
+      z-index: -1;
+      pointer-events: none;
+    }
+  }
+
+  &__contacts-block {
+    margin: 0 0 30px;
+    max-width: 270px;
+    font-size: 16px;
+  }
+
+  &__social-networking-links {
+    margin-top: 20px;
+  }
+
+  &__social-networking-link {
+    margin-right: 20px;
+    transition: filter .5s;
+  }
+}

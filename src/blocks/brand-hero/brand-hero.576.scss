@@ -1,0 +1,25 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.brand-hero-sect {
+  &__left {
+    &::before {
+      // decor background
+      left: calc((50vw - 268px) * -1);
+    }
+
+    &::after {
+      // decor star
+      right: responsive('576->767', '162->257');
+    }
+  }
+
+  &__title {}
+
+  &__descr {
+    &::before {}
+  }
+
+  &__pic {}
+}

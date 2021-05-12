@@ -1,0 +1,72 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.contacts-sect {
+  &__left {}
+
+  &__form-wrap {
+    padding-left: $sectionIndent576;
+    &::before {
+      // decor text
+    }
+    &::after {
+      // decor star
+    }
+  }
+
+  &__form {
+    .field {}
+
+    .field_name {}
+
+    .field_tel {}
+
+    .field_email {
+    }
+
+    .field_msg {}
+
+    .form-bottom {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      &::before {
+        // decor ring
+        width: 300px;
+        height: 100px;
+        bottom: -35px;
+        left: -45px;
+      }
+    }
+
+    .btn {
+      margin: 0 0 0 auto;
+    }
+
+    .check {
+      max-width: 315px;
+    }
+  }
+
+  &__title {}
+
+  &__right {
+  }
+
+  &__contacts-wrap {
+    padding-left: $sectionIndent576;
+    flex-flow: wrap;
+    &::before {
+      // decor logo
+
+    }
+  }
+
+  &__contacts-block {
+  }
+
+  &__social-networking-links {}
+
+  &__social-networking-link {}
+}

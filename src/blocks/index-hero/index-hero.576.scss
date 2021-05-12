@@ -1,0 +1,85 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.index-hero-sect {
+  padding-top: 25px;
+
+  &::before {
+    left: calc(50vw - 268px);
+  }
+
+  &__decor-title {
+    left: calc(50vw - 266px);
+  }
+
+  &__title {
+    margin-left: $sectionIndent576;
+    max-width: 345px;
+    padding: 0;
+  }
+
+  &__link {
+    margin-left: $sectionIndent576;
+  }
+
+  &__slider {
+    width: 350px;
+    height: 350px;
+
+    &::after {
+      // Декор звезда
+      bottom: 35px;
+      width: 100px;
+      height: 100px;
+    }
+
+    >.slick-list {
+      >.slick-track {}
+    }
+  }
+
+  &__slide {
+    // padding: 150px 0 0 150px;
+    // position: relative;
+  }
+
+  &__pic {
+
+    // position: relative;
+    // z-index: 1;
+    &:nth-child(2n) {
+      // width: 100%;
+      // height: 100%;
+      // display: block;
+      // position: absolute;
+      // top: 0;
+      // left: 0;
+      // z-index: 0;
+      // display: none;
+    }
+  }
+
+  &__img {
+    // width: 100%;
+    // height: 100%;
+  }
+
+  &__dots {
+    >.slick-dots {}
+
+    li {
+      &:nth-last-child(n+2) {}
+    }
+
+    .slick-active {
+      >.dot {
+        &::after {}
+      }
+    }
+
+    .dot {
+      &::after {}
+    }
+  }
+}

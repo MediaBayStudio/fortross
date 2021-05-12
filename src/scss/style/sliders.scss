@@ -1,0 +1,99 @@
+
+@import '../assets/colors';
+@import '../assets/mixins';
+@import '../assets/variables';
+// .dots {
+//   display: flex;
+//   justify-content: center;
+//   > li {
+//     &:nth-last-child(n+2) {
+//       margin-right: 14px;
+//     }
+//   }
+// }
+
+// li.slick-active > .dot {
+//   cursor: default;
+//   transform: scale(2);
+//   // background: $red;
+// }
+
+// .dots .dot {
+//   width: 6px;
+//   height: 6px;
+//   // background: $light;
+//   border-radius: 50%;
+//   transition: transform .35s, color .35s
+// }
+
+
+li.slick-active {
+  pointer-events: none;
+}
+
+.slick {
+  &-slider {
+    user-select: none;
+    touch-action: pan-y;
+  }
+  &-list {
+    width: 100%;
+    position: relative;
+    &.draggable {
+      cursor: grab;
+    }
+    &.grabbing {
+      cursor: grabbing;
+    }
+  }
+  &-track {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    &::after,
+    &::before {
+      display: table;
+      content: '';
+    }
+    &::after {
+      clear: both;
+    }
+  }
+  &-dotted {
+    display: flex;
+    flex-direction: column;
+    > .dots {
+      order: 10;
+    }
+  }
+}
+
+.slick-track,
+.slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+     -moz-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+       -o-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+
+.arrow {
+  display: flex;
+  transition: opacity .5s, color .5s;
+  &.slick-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  &_prev {
+    > .arrow__svg {
+      transform: rotate(180deg);
+    }
+  }
+  &__svg {
+    pointer-events: none;
+  }
+}

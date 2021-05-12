@@ -1,0 +1,33 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.brand-hero-sect {
+  padding-top: $sectionPadding1280 - 35px;
+  padding-bottom: $sectionPadding1280;
+  &__left {
+    &::before {
+      // decor background
+      left: calc(50vw - 640px);
+      bottom: $sectionPadding1280;
+      width: 450px;
+      $height: 150px + $sectionPadding1280 + 35px + $sectionPadding1280;
+      height: calc(100% - #{$height});
+    }
+
+    &::after {
+      // decor star
+    }
+  }
+
+  &__title {
+    margin: 0 0 40px;
+  }
+
+  &__descr {
+    max-width: 560px;
+    &::before {}
+  }
+
+  &__pic {}
+}

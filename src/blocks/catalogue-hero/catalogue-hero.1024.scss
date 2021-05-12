@@ -1,0 +1,78 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.catalogue-hero-sect {
+  padding-top: $sectionPadding1024;
+  padding-bottom: $sectionPadding1024;
+  &__decor {
+    display: none;
+  }
+  &::before {
+    // decor star
+    width: 120px;
+    height: 120px;
+    right: calc(50vw - 480px);
+  }
+  &::after {
+    // decor ring
+    top: 50px;
+    width: 230px;
+    height: 80px;
+    right: calc(50vw - 450px);
+  }
+  &__title {
+  }
+  &__descr {
+    margin-right: 175px;
+    max-width: 455px;
+  }
+  &__catalogue-wrap {
+    margin-top: 100px;
+    > .catalogue-items__item {
+      width: calc((100% - 80px) / 3);
+      &:nth-child(n) {
+        margin-right: 40px;
+      }
+      &:nth-child(3n+3) {
+        margin-right: 0;
+      }
+    }
+  }
+  &__catalogue-left {
+    width: 290px;
+  }
+  &__catalogue-left-line {
+  }
+  &__category {
+  }
+  &__catalogue-right {
+    width: 630px;
+  }
+  &__right-item {
+    &.active {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.catalogue-items {
+  &__item {
+    width: calc((100% - 40px) / 2);
+    &:nth-child(2) {
+      // margin-top: 0;
+    }
+    &:nth-child(odd) {
+      margin-right: 40px;
+    }
+  }
+}
+.catalogue-item {
+  &__link {
+  }
+  &__title {
+  }
+  &__img {
+  }
+}

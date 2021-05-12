@@ -1,0 +1,52 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.contacts-delivery-sect {
+  padding-top: $sectionPadding768;
+  padding-bottom: $sectionPadding768;
+
+  &__wrap {
+    display: flex;
+    align-items: flex-start;
+    &::before {
+      // decor logo
+      width: 185px;
+      height: 245px;
+      top: -$sectionPadding768;
+      left: auto;
+      right: 0;
+      transform: none;
+    }
+
+    &::after {
+      // decor star
+      content: '';
+      width: 125px;
+      height: 125px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: center/contain no-repeat;
+      transform: translateY(50%);
+      z-index: -1;
+    }
+
+    &.lazyloaded::after {
+      background-image: url('../img/decor-2.svg');
+    }
+  }
+
+  &__title {
+    font-size: 30px;
+  }
+
+  &__text {
+    margin: 10px 0 0 auto;
+    width: 380px;
+  }
+
+  &__p {
+    &:nth-last-child(n+2) {}
+  }
+}

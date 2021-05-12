@@ -1,0 +1,36 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.menu {
+  &__cnt {
+    padding-top: 170px;
+
+    &::before {}
+
+    &::after {}
+  }
+
+  &__nav {
+    margin: 0 0 75px;
+    font-size: 30px;
+  }
+
+  &__nav-list {}
+
+  &__nav-li {
+    &:nth-last-child(n+2) {
+      margin: 0 0 40px;
+    }
+  }
+
+  &__contacts-block {
+    margin: 0 0 50px;
+    max-width: 310px;
+    font-size: 16px;
+    > .contacts-block__title {
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+  }
+}

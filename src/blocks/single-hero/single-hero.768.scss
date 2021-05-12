@@ -1,0 +1,128 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.single-hero-sect {
+  padding-bottom: $sectionPadding768;
+
+  &__top {
+    margin: 0 0 40px;
+
+    .single-hero-sect__img {
+      // height: 190px;
+      height: 425px;
+      max-height: 425px;
+      &.img-horizontal {
+        width: auto;
+        object-fit: contain;
+      }
+    }
+
+    .single-hero-sect__pic {
+      >.single-hero-sect__img {}
+    }
+
+    .single-hero-sect__a {}
+  }
+
+  &__slider-wrap {
+    max-width: 87.5%;
+    margin: 0 0 50px;
+    &::before {
+      // decor background
+      left: -25px;
+      bottom: -25px;
+      width: 95%;
+      height: 95%;
+    }
+
+    &::after {
+      // decor star
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 120px;
+      height: 120px;
+      transform: translate(50%, 50%);
+      background: url('../img/decor-2.svg') center/contain no-repeat;
+      pointer-events: none;
+      z-index: -1;
+    }
+  }
+
+  &__slider {}
+
+  &__nav {
+    height: 40px;
+  }
+
+  &__pic {}
+
+  &__text {}
+
+  &__title {
+    font-size: 36px;
+
+    &::before {
+      // decor ring
+      width: 230px;
+      height: 80px;
+      transform: rotate(-15deg) translate(-5%, 100%);
+    }
+  }
+
+  &__parent-brand {}
+
+  &__child-brand {}
+
+  &__descr {}
+
+  &__bottom {
+    .single-hero-sect__pic {
+      flex-shrink: 0;
+      margin-top: 40px;
+      width: calc((100% - 40px) / 2);
+
+      &:first-of-type {
+        margin-right: 40px;
+      }
+    }
+  }
+
+  &__bottom-first-sect {
+    display: flex;
+    flex-wrap: wrap;
+
+    .single-hero-sect__pic {}
+  }
+
+  &__bottom-second-sect {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__props {
+    margin: 0;
+    flex-shrink: 0;
+    width: 100%;
+    display: flex;
+  }
+
+  &__prop {
+    max-width: 210px;
+
+    &:nth-last-child(n+2) {
+      margin: 0 100px 0 0;
+    }
+
+    &-title {}
+
+    &-text {}
+  }
+
+  &__descr-opt {
+    margin-top: 40px;
+    flex: calc((100% - 40px) / 2);
+  }
+}

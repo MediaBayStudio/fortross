@@ -1,0 +1,20 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+
+.menu {
+  &::before {
+    width: 150px;
+    height: 150px;
+  }
+
+  &::after {
+    width: 360px;
+    height: 360px;
+  }
+
+  &__cnt {
+    padding: 75px calc(50vw - 268px) 0;
+  }
+}

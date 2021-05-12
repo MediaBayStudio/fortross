@@ -1,0 +1,126 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+
+.catalogue-items-sect {}
+
+// Страница "товары", "бренды", "бренд"
+.catalogue-items-sect[data-id=items] {
+  .catalogue-items {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+      width: calc((100% - 40px) / 2);
+
+      &:nth-child(odd) {
+        margin-right: 40px;
+      }
+    }
+  }
+}
+
+// Главная страница - секция "бренды"
+.catalogue-items-sect[data-id=brands],
+.catalogue-items-sect[data-id=related-items] {
+  >.catalogue-items-sect__heading {
+    margin: 0 0 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  .slick-list {
+    overflow: hidden;
+  }
+
+  .slick-slide {
+    width: 536px;
+    &:nth-last-child(n+2) {
+      margin-right: 40px;
+    }
+
+    >div:first-child {
+      margin: 0 0 40px;
+    }
+  }
+
+  .catalogue-items-sect__nav {
+    margin: 0 0 0 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .catalogue-items-sect__prev,
+  .catalogue-items-sect__next {
+    margin-right: -5px;
+    padding: 5px;
+
+    >.arrow__svg {
+      width: 35px;
+      height: 8px;
+    }
+  }
+
+  .catalogue-items-sect__prev {
+    order: 1;
+  }
+
+  .catalogue-items-sect__counter {
+    margin: 0 20px;
+    order: 2;
+    font: 16px/100% OpenSans;
+  }
+
+  .catalogue-items-sect__next {
+    order: 3;
+  }
+
+  .slick-slider {
+    .catalogue-items__item {
+      // padding-top: 0;
+      width: (536px - 40px) / 2;
+
+      &:nth-child(n) {
+        margin: 0;
+        padding: 0 20px;
+      }
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .catalogue-items:not(.slick-slider) {
+    margin: 0 0 -40px;
+    display: flex;
+    flex-wrap: wrap;
+    .catalogue-items__item {
+      padding-top: 0;
+      width: calc((100% - 40px) / 2);
+
+      &:nth-child(n) {
+        margin: 0 40px 40px 0;
+      }
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+  }
+
+}
+
+// Главная страница - секция "каталог"
+.catalogue-items-sect[data-id=index-catalogue] {}
+
+// Страница каталог
+.catalogue-items-sect[data-id=catalogue-items] {}
+
+// Похожие товары
+.catalogue-items-sect[data-id=related-items] {}

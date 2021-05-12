@@ -1,0 +1,47 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.catalogue-hero-sect {
+  &::before {
+    // decor star 
+    right: calc(50vw - 580px);
+  }
+  &::after {
+    // decor ring
+    right: calc(50vw - 530px);
+  }
+  &__title {
+    font-size: 48px;
+  }
+  &__descr {
+    margin-right: 305px;
+  }
+  &__catalogue-wrap {
+  }
+  &__catalogue-left {
+    width: 360px;
+  }
+  &__catalogue-left-line {
+  }
+  &__category {
+  }
+  &__catalogue-right {
+    width: 760px; 
+  }
+  &__right-item {
+  }
+}
+
+.catalogue-items {
+  &__item {
+  }
+}
+.catalogue-item {
+  &__link {
+  }
+  &__title {
+  }
+  &__img {
+  }
+}

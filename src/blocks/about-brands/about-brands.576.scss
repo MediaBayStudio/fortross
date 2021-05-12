@@ -1,0 +1,18 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.about-brands-sect {
+  &__wrap {
+    max-width: 90%;
+    text-align: center;
+    &::before {
+      // decor text
+    }
+  }
+
+  &__brand {
+    &:nth-child(odd) {
+    }
+  }
+}

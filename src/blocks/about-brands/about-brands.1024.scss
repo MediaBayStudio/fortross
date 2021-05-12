@@ -1,0 +1,23 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.about-brands-sect {
+  padding-top: $sectionPadding1024;
+  padding-bottom: $sectionPadding1024 - 55px;
+  &__wrap {
+    max-width: 100%;
+    column-count: 3;
+    &::before {
+      // decor text
+    }
+  }
+
+  &__brand {
+    &:first-child {
+      margin-left: $sectionIndent1024 - 20px;
+    }
+    &:nth-child(odd) {
+    }
+  }
+}

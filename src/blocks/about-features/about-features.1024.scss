@@ -1,0 +1,58 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.about-features {
+  padding-left: $sectionIndent1024;
+  &-sect {
+    margin-top: $sectionPadding1024;
+    margin-bottom: $sectionPadding1024;
+    padding-bottom: 130px;
+
+    &::before {
+      // decor text
+      margin-left: $sectionIndent1024;
+    }
+
+    &::after {
+      // decor star
+      width: 190px;
+      height: 190px;
+    }
+  }
+
+  &__arrows {}
+
+  &__prev,
+  &__next {}
+
+  &__prev {}
+
+  &__next {}
+
+  &__counter {}
+
+  &__counter-current {}
+
+  &__counter-total {}
+}
+
+.about-feat {
+  width: 200px;
+
+  &:nth-child(n) {
+    margin: 0;
+  }
+
+  &:nth-child(2) {
+    margin-left: 0;
+    // margin-left: $sectionIndent1024;
+  }
+
+  &:nth-last-child(n+2) {}
+
+  &__img {}
+
+  &__title {}
+
+}

@@ -1,0 +1,46 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.index-catalogue-sect {
+  padding-top: $sectionPadding1024;
+  padding-bottom: $sectionPadding1024;
+  &__heading {
+    margin: 0 0 35px;
+  }
+
+  &__title {
+    font-size: 36px;
+  }
+
+  &__link {}
+}
+
+.index-catalogue {
+  &__fig {
+    margin: 0 40px 0 0;
+    padding: 0 0 20px;
+    width: 295px;
+    >.index-catalogue__img {}
+  }
+
+  &__img {}
+
+  &__figcaption {
+    margin-top: 20px;
+  }
+
+  &__pic {
+    width: 295px;
+    >.index-catalogue__img {}
+  }
+
+  &__left {
+    padding-left: 70px;
+    &-line {
+      width: 45px;
+    }
+  }
+
+  &__right {}
+}

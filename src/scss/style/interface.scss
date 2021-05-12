@@ -1,0 +1,250 @@
+@import '../assets/colors';
+@import '../assets/mixins';
+@import '../assets/variables';
+
+.breadcrumbs {
+  margin: 30px 0 40px;
+  font: 300 12px/130% OpenSans;
+  color: $greyBrown;
+
+  &__ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__li {
+    margin-top: 10px;
+
+    &::after {
+      content: '';
+      margin: 0 5px;
+      display: inline-block;
+      width: 10px;
+      height: 6px;
+      background: url('img/icon-arrow-catalogue.svg') center/contain no-repeat;
+    }
+
+    &:last-child {
+      opacity: 0.5;
+      pointer-events: none;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    border-bottom: 1px solid transparent;
+    transition: color .5s, border-bottom-color .5s;
+  }
+}
+
+.container,
+.ftr,
+.hdr {
+  flex-shrink: 0;
+}
+
+// Полоса между секциями
+.sect-separator {
+  width: 100%;
+  height: 1px;
+  background: $greyBrown;
+}
+
+// Декоративный заголовок в секциях (fortross)
+.sect-decor-title {
+  position: absolute;
+  color: transparent;
+  font: 800 0/85% OpenSans;
+  letter-spacing: 0.1em;
+  -webkit-text-stroke: 0.5px $lightBeige;
+  word-break: break-all;
+  text-transform: uppercase;
+  z-index: -1;
+  pointer-events: none;
+}
+
+// Блок, который имеет вертикальную декорирующую надпись
+.has-decor-text {
+  position: relative;
+
+  &::before {
+    content: attr(data-decor-text);
+    display: block;
+    position: absolute;
+    font: 12px/100% OpenSans;
+    text-transform: uppercase;
+    transform-origin: top left;
+    transform: rotate(-90deg) translate(-100%, 0);
+    color: $brown;
+    pointer-events: none;
+  }
+}
+
+// Блоки контактов (телефон, адрес, email)
+.contacts-block {
+  font: 600 14px/150% OpenSans;
+
+  &__title {
+    margin: 0 0 5px;
+    display: block;
+    font: 400 13px/100% OpenSans;
+    color: $greyBrown;
+  }
+
+  &__link {
+    display: inline-block;
+    transition: color .5s;
+
+    &:nth-last-child(n+2) {
+      margin-right: 30px;
+    }
+  }
+}
+
+body {
+  font: 16px/160% OpenSans;
+  color: $darkBrown;
+  background: $greyBeige;
+}
+
+// Класс добавляется при вызове попапов и мобильного меню
+body.no-scroll {
+  overflow: hidden;
+
+  .hdr.fixed {
+    overflow-y: scroll;
+  }
+}
+
+// Обертка для всего контента
+// фиксит горизонтальную прокрутку на некоторых iOS
+#page-wrapper {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-flow: column;
+}
+
+// img.lazy {
+//   background: url('../img/img-placeholder.svg') center/cover no-repeat;
+// }
+
+// a[href="#"] {
+//   opacity: .5;
+//   pointer-events: none;
+// }
+
+/* loader */
+// Лоадер в основном для форм
+
+// .loader {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   display: flex;
+//   width: 100%;
+//   height: 100%;
+//   z-index: 1;
+//   opacity: 0;
+//   visibility: hidden;
+//   transition: opacity .5s, visibility .5s;
+//   // background: $color;
+
+//   &__circle {
+//     margin: auto;
+//     width: 30px;
+//     height: 30px;
+//     border-radius: 50%;
+//     border: 3px solid transparent;
+//     animation: spin .5s linear infinite;
+//     // border-top-color: $color;
+//     // border-left-color: $color;
+//   }
+// }
+
+// .loader_white {
+
+//   // background: $color;
+//   >.loader__circle {
+//     // border-top-color: $color;
+//     // border-left-color: $color;
+//   }
+// }
+
+// .loading>.loader {
+//   opacity: 1;
+//   visibility: visible;
+// }
+
+.loading .loader {
+  opacity: 1;
+  visibility: visible;
+}
+
+.loading {
+  pointer-events: none;
+}
+
+/* loader */
+
+// Поле contact form 7 honeypot
+.cf7-form-field {
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+// Блок с прокруткой, который показывается на всю ширину и высоту страницы страницы
+// нужен для незаметного overflow:hidden у body
+// при вызове мобильного меню или попапов
+#fake-scrollbar {
+  display: none;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  z-index: 9999;
+
+  &.active {
+    display: block;
+  }
+}
+
+// Блокирование текущей ссылки в меню
+// .nav__list-item {
+//   &.current {
+//     cursor: not-allowed;
+//     > .nav__link {
+//       pointer-events: none;
+//       > .nav__link-text {
+//         border-bottom: 1px solid;
+//       }
+//     }
+//   }
+// }
+
+// Общие стили для секций
+.sect {
+
+  &_bg {}
+
+  &-title {}
+
+  &-descr {}
+}
+
+// Скрытие стандартных сообщений от contact form 7
+div.wpcf7-response-output,
+span.wpcf7-not-valid-tip,
+.screen-reader-response {
+  display: none !important;
+}

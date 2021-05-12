@@ -1,0 +1,22 @@
+@charset "UTF-8";
+/*
+Theme Name: Fortross
+Author: Медиа Гавань
+Author URI: https://media-bay.ru/
+Version: 1.0
+*/
+
+@import 'scss/assets/animations';
+@import 'scss/assets/fonts';
+@import 'scss/assets/grid';
+@import 'scss/assets/reset';
+@import 'scss/style/buttons';
+@import 'scss/style/interface';
+@import 'scss/style/popups';
+@import 'scss/style/forms';
+@import 'scss/style/sliders';
+@import 'blocks/thanks-popup/thanks-popup';
+
+@media (min-width:767.98px) {
+  @import 'blocks/thanks-popup/thanks-popup.768';  
+}

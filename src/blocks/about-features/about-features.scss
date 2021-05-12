@@ -1,0 +1,70 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.about-features {
+  &-sect {
+    padding-top: 70px;
+    padding-bottom: 35px;
+    margin-top: $sectionPadding320;
+    margin-bottom: $sectionPadding320;
+    color: $darkBrown;
+    // Для IE более расширенный синтаксис
+    background: linear-gradient(to top, $white 0 0, $white 0 0) top left/90% 100% no-repeat;
+
+    &::before {
+      margin: 0 0 100px;
+      display: block;
+      position: static;
+      transform: none;
+    }
+  }
+
+  &__arrows {
+    margin: 60px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__prev,
+  &__next {}
+
+  &__prev {
+    order: 1;
+  }
+
+  &__next {
+    order: 3;
+  }
+
+  &__counter {
+    margin: 0 30px;
+    order: 2;
+  }
+
+  &__counter-current {}
+
+  &__counter-total {}
+}
+
+.about-feat {
+  display: flex !important;
+  flex-flow: column;
+  align-items: center;
+  text-align: center;
+
+  &:nth-last-child(n+2) {}
+
+  &__img {
+    margin: 0 0 25px;
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
+
+  &__title {
+    font-weight: 600;
+  }
+}

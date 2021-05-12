@@ -1,0 +1,35 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.index-catalogue-sect {
+  &__heading {}
+
+  &__title {}
+
+  &__link {}
+}
+
+.index-catalogue {
+  &__fig {
+    >.index-catalogue__img {}
+  }
+
+  &__img {}
+
+  &__figcaption {}
+
+  &__pic {
+    >.index-catalogue__img {}
+  }
+
+  &__left {
+    margin: 0;
+    width: 100%;
+    &::after {
+      display: none;
+    }
+  }
+
+  &__right {}
+}

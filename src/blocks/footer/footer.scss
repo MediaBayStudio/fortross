@@ -1,0 +1,84 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.ftr.lazyloaded {
+  &::before {
+    background-image: url('../img/decor-ftr-logo.svg');
+  }
+}
+
+.ftr {
+  margin-top: 50px;
+  padding-top: 60px;
+  padding-bottom: 25px;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  position: relative;
+  background: $white;
+  text-align: center;
+  &::before {
+    content: '';
+    position: absolute;
+    left: calc(50% - 137px);
+    top: 30px;
+    width: 125px;
+    height: 165px;
+    background: center/contain no-repeat;
+    pointer-events: none;
+  }
+  &__nav {
+    margin: 0 0 50px;
+    font: 600 16px/100% OpenSans;
+    color: $darkBrown;
+    z-index: 1;
+    .nav-link {
+      border-bottom: 1px solid transparent;
+      transition: border-bottom-color .5s;
+    }
+  }
+  &__nav-list {}
+  &__nav-li {
+    &:nth-last-child(n+2) {
+      margin: 0 0 35px;
+    }
+  }
+  &__bottom {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font: 300 14px/150% OpenSans;
+  }
+
+  &__policy {
+    margin: 0 0 10px;
+    display: block;
+    border-bottom: 1px solid;
+    transition: border-bottom-color .5s;
+  }
+
+  &__dev {
+    margin: 0 0 55px;
+  }
+
+  &__decor-title {
+    display: none;
+  }
+
+  &__dev-link {
+    font: 600 14px/140% SegoeUI;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color .5s;
+  }
+
+  &__logo {
+    margin: 0 0 10px;
+    display: block;
+  }
+
+  &__logo-img {}
+
+  &__copy {}
+}

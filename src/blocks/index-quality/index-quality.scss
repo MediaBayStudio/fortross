@@ -1,0 +1,67 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.index-quality-sect {
+  padding-top: $sectionPadding320;
+  padding-bottom: $sectionPadding320;
+  position: relative;
+  &::before {
+    // decor text
+    transform: none;
+    top: 60px;
+    left: 20px;
+  }
+
+  &::after {
+    // decor background
+    content: '';
+    width: 45%;
+    height: calc(100% - 100px);
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background: $white;
+    z-index: -2;
+    pointer-events: none;
+  }
+
+  &__title {
+    margin: 45px 0 35px 20px;
+    max-width: 420px;
+    font: bold 22px/160% Oswald;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: $darkBrown;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: -35px;
+      width: 90px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid $lightBeige;
+      transform: rotate(-15deg);
+      z-index: -1;
+      pointer-events: none;
+    }
+  }
+
+  &__pic {
+    width: 110px;
+    height: 200px;
+    position: absolute;
+    top: calc(50% + 25px);
+    right: -25px;
+    transform: translateY(-50%);
+    z-index: -1;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}

@@ -1,0 +1,51 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.brand-hero-sect {
+  padding-top: $sectionPadding768 - 35px;
+  padding-bottom: $sectionPadding768;
+  &__left {
+    max-width: 460px;
+    &::before {
+      // decor background
+      bottom: -25px;
+      left: calc((50vw - 360px) * -1);
+      width: 85%;
+      height: 70%;
+    }
+
+    &::after {
+      // decor star
+      display: none;
+    }
+  }
+
+  &__title {
+    margin: 0 0 50px;
+    display: inline-block;
+    font-size: 48px;
+    &::before {
+      // decor ring
+      content: '';
+      position: absolute;
+      right: -115px;
+      top: -5px;
+      width: 230px;
+      height: 80px;
+      border-radius: 50%;
+      border: 1px solid $lightBeige;
+      transform: rotate(18deg);
+      z-index: -1;
+    }
+  }
+
+  &__descr {
+    &::before {}
+  }
+
+  &__pic {
+    margin: 0 0 60px;
+    max-width: 100%;
+  }
+}

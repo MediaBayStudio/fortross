@@ -1,0 +1,54 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.contacts-us-sect {
+  &__form-wrap {
+    &::before {
+      // decor text
+    }
+  }
+
+  &__title {
+    &::before {
+      // decor ring
+    }
+  }
+
+  &__form {
+    .field {
+      &__inp {}
+
+      &__text {}
+
+      &__textarea {}
+    }
+
+    .field_name,
+    .field_tel,
+    .field_email,
+    .field_msg {}
+
+    .field_name {}
+
+    .field_tel {}
+
+    .field_email {}
+
+    .field_msg {}
+
+    .form-bottom {}
+
+    .check {
+      &__inp {}
+
+      &__text {}
+
+      &__link {}
+    }
+
+    .check_tick {}
+
+    .btn {}
+  }
+}

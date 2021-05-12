@@ -1,0 +1,90 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.contacts-us-sect {
+  padding: $sectionPadding768 0;
+  &__form-wrap {
+    padding-top: 75px;
+    padding-bottom: 75px;
+    &::before {
+      // decor text
+      display: block;
+      font-size: 14px;
+    }
+  }
+
+  &__title {
+    margin: -15px 0 75px $sectionIndent768;
+    font-size: 28px;
+    &::before {
+      // decor ring
+      right: -220px;
+      top: -25px;
+      width: 220px;
+      height: 72px;
+    }
+  }
+
+  &__form {
+    padding-left: $sectionIndent768;
+    width: 545px + $sectionIndent768;
+    display: flex;
+    flex-wrap: wrap;
+    .field {
+      margin: 0;
+      width: 250px;
+      &__inp {}
+
+      &__text {}
+
+      &__textarea {}
+    }
+
+    .field_name,
+    .field_tel {
+      margin-bottom: 45px;
+    }
+
+    .field_name,
+    .field_email {
+      margin-right: auto;
+    }
+
+    .field_name,
+    .field_tel,
+    .field_email,
+    .field_msg {}
+
+    .field_name {}
+
+    .field_tel {}
+
+    .field_email {}
+
+    .field_msg {}
+
+    .form-bottom {
+      margin: 35px 0 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .check {
+      font-size: 13px;
+      width: 340px;
+      &__inp {}
+
+      &__text {}
+
+      &__link {}
+    }
+
+    .check_tick {}
+
+    .btn {
+      margin: 0 0 0 auto;
+    }
+  }
+}

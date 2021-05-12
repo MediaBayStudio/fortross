@@ -1,0 +1,89 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.contacts-sect {
+  padding: $sectionPadding1024 0;
+  display: flex;
+  align-items: center;
+  &__left {
+    flex-shrink: 1;
+    padding-right: 0;
+  }
+
+  &__form-wrap {
+    padding: 0 100px 0 $sectionIndent1024;
+    &::before {
+      // decor text
+      top: 15px;
+    }
+    &::after {
+      // decor star
+      width: 165px;
+      height: 165px;
+    }
+  }
+
+  &__form {
+    .field {
+      width: 390px;
+    }
+
+    .field_name {}
+
+    .field_tel {}
+
+    .field_email {
+      margin: 0 0 45px;
+    }
+
+    .field_msg {}
+
+    .form-bottom {
+      margin-top: 20px;
+      flex-flow: column;
+      align-items: flex-start;
+      &::before {
+        // decor ring
+        left: -75px;
+      }
+    }
+
+    .btn {
+      margin: 25px 0 0 0;
+    }
+
+    .check {}
+  }
+
+  &__title {
+    font-size: 38px;
+  }
+
+  &__right {
+    flex-shrink: 1;
+    padding-left: 0;
+  }
+
+  &__contacts-wrap {
+    padding: 0 0 0 55px;
+    &::before {
+      // decor logo
+      top: auto;
+      left: auto;
+      right: 0;
+      bottom: 0;
+      transform: translateY(50%);
+    }
+  }
+
+  &__contacts-block {
+    margin: 0 0 30px;
+    width: 100%;
+    max-width: 95%;
+  }
+
+  &__social-networking-links {}
+
+  &__social-networking-link {}
+}

@@ -1,0 +1,74 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.index-catalogue-sect {
+  padding-top: $sectionPadding768;
+  padding-bottom: $sectionPadding768;
+  &__heading {}
+
+  &__title {
+    font-size: 30px;
+  }
+
+  &__link {}
+}
+
+.index-catalogue {
+  display: flex;
+  &__fig {
+    margin: 0 45px 0 0;
+    padding: 0 0 40px;
+    flex-shrink: 0;
+    width: 215px;
+    >.index-catalogue__img {}
+  }
+
+  &__img {}
+
+  &__figcaption {
+    margin-top: 40px;
+    font-size: 16px;
+    color: $greyBrown;
+  }
+
+  &__category {
+    &:nth-last-child(n+2) {
+      margin: 0 0 35px;
+    }
+  }
+
+  &__pic {
+    flex-shrink: 0;
+    width: 215px;
+    >.index-catalogue__img {}
+  }
+
+  &__left {
+    margin: 0 auto 0 0;
+    padding: 0 0 0 55px;
+    width: auto;
+    flex-flow: column;
+    overflow: visible;
+    position: relative;
+    &-line {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 1px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateY(calc(0.5em - 50%));
+      background: $green;
+      transition: transform .5s;
+    }
+  }
+
+  &__right {
+    border: 0;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,32 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.single-hero-sect {
+  &__top {
+    > .single-hero-sect__pic {}
+  }
+
+  &__pic {}
+
+  &__text {}
+
+  &__title {}
+
+  &__parent-brand {}
+
+  &__child-brand {}
+
+  &__descr {}
+
+  &__bottom {
+    > .single-hero-sect__pic {}
+  }
+
+  &__props {}
+
+  &__prop {
+    &-title {}
+    &-text {}
+  }
+}

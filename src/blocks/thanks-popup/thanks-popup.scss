@@ -1,0 +1,48 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.thanks-popup {
+  padding: 20px;
+  align-items: center;
+  background: rgba(42, 21, 16, 0.2);
+  &__cnt {
+    padding: 40px 20px 60px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font: 14px/140% OpenSans, sans-serif;
+    position: relative;
+  }
+
+  &__close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    display: flex;
+    transform: scale(.75) translate(100%, -100%);
+    color: $greyBrown;
+    transition: color .5s;
+  }
+
+  &__close-svg {
+    pointer-events: none;
+    overflow: visible;
+    stroke-width: 2;
+  }
+
+  &__close-path {}
+
+  &__title {
+    margin: 0 0 10px;
+    font: 500 20px/140% Oswald, sans-serif;
+    text-transform: uppercase;
+    color: $green;
+  }
+
+  &__descr {
+    max-width: 300px;
+  }
+}

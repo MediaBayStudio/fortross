@@ -1,0 +1,49 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.ftr {
+  margin-top: 70px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  overflow: hidden;
+  &::before {
+    top: 40px;
+    left: calc(50vw - 360px);
+  }
+
+  &__nav {
+    margin-left: 85px;
+  }
+
+  &__nav-list {}
+
+  &__nav-li {
+    &:nth-last-child(n+2) {
+      margin: 0 0 35px;
+    }
+  }
+
+  &__bottom {}
+
+  &__policy {}
+
+  &__dev {}
+
+  &__dev-link {}
+
+  &__logo {}
+
+  &__logo-img {}
+
+  &__copy {}
+
+  &__decor-title {
+    display: block;
+    right: calc(50vw - 360px);
+    bottom: 0;
+    transform: translateY(50%);
+    font-size: 90px;
+    z-index: 0;
+  }
+}

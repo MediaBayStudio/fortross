@@ -1,0 +1,41 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.contacts-hero-sect {
+
+  &__wrap {
+
+    &::before {
+      // decor text
+    }
+
+    &::after {
+      // decor background
+    }
+
+    .contacts-block {
+      max-width: 280px;
+
+      br {}
+    }
+  }
+
+  &__contacts {}
+
+  &__title {}
+
+  &__social-networking-links {}
+
+  &__social-networking-link {
+    &:nth-last-child(n+2) {}
+  }
+}
+
+
+#contacts-hero-sect-map {
+
+  &::after {
+    // decor star
+  }
+}

@@ -1,0 +1,67 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.brand-hero-sect {
+  padding-bottom: $sectionPadding320;
+
+  &.no-text {
+    padding-bottom: 0;
+  }
+
+  &__left {
+    position: relative;
+    &::before {
+      // decor background
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: -20px;
+      // width: 215px;
+      width: 67%;
+      height: 83%;
+      background: $white;
+      z-index: -1;
+      pointer-events: none;
+    }
+    &::after {
+      // decor star
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: responsive('320->575', '77->162');
+      width: 70px;
+      height: 70px;
+      transform: translateY(100%);
+      background: url('../img/decor-3.svg') center/contain no-repeat;
+      pointer-events: none;
+    }
+  }
+
+  &__title {
+    margin: 0 0 20px;
+    font: bold 30px/160% Oswald;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  &__descr {
+    &::before {
+      margin: -1px 5px 0 0;
+      content: '';
+      display: inline-block;
+      width: 40px;
+      height: 1px;
+      background: currentColor;
+      vertical-align: middle;
+    }
+  }
+
+  &__pic {
+    margin: 0 0 90px auto;
+    max-width: 85%;
+    display: flex;
+    align-items: flex-start;
+  }
+}

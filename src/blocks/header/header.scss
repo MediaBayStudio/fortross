@@ -1,0 +1,42 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+
+#wpadminbar {
+  display: none !important;
+}
+
+html[lang] {
+  margin-top: 0 !important;
+}
+
+.hdr {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  &.fixed {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: $greyBeige;
+    animation: translateToBottom .5s;
+    z-index: 1;
+  }
+  &__logo {
+    display: flex;
+    position: relative;
+    z-index: 3;
+    background: $greyBeige;
+    &-img {
+      height: 15px;
+      // width: 100px;
+      // height: 16px;
+      // object-fit: contain;
+    }
+  }
+}

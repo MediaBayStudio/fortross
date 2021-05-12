@@ -1,0 +1,42 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.index-about-sect {
+  padding-top: $sectionPadding1280;
+  padding-bottom: $sectionPadding1280;
+  &__title {}
+
+  &__wrap {
+    padding-left: $sectionIndent1280;
+    &::before {
+      //decor text
+      // top: -15px;
+      // left: 50%;
+      // transform: translate(-50%, -50%);
+    }
+  }
+
+  &__pic {
+    margin-right: 180px;
+    width: 480px;
+    height: 480px;
+    &::after {
+      // decor
+      transform: translate(100%, 0);
+    }
+  }
+
+  &__img {}
+
+  &__text {}
+
+  &__decor-title {
+    width: 580px;
+    font-size: 180px;
+  }
+
+  &__p {
+    &:nth-last-child(n+2) {}
+  }
+}

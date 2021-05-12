@@ -1,0 +1,44 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.ftr {
+  margin-top: 100px;
+  padding-top: 100px;
+  &::before {
+    top: 50px;
+    left: calc(50vw - 580px);
+  }
+
+  &__nav {}
+
+  &__nav-list {}
+
+  &__nav-li {
+    &:nth-last-child(n) {
+      margin-right: 160px;
+    }
+  }
+
+  &__bottom {}
+
+  &__bottom-left {
+    margin-right: 220px;
+  }
+
+  &__policy {}
+
+  &__dev {}
+
+  &__dev-link {}
+
+  &__logo {}
+
+  &__logo-img {}
+
+  &__copy {}
+
+  &__decor-title {
+    right: calc(50vw - 580px);
+  }
+}

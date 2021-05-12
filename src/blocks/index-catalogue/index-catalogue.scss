@@ -1,0 +1,121 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.index-catalogue-sect {
+  padding-top: $sectionPadding320;
+  padding-bottom: $sectionPadding320;
+
+  &__heading {
+    margin: 0 0 40px;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid $greyBrown;
+  }
+
+  &__title {
+    margin: 0 auto 0 0;
+    font: bold 22px/160% Oswald;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: $darkBrown;
+  }
+
+  &__link {
+    font: 16px/130% OpenSans;
+    border-bottom: 1px solid;
+    color: $greyBrown;
+    transition: border-bottom-color .5s, color .5s;
+  }
+}
+
+.index-catalogue {
+  &__fig {
+    margin: 0 0 40px;
+    padding: 0 0 20px;
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    border-bottom: 1px solid;
+
+    >.index-catalogue__img {}
+  }
+
+  &__img {
+    object-fit: cover;
+    max-height: 550px;
+  }
+
+  &__figcaption {
+    margin-top: 20px;
+    font: 300 14px/150% OpenSans;
+
+  }
+
+  &__category {
+    transition: color .5s;
+    &:focus {
+      outline: 1px dotted;
+    }
+    &.active {
+      pointer-events: none;
+      color: $green;
+    }
+
+    &:nth-last-child(n+2) {
+      margin-right: 20px;
+    }
+  }
+
+  &__pic {
+    display: flex;
+    width: 100%;
+
+    >.index-catalogue__img {}
+  }
+
+  &__left {
+    margin-left: -20px;
+    padding: 0 20px 20px 20px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    width: 100vw;
+    overflow: auto;
+    font: 14px/100% OpenSans;
+    text-transform: uppercase;
+    color: $greyBrown;
+    white-space: nowrap;
+    &::after {
+      // Псевдоэлемент для отступа на моблильных
+      content: '';
+      flex-shrink: 0;
+      width: 20px;
+      min-height: 1em;
+      height: 100%;
+      pointer-events: none;
+    }
+    &-line {
+      display: none;
+    }
+  }
+
+  &__right {
+    padding-top: 20px;
+    display: block;
+    border-top: 1px solid;
+    color: $greyBrown;
+    transition: opacity .5s;
+    &:focus {
+      outline-offset: 2px;
+    }
+  }
+
+  &.loading {
+    pointer-events: none;
+    >.index-catalogue__right {
+      opacity: 0;
+    }
+  }
+}

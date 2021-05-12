@@ -1,0 +1,65 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.about-hero-sect {
+  padding-bottom: $sectionPadding1024;
+  &__top {
+    margin: 0 0 90px $sectionIndent1024;
+    display: flex;
+    &::before {
+      // decor text
+    }
+  }
+
+  &__title {
+    top: -16px;
+    width: 550px;
+    font-size: 180px;
+  }
+
+  &__pictures {
+    margin: 0;
+    grid-template-rows: 245px 125px 185px;
+    grid-template-columns: 130px 260px 70px;
+    &::before {
+      // decor star
+      margin: auto auto 0 0;
+      grid-row: 3;
+      grid-column: 1;
+      transform: translate(-50%, 50%);
+    }
+  }
+
+  &__pic {
+    &:first-child {
+      grid-row: 1/span 2;
+    }
+
+    &:last-child {
+      grid-row: 2/span 2;
+    }
+  }
+
+  &__descr {
+    margin: auto 40px 40px 0;
+    order: -1;
+  }
+
+  &__bottom {
+    margin-left: $sectionIndent1024;
+    grid-template-columns: 390px 40px auto;
+    // align-items: center;
+    > .about-hero-sect__pic {
+      align-self: center;
+    }
+  }
+
+  &__text {
+    align-self: center;
+    padding-right: 30px;
+    border-right: 1px solid $greyBrown;
+  }
+
+  &__p {}
+}

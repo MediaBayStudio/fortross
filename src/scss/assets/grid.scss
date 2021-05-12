@@ -1,0 +1,27 @@
+.container {
+  padding: 0 20px;
+}
+
+@media (min-width:575.98px) {
+  .container {
+    padding: 0 calc(50vw - 268px);
+  }
+}
+
+@media (min-width:767.98px) {
+  .container {
+    padding: 0 calc(50vw - 360px);
+  }
+}
+
+@media (min-width:1023.98px) {
+  .container {
+    padding: 0 calc(50vw - 480px);
+  }
+}
+
+@media (min-width:1279.98px) {
+  .container {
+    padding: 0 calc(50vw - 580px);
+  }
+}

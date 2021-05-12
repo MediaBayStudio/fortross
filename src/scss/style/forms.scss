@@ -1,0 +1,162 @@
+
+@import '../assets/colors';
+@import '../assets/mixins';
+@import '../assets/variables';
+
+
+.lazyloaded {
+  .check_tick > .check__inp {
+    background-image: url('img/check.svg');
+  }
+}
+
+// Сообщение об ошибке заполнения поля
+label.invalid {
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  font: normal 10px/150% sans-serif;
+  color: $error;
+}
+
+// Рассчет размера нужен для ограничения ширины блока
+// чтобы сообщение об ошибке вставало корректно
+$checkbox_size: 14px;
+$checkbox_margin_right: 10px;
+$checkbox_text_width: calc(100% - #{$checkbox_size + $checkbox_margin_right});
+// $checkbox_border_radius: 0;
+
+.check {
+  display: flex;
+  cursor: pointer;
+  &:focus-within {
+    outline: 1px dotted;
+  }
+
+  &_tick { // Чекбокс с галочкой
+    align-items: flex-start;
+    // max-width: 250px;
+    flex-wrap: wrap;
+    font: 300 12px/160% OpenSans;
+    color: $greyBrown;
+
+    >.check__text {
+      width: $checkbox_text_width;
+    }
+
+    >.check__inp {
+      margin: 4px $checkbox_margin_right 0 0;
+      width: $checkbox_size;
+      height: $checkbox_size;
+      background: transparent center/0 border-box no-repeat;
+      transition: background .25s;
+      pointer-events: none;
+      border: 1px solid $darkBrown;
+      &:checked {
+        background-color: $darkBrown;
+        background-size: 56%;
+      }
+    }
+  }
+
+  // &_fill { // Чекбокс с заполнением цветом
+  //   align-items: center;
+
+  //   >.check__text {}
+
+  //   >.check__inp {
+  //     margin: 0 10px 0 0;
+  //     width: 10px;
+  //     height: 10px;
+  //     // box-shadow: inset 0 0 0 10px $white;
+  //     // background: $green;
+  //     border-radius: 2px;
+  //     transition: box-shadow .5s;
+
+  //     &:checked {
+  //       // box-shadow: inset 0 0 0 2px $white;
+  //     }
+  //   }
+  // }
+
+  >label.invalid {
+    position: static;
+    margin: 4px 0 -4px $checkbox_size + $checkbox_margin_right;
+    max-width: $checkbox_text_width;
+    order: 10;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &__inp {
+    appearance: none;
+    display: inline-flex;
+    border: 1px solid;
+    flex-shrink: 0;
+  }
+
+  &__text,
+  &__link {
+    display: inline-block;
+  }
+
+  &__link {
+    border-bottom: 1px solid;
+    transition: border-bottom-color .5s;
+  }
+}
+
+.field {
+  display: inline-block;
+  font: 600 16px/150% OpenSans;
+  position: relative;
+
+  &__textarea,
+  &__inp {
+    width: 100%;
+    height: 25px;
+    border: 0;
+    padding: 0;
+    background: 0 0;
+    font: inherit;
+    // color: $darkBrown;
+    color: transparent;
+    border-bottom: 1px solid $darkBrown;
+    transition: border-bottom-color .5s, color .5s .25s;
+
+    &:focus,
+    &.filled {
+      color: $darkBrown;
+      ~.field__text {
+        top: -20px;
+        font-size: 11.5px;
+      }
+    }
+
+    &.filled:focus {
+      color: $darkBrown;
+      border-bottom-color: $darkBrown;
+    }
+
+    &.filled {
+      color: $greyBrown;
+      border-bottom-color: $greyBrown;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: $darkBrown;
+    transition: top .25s, font-size .25s;
+  }
+}
+
+// Если ошибка, то можно подчеркнуть поле
+.field__inp.invalid,
+.field__textarea.invalid {
+  color: $error;
+}

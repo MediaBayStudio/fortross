@@ -1,0 +1,25 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.about-brands-sect {
+  padding-top: $sectionPadding768;
+  padding-bottom: $sectionPadding768 - 55px;
+  &__wrap {
+    &::before {
+      // decor text
+      font-size: 14px;
+    }
+  }
+
+  &__brand {
+    width: 170px;
+    height: 75px;
+    // margin: 0 0 55px;
+    &:first-child {
+      margin: 0 55px 0 $sectionIndent768 - 20px;
+    }
+    &:nth-child(odd) {
+    }
+  }
+}

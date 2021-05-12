@@ -1,0 +1,51 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.menu {
+  // padding: 140px calc(50vw - 356px) 0;
+  background: $greyBeige;
+
+  &::before {
+    right: 500px;
+    top: 50px;
+  }
+
+  &::after {}
+
+  &__cnt {
+    padding: 140px 0 0 calc(50vw - 356px);
+    // padding: 0;
+    height: 400px + 140px;
+    flex-flow: column wrap;
+    overflow: visible;
+  }
+
+  &__nav {
+    margin: 0 50px 0 0;
+    height: 100%;
+    font-size: 40px;
+  }
+
+  &__nav-list {}
+
+  &__nav-li {
+    &:nth-last-child(n+2) {
+      margin: 0 0 50px;
+    }
+  }
+
+  &__contacts-block {
+    max-width: 300px;
+
+    &:first-of-type {
+      margin-top: auto;
+    }
+
+    >.contacts-block__title {}
+  }
+
+  &__social-networking-links {
+    margin: 0 0 7px;
+  }
+}

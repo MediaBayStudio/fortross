@@ -1,0 +1,62 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.about-features {
+  padding-left: $sectionIndent768;
+  justify-content: space-between;
+  &-sect {
+    margin-top: $sectionPadding768;
+    margin-bottom: $sectionPadding768;
+    padding-bottom: 125px;
+
+    &::before {
+      // decor text
+      font-size: 14px;
+      margin-left: $sectionIndent768;
+    }
+
+    &::after {
+      // decor star
+      width: 110px;
+      height: 110px;
+      right: $sectionHrPadding768;
+    }
+  }
+
+  &__arrows {}
+
+  &__prev,
+  &__next {}
+
+  &__prev {}
+
+  &__next {}
+
+  &__counter {}
+
+  &__counter-current {}
+
+  &__counter-total {}
+}
+
+.about-feat {
+  width: 205px;
+  text-align: left;
+  align-items: flex-start;
+
+  &:nth-child(n) {
+    margin: 0 auto 90px 0;
+  }
+
+  &:nth-child(2n+2) {
+    margin: 0 auto 0 $sectionIndent768;
+  }
+
+  &:nth-last-child(n+2) {}
+
+  &__img {}
+
+  &__title {}
+
+}

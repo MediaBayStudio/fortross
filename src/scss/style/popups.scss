@@ -1,0 +1,88 @@
+
+@import '../assets/colors';
+@import '../assets/mixins';
+@import '../assets/variables';
+// CSS-таймер крутилка, может пригодиться для обратного отсчета
+// .timer {
+//   display: flex;
+//   align-items: center;
+//   transform: scale(.75);
+//   pointer-events: none;
+//   opacity: 1;
+//   visibility: visible;
+//   transition: opacity .35s, visibility .35s;
+//   &.hidden {
+//     opacity: 0;
+//     visibility: hidden;
+//   }
+//   &__svg {
+//     overflow: visible;
+//   }
+//   &__circle {
+//     stroke: #000;
+//     stroke-width: 1.25;
+//     transform-origin: center;
+//     transform: rotate(-90deg) scaleY(-1);
+//   }
+//   &__number {
+//     font: 14px sans-serif;
+//     fill: #000;
+//   }
+// }
+
+.popup {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s, visibility .5s;
+  overflow: auto;
+  z-index: 5;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__cnt {
+    // Внутренности попапа
+    background-color: #fff;
+    color: #000;
+  }
+
+  &__close {
+    // Закрывающий крестик
+    width: 17.5px;
+    height: 17.5px;
+    padding: 2.5px;
+    transition: color .4s;
+
+    &:active {
+      transform: scale(.95);
+    }
+
+    &__svg {
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    // &__rect {
+    //   width: 19px;
+    //   height: 2px;
+    //   fill: currentColor;
+    // }
+  }
+
+  &__title {}
+
+  &__descr {}
+}

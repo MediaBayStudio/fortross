@@ -1,0 +1,21 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.contacts-delivery-sect {
+  &::before {
+    // decor logo
+  }
+  &::after {
+    // decor star
+  }
+  &__wrap {}
+
+  &__title {}
+
+  &__text {}
+
+  &__p {
+    &:nth-last-child(n+2) {}
+  }
+}

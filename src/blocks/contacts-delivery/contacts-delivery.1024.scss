@@ -1,0 +1,36 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.contacts-delivery-sect {
+  padding-top: $sectionPadding1024;
+  padding-bottom: $sectionPadding1024;
+
+  &__wrap {
+    &::before {
+      // decor logo
+      top: -$sectionPadding1024;
+      width: 245px;
+      height: 320px;
+      transform: translateY(-40%);
+    }
+
+    &::after {
+      // decor star
+      transform: translateY(100%);
+    }
+  }
+
+  &__title {
+    font-size: 36px;
+  }
+
+  &__text {
+    margin-top: 17px;
+    width: 625px;
+  }
+
+  &__p {
+    &:nth-last-child(n+2) {}
+  }
+}

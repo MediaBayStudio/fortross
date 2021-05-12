@@ -1,0 +1,53 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.thanks-popup {
+  &__cnt {
+    width: 445px;
+    padding: 85px 20px 85px;
+    font-size: 16px;
+    &::before {
+      // decor ring
+      content: '';
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 160px;
+      height: 55px;
+      transform: rotate(-15deg);
+      border-radius: 50%;
+      border: 1px solid $lightBeige;
+      pointer-events: none;
+    }
+    &::after {
+      // decor star
+      content: '';
+      position: absolute;
+      right: 5px;
+      bottom: 50px;
+      width: 80px;
+      height: 80px;
+      background: url('img/decor-1.svg') center/contain no-repeat;
+      pointer-events: none;
+    }
+  }
+
+  &__close {
+    top: 30px;
+    right: 30px;
+  }
+
+  &__close-svg {
+  }
+
+  &__close-path {}
+
+  &__title {
+    font-size: 36px;
+  }
+
+  &__descr {
+    max-width: 295px;
+  }
+}

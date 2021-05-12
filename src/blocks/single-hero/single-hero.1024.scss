@@ -1,0 +1,208 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.single-hero-sect {
+  padding-bottom: $sectionPadding1024;
+
+  &__top {
+    margin: 0 0 40px;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+
+    &::before {
+      // decor background
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -35px;
+      width: 500px;
+      height: calc(100% - 100px);
+      background: $white;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    &::after {
+      // decor star
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 405px;
+      width: 120px;
+      height: 120px;
+      transform: translate(0, 50%);
+      background: url('../img/decor-2.svg') center/contain no-repeat;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .single-hero-sect__img {
+      width: 570px;
+      height: 330px;
+      max-height: 330px;
+      &.img-horizontal {
+      }
+    }
+
+    .single-hero-sect__pic {}
+
+    .single-hero-sect__a,
+    .single-hero-sect__pic {
+      flex-shrink: 0;
+    }
+  }
+
+  &__slider-wrap {
+    margin: 0 60px 0 0;
+    flex-shrink: 0;
+    max-width: 100%;
+    width: 570px;
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &__slider {}
+
+  &__pic {}
+
+  &__text {}
+
+  &__title {
+    margin-top: -15px;
+
+    &::before {
+      // decor ring
+      transform: rotate(-15deg);
+    }
+  }
+
+  &__parent-brand {}
+
+  &__child-brand {}
+
+  &__descr {}
+
+  &__bottom {
+    display: flex;
+    flex-wrap: wrap;
+
+    .single-hero-sect__pic {
+      margin-top: 0;
+      width: calc((100% - 80px) / 3);
+    }
+  }
+
+  &__bottom-first-sect {
+    margin-top: 60px;
+
+    &:first-child:last-child {
+      .single-hero-sect__bottom-first-sect {
+        width: 100%;
+      }
+
+      // Если без картинок и второго описания
+      .single-hero-sect__props:first-child:last-child {
+        flex-flow: wrap;
+        padding: 0;
+        margin: 0;
+
+        .single-hero-sect__prop {
+          &:nth-child(1) {
+            max-width: 230px;
+          }
+          &:nth-last-child(n+2) {
+            margin: 0 100px 0 0;
+          }
+          &:nth-child(2) {
+            max-width: 250px;
+          }
+          &:nth-child(3) {
+            max-width: 300px;
+          }
+        }
+      }
+    }
+
+    &.no-text {
+      flex: calc(100% - 275px - 40px);
+
+      +.no-text {
+        margin-left: 40px;
+        flex: 275px;
+        flex-flow: column;
+
+        .single-hero-sect__pic {
+          width: 100%;
+
+          &:nth-last-child(n+2) {
+            margin: 0 0 35px;
+          }
+        }
+      }
+    }
+
+    .single-hero-sect__pic {
+
+      &:first-child,
+      &:nth-child(2):last-child {
+        width: calc((100% - 40px) / 2);
+      }
+    }
+
+    .single-hero-sect__props {
+      &:first-child:nth-last-child(2) {
+        width: calc((100% - 40px) / 2);
+      }
+
+      &:first-child:last-child {
+        width: 100%;
+      }
+    }
+  }
+
+  &__bottom-second-sect {
+    margin-top: 60px;
+    flex: calc((100% - 80px)/ 3);
+
+    .single-hero-sect__pic {
+      &:first-of-type:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+
+
+  &__props {
+    // margin-right: 40px;
+    padding-right: 40px;
+    flex-flow: column;
+    width: calc((100% - 80px) / 3);
+  }
+
+  &__prop {
+    &:nth-last-child(n+2) {
+      margin: 0 0 60px;
+    }
+
+    &-title {}
+
+    &-text {}
+  }
+
+  &__descr-opt {
+    margin: 0 0 0 40px;
+    flex: calc((100% - 80px) / 3);
+
+    &:first-child:last-child {
+      margin-left: 0;
+    }
+  }
+}

@@ -1,0 +1,166 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.category-child {
+  .catalogue-items-sect[data-id=brands] {
+    .catalogue-items {
+      position: relative;
+
+      &::before {
+        // decor star
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 160px;
+        height: 160px;
+        background: center/contain no-repeat;
+        transform: translate(50%, 100%);
+        z-index: -1;
+        pointer-events: none;
+      }
+    }
+
+    .catalogue-items {
+      &.lazyloaded {
+        &::before {
+          background-image: url('../img/decor-3.svg');
+        }
+      }
+    }
+  }
+}
+
+.catalogue-items-sect {
+  padding-top: $sectionPadding768;
+  padding-bottom: $sectionPadding768;
+
+  &.with-title {
+    .catalogue-items-sect__title {
+      &::before {
+        width: 230px;
+        height: 80px;
+        bottom: -65px;
+        right: -25%;
+        transform: rotate(-15deg);
+      }
+    }
+  }
+
+  &__title {
+    font-size: 30px;
+  }
+}
+
+
+// Страница "товары", "бренды", "бренд"
+.catalogue-items-sect[data-id=items] {
+  &.with-title {
+    .catalogue-items-sect__title {
+      font-size: 48px;
+    }
+
+    .catalogue-items-sect__descr {
+      margin: 10px 0 0 auto;
+      max-width: 380px;
+    }
+  }
+
+  .catalogue-items-sect__heading {
+    display: flex;
+  }
+
+  .catalogue-items-sect__title {
+    width: calc((100% - 40px) / 2);
+  }
+}
+
+// Главная страница - секция "бренды"
+.catalogue-items-sect[data-id=brands],
+.catalogue-items-sect[data-id=related-items] {
+  .catalogue-items__item {
+    width: (720px - 40px) / 2;
+  }
+
+  .slick-slide {
+    width: 720px;
+
+    &:nth-last-child(n+2) {}
+
+    >div:first-child {}
+  }
+}
+
+// Страница каталог
+.catalogue-items-sect[data-id=catalogue-items] {
+
+  >.catalogue-items-sect__heading {
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .catalogue-items-sect__title {
+    margin: -10px 0 0;
+    font-size: 44px;
+  }
+
+  .catalogue-items-sect__descr {
+    margin: 0 0 0 auto;
+    max-width: 340px;
+  }
+
+  >.catalogue-items {
+    margin-top: 80px;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .catalogue-items__left {
+    margin: 20px auto 0 0;
+    padding: 60px 0 0 125px;
+    flex-shrink: 0;
+    width: 340px;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    border-top: 1px solid $greyBrown;
+    position: relative;
+
+    &-line {
+      display: block;
+      width: 85px;
+      height: 1px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: $green;
+      transform: translateY(calc(60px + 0.5em - 50%));
+      transition: transform .5s;
+    }
+  }
+
+  .catalogue-items__category {
+    // margin: 0 0 35px;
+    margin: 0;
+
+    &:nth-last-child(n+2) {
+      margin: 0 0 35px;
+    }
+  }
+
+  .catalogue-items__right {
+    flex-shrink: 0;
+    width: 340px;
+  }
+
+  .catalogue-items__item {
+    &:first-child {
+      // padding-top: 0;
+    }
+  }
+}
+
+// Похожие товары
+.catalogue-items-sect[data-id=related-items] {}

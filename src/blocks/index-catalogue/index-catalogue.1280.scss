@@ -1,0 +1,41 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.index-catalogue-sect {
+  padding-top: $sectionPadding1280;
+  padding-bottom: $sectionPadding1280;
+  &__heading {}
+
+  &__title {}
+
+  &__link {}
+}
+
+.index-catalogue {
+  &__fig {
+    width: 360px;
+    >.index-catalogue__img {
+      height: 310px;
+    }
+  }
+
+  &__img {}
+
+  &__figcaption {}
+
+  &__pic {
+    width: 360px;
+    >.index-catalogue__img {}
+  }
+
+  &__left {
+    margin-top: 50px;
+    padding-left: 100px;
+    &-line {
+      width: 80px;
+    }
+  }
+
+  &__right {}
+}

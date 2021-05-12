@@ -1,0 +1,1 @@
+@charset "UTF-8";.ftr{margin-top:70px;padding-top:80px;padding-bottom:80px;overflow:hidden}.ftr::before{top:40px;left:calc(50vw - 360px)}.ftr__nav{margin-left:85px}.ftr__nav-li:nth-last-child(n+2){margin:0 0 35px}.ftr__decor-title{display:block;right:calc(50vw - 360px);bottom:0;transform:translateY(50%);font-size:90px;z-index:0}
