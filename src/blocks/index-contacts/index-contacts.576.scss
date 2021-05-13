@@ -31,13 +31,13 @@
       width: 100%;
       display: flex;
       align-items: center;
-      &::before {
-        // decor ring
-        width: 300px;
-        height: 100px;
-        bottom: -35px;
-        left: -45px;
-      }
+      // &::before {
+      //   // decor ring
+      //   width: 300px;
+      //   height: 100px;
+      //   bottom: -35px;
+      //   left: -45px;
+      // }
     }
 
     .btn {

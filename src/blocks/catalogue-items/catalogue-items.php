@@ -7,6 +7,15 @@ $items_from_collection = $section['items_from_collection'];
 $selected = $section['select'];
 $that = get_queried_object();
 
+$view_class = $section['view'] . '-view';
+
+// if ( $section['view'] === 'loadmore' ) {
+//   $args = [
+//     'numberposts' => -1
+//   ];
+// }
+
+
 if ( is_tag() && $that->parent ) {
   $section_title = $section['title'] ? $section['title'] : $that->name;
   $section_descr = get_field( 'brand_descr', $that );
@@ -14,16 +23,18 @@ if ( is_tag() && $that->parent ) {
   $section_title = $section['title'];
   $section_descr = $section['descr'];
 }
+
+// var_dump( $section );
+
 if ( $selected === 'brands' ) {
+
   if ( $items_by_default ) {
     // Если бренды по умолчанию
     // то будем выводить либо родительские бренды
     // либо дочерние коллекции
 
-    $args = [
-      'taxonomy' => 'post_tag',
-      'hide_empty' => false
-    ];
+    $args['taxonomy'] = 'post_tag';
+    $args['hide_empty'] = false;
 
     if ( is_page_template( 'tag.php' ) || is_front_page()  ) {
       $args['parent'] = 0;
@@ -38,8 +49,9 @@ if ( $selected === 'brands' ) {
 
     $brands = get_terms( $args );
   } else {
-    $bradns = $section['brands'];
+    $brands = $section['brands'];
   } // endif $items_by_default
+
 
   // Если нет коллекций, то надо выводить товары
   if ( !$brands ) {
@@ -142,6 +154,7 @@ if ( $selected === 'brands' ) {
       
     } // endif is_tag()
   } else {
+
     foreach ( $brands as $brand ) {
       $url = get_tag_link( $brand->term_id );
       $title = $brand->name;
@@ -149,13 +162,17 @@ if ( $selected === 'brands' ) {
       $img_src = get_field( 'brand_preview', $brand )['url'];
 
       if ( !$img_src ) {
-        $item = get_posts( [
-          'tag' => $brand->slug,
-          'numberposts' => 1
-        ] );
+        $img_src = get_field( 'brand_img', $brand )['url'];
+        
+        if ( !$img_src ) {
+          $item = get_posts( [
+            'tag' => $brand->slug,
+            'numberposts' => 1
+          ] );
 
-        if ( $item ) {
-          $img_src = get_the_post_thumbnail_url( $item[0]->ID );
+          if ( $item ) {
+            $img_src = get_the_post_thumbnail_url( $item[0]->ID );
+          }
         }
       }
 
@@ -166,10 +183,8 @@ if ( $selected === 'brands' ) {
   } // endif !$brands
 
 } else if ( $selected === 'items' ) {
-  $args = [
-    'exclude' => $post->ID,
-    'orderby' => 'rand'
-  ];
+  $args = ['exclude' => $post->ID];
+  $args = ['orderby' => 'rand'];
   // Если товары по умолчанию
   if ( $items_by_default ) {
     if ( is_single() ) {
@@ -189,6 +204,8 @@ if ( $selected === 'brands' ) {
   } else {
     $items = $section['items'];
   } // endif $items_by_default
+
+  $i = 0;
 
   foreach ( $items as $item ) {
     $url = get_post_permalink( $item->ID );
@@ -211,7 +228,12 @@ if ( $selected === 'brands' ) {
 
     $thumbnail = get_the_post_thumbnail_url( $item );
 
-    $section_items .= print_ctatlogue_item( $url, $title, $descr , $thumbnail, false );
+    $styles = $section['view'] === 'loadmore' && $i > 5 ? 'display:none' : '';
+    $lazy = $section['view'] === 'loadmore' && $i > 5 ? false : true;
+
+    $i++;
+
+    $section_items .= print_ctatlogue_item( $url, $title, $descr, $thumbnail, false, $lazy, $styles );
 
     unset( $url, $title, $descr, $thumbnail, $item_brands, $item_brand );
   }
@@ -345,9 +367,12 @@ if ( $section_items ) : ?>
         <div class="catalogue-items-sect__nav"><span class="catalogue-items-sect__counter"></span></div>
       </div> <?php
     endif ?>
-    <div class="catalogue-items lazy" data-src="#"> <?php
+    <div class="catalogue-items lazy <?php echo $view_class ?>" data-src="#"> <?php
       echo $section_items ?>
-    </div>
+    </div> <?php
+    #if ( $section['view'] ) : ?>
+      <!-- <button type="button" class="catalogue-items-sect__loadmore btn btn_brown">Загрузить еще</button> --> <?php
+    #endif ?>
   </section> <?php
 endif;
 unset( $section_id, $section_class, $title_tag, $items_by_default, $selected, $section_items, $that, $section_items ) ?>

@@ -15,7 +15,7 @@
           <div class="ftr__bottom-left">
             <a href="<?php echo $site_url ?>/policy.pdf" rel="noopener noreferrer nofollow" target="_blank" class="ftr__policy" title="Посмотреть политику конфиденциальности">Политика конфиденциальности</a>
             <div class="ftr__dev">
-            Made by <a href="https://media-bay.ru" target="_blank" class="ftr__dev-link" title="Перейти на сайт разработчика">media bay</a>
+            Разработка сайта <a href="https://media-bay.ru" target="_blank" class="ftr__dev-link" title="Перейти на сайт разработчика">media bay</a>
             </div>
           </div>
           <div class="ftr__bottom-right">
@@ -23,7 +23,7 @@
             <span class="ftr__copy">Fortross <?php echo date( 'Y' ) ?>&copy;</span>
           </div>
         </div>
-        <span class="ftr__decor-title sect-decor-title">fortross</span>
+        <!-- <span class="ftr__decor-title sect-decor-title">fortross</span> -->
       </footer>
       <div id="fake-scrollbar"></div> <?php
       require 'template-parts/thanks-popup.php';

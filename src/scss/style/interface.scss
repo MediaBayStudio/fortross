@@ -74,7 +74,7 @@
     content: attr(data-decor-text);
     display: block;
     position: absolute;
-    font: 12px/100% OpenSans;
+    font: 600 12px/100% OpenSans;
     text-transform: uppercase;
     transform-origin: top left;
     transform: rotate(-90deg) translate(-100%, 0);
@@ -85,12 +85,12 @@
 
 // Блоки контактов (телефон, адрес, email)
 .contacts-block {
-  font: 600 14px/150% OpenSans;
+  font: 14px/150% OpenSans;
 
   &__title {
     margin: 0 0 5px;
     display: block;
-    font: 400 13px/100% OpenSans;
+    font: 300 13px/100% OpenSans;
     color: $greyBrown;
   }
 
@@ -139,32 +139,31 @@ body.no-scroll {
 // }
 
 /* loader */
-// Лоадер в основном для форм
 
-// .loader {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   display: flex;
-//   width: 100%;
-//   height: 100%;
-//   z-index: 1;
-//   opacity: 0;
-//   visibility: hidden;
-//   transition: opacity .5s, visibility .5s;
-//   // background: $color;
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s, visibility .5s;
+  // background: $color;
 
-//   &__circle {
-//     margin: auto;
-//     width: 30px;
-//     height: 30px;
-//     border-radius: 50%;
-//     border: 3px solid transparent;
-//     animation: spin .5s linear infinite;
-//     // border-top-color: $color;
-//     // border-left-color: $color;
-//   }
-// }
+  &__circle {
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    animation: spin .5s linear infinite;
+    // border-top-color: $color;
+    // border-left-color: $color;
+  }
+}
 
 // .loader_white {
 
@@ -175,10 +174,10 @@ body.no-scroll {
 //   }
 // }
 
-// .loading>.loader {
-//   opacity: 1;
-//   visibility: visible;
-// }
+.loading .loader {
+  opacity: 1;
+  visibility: visible;
+}
 
 .loading .loader {
   opacity: 1;

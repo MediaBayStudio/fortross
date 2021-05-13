@@ -22,9 +22,10 @@
     margin: 140px 0 140px $sectionPadding1024;
     max-width: 600px;
     font-size: 38px;
-    &::before {
-      left: -85px;
-    }
+    // &::before {
+    //   // decor ring
+    //   left: -85px;
+    // }
   }
 
   &__pic {

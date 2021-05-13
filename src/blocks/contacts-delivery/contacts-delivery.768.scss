@@ -22,8 +22,8 @@
     &::after {
       // decor star
       content: '';
-      width: 125px;
-      height: 125px;
+      width: 260px;
+      height: 240px;
       position: absolute;
       left: 0;
       bottom: 0;
@@ -33,7 +33,7 @@
     }
 
     &.lazyloaded::after {
-      background-image: url('../img/decor-2.svg');
+      background-image: url('../img/decor-tree-1.svg');
     }
   }
 

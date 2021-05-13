@@ -16,9 +16,12 @@
 
 .index-catalogue {
   display: flex;
+  &__figures {
+    // margin: 0 20px 0 0;
+  }
   &__fig {
-    margin: 0 45px 0 0;
-    padding: 0 0 40px;
+    // margin: 0 45px 0 0;
+    // padding: 0 0 40px;
     flex-shrink: 0;
     width: 215px;
     >.index-catalogue__img {}
@@ -27,8 +30,8 @@
   &__img {}
 
   &__figcaption {
-    margin-top: 40px;
-    font-size: 16px;
+    // margin-top: 40px;
+    // font-size: 15px;
     color: $greyBrown;
   }
 
@@ -39,6 +42,8 @@
   }
 
   &__pic {
+    margin: 0 0 0 20px;
+    display: flex;
     flex-shrink: 0;
     width: 215px;
     >.index-catalogue__img {}
@@ -51,6 +56,7 @@
     flex-flow: column;
     overflow: visible;
     position: relative;
+    align-items: flex-start;
     &-line {
       content: '';
       display: block;

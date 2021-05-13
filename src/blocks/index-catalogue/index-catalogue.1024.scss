@@ -18,8 +18,8 @@
 
 .index-catalogue {
   &__fig {
-    margin: 0 40px 0 0;
-    padding: 0 0 20px;
+    // margin: 0 40px 0 0;
+    // padding: 0 0 20px;
     width: 295px;
     >.index-catalogue__img {}
   }
@@ -27,10 +27,12 @@
   &__img {}
 
   &__figcaption {
-    margin-top: 20px;
+    font-size: 16px;
+    // margin-top: 20px;
   }
 
   &__pic {
+    margin: 0 0 0 40px;
     width: 295px;
     >.index-catalogue__img {}
   }

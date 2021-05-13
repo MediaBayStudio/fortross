@@ -33,20 +33,21 @@
     letter-spacing: 0.03em;
     text-transform: uppercase;
     color: $darkBrown;
-    position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: -35px;
-      width: 90px;
-      height: 30px;
-      border-radius: 50%;
-      border: 1px solid $lightBeige;
-      transform: rotate(-15deg);
-      z-index: -1;
-      pointer-events: none;
-    }
+    // position: relative;
+    // &::before {
+      // decor ring
+    //   content: '';
+    //   position: absolute;
+    //   bottom: -10px;
+    //   left: -35px;
+    //   width: 90px;
+    //   height: 30px;
+    //   border-radius: 50%;
+    //   border: 1px solid $lightBeige;
+    //   transform: rotate(-15deg);
+    //   z-index: -1;
+    //   pointer-events: none;
+    // }
   }
 
   &__pic {

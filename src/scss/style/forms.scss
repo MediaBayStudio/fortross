@@ -110,7 +110,7 @@ $checkbox_text_width: calc(100% - #{$checkbox_size + $checkbox_margin_right});
 
 .field {
   display: inline-block;
-  font: 600 16px/150% OpenSans;
+  font: 16px/150% OpenSans;
   position: relative;
 
   &__textarea,

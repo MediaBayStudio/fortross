@@ -23,19 +23,19 @@
     letter-spacing: 0.03em;
     text-transform: uppercase;
     color: $darkBrown;
-    position: relative;
+    // position: relative;
     &::before {
       // decor ring
-      content: '';
-      position: absolute;
-      right: -65px;
-      top: 0;
-      width: 120px;
-      height: 40px;
-      border: 1px solid $lightBeige;
-      border-radius: 50%;
-      transform: rotate(-18deg);
-      pointer-events: none;
+      // content: '';
+      // position: absolute;
+      // right: -65px;
+      // top: 0;
+      // width: 120px;
+      // height: 40px;
+      // border: 1px solid $lightBeige;
+      // border-radius: 50%;
+      // transform: rotate(-18deg);
+      // pointer-events: none;
     }
     &-text {
       position: relative;

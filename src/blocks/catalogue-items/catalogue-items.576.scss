@@ -5,13 +5,41 @@
 
 .catalogue-items-sect {}
 
+// loadmore view
+.catalogue-items-sect:not([data-id=catalogue-items]) {
+
+  .catalogue-items.loadmore-view {
+    margin-top: -60px;
+    column-count: 2;
+    column-gap: 40px;
+
+    .catalogue-items__item {
+      padding-top: 40px;
+      break-inside: avoid;
+    }
+  }
+}
+
+.catalogue-items-sect[data-id=catalogue-items] {
+
+  .loadmore-view .catalogue-items__right-item {
+    column-count: 2;
+    column-gap: 40px;
+
+    .catalogue-items__item {
+      padding-top: 60px;
+      break-inside: avoid;
+    }
+  }
+}
+
 // Страница "товары", "бренды", "бренд"
 .catalogue-items-sect[data-id=items] {
-  .catalogue-items {
+  .catalogue-items:not(.loadmore-view) {
     display: flex;
     flex-wrap: wrap;
 
-    &__item {
+    .catalogue-items__item {
       width: calc((100% - 40px) / 2);
 
       &:nth-child(odd) {
@@ -36,6 +64,7 @@
 
   .slick-slide {
     width: 536px;
+
     &:nth-last-child(n+2) {
       margin-right: 40px;
     }
@@ -78,7 +107,6 @@
 
   .slick-slider {
     .catalogue-items__item {
-      // padding-top: 0;
       width: (536px - 40px) / 2;
 
       &:nth-child(n) {
@@ -96,10 +124,13 @@
     }
   }
 
-  .catalogue-items:not(.slick-slider) {
+
+
+  .catalogue-items:not(.slick-slider):not(.loadmore-view) {
     margin: 0 0 -40px;
     display: flex;
     flex-wrap: wrap;
+
     .catalogue-items__item {
       padding-top: 0;
       width: calc((100% - 40px) / 2);

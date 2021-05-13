@@ -29,18 +29,18 @@
     display: grid;
     grid-template-rows: 1fr 30px;
     grid-template-columns: 43% 20% 37%;
-    position: relative;
+    // position: relative;
     &::before {
       // decor star
-      content: '';
-      width: 40px;
-      height: 40px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      transform: translate(-50%, 50%);
-      background: url('../img/decor-1.svg') center/contain no-repeat;
-      z-index: -1;
+      // content: '';
+      // width: 40px;
+      // height: 40px;
+      // position: absolute;
+      // bottom: 0;
+      // left: 0;
+      // transform: translate(-50%, 50%);
+      // background: url('../img/decor-1.svg') center/contain no-repeat;
+      // z-index: -1;
     }
   }
 
@@ -60,13 +60,30 @@
 
   &__descr {
     margin: 0 0 20px;
-    font-weight: 600;
+    // font-weight: 600;
   }
 
   &__bottom {}
 
   &__text {
-    font-weight: 600;
+    position: relative;
+    &::after {
+      // decor forest
+      content: '';
+      position: absolute;
+      bottom: -75px;
+      right: 0;
+      width: 300px;
+      height: 195px;
+      background: center/contain no-repeat;
+      pointer-events: none;
+    }
+    &.lazyloaded {
+      &::after {
+        background-image: url('../img/decor-forest-2.png');
+      }
+    }
+    // font-weight: 600;
   }
 
   &__p {

@@ -22,19 +22,20 @@
   &__pic {
     margin: 0 auto 30px 0;
     width: 380px;
-    height: 255px;
-    &.lazyloaded::after {
-      background-image: url('../img/decor-2.svg');
-    }
-    &::after {
-      // decor
-      width: 140px;
-      height: 140px;
-      left: auto;
-      right: -40px;
-      bottom: 0;
-      transform: translateX(100%);
-    }
+    height: 335px;
+    // height: 255px;
+    // &.lazyloaded::after {
+    //   background-image: url('../img/decor-2.svg');
+    // }
+    // &::after {
+    //   // decor
+    //   width: 140px;
+    //   height: 140px;
+    //   left: auto;
+    //   right: -40px;
+    //   bottom: 0;
+    //   transform: translateX(100%);
+    // }
   }
 
   &__img {

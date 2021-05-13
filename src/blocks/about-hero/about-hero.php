@@ -9,7 +9,7 @@
   </div>
   <div class="about-hero-sect__bottom"> <?php
     cretae_picture_form_img_field( 'about-hero-sect', $section['img_3'], false ) ?>
-    <div class="about-hero-sect__text"> <?php
+    <div class="about-hero-sect__text lazy" data-src="#"> <?php
       foreach ( $section['text'] as $p ) : ?>
         <p class="about-hero-sect__p"><?php echo $p['p'] ?></p> <?php
       endforeach ?>

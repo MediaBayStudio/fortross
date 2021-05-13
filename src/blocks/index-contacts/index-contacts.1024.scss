@@ -17,11 +17,11 @@
       // decor text
       top: 15px;
     }
-    &::after {
-      // decor star
-      width: 165px;
-      height: 165px;
-    }
+    // &::after {
+    //   // decor star
+    //   width: 165px;
+    //   height: 165px;
+    // }
   }
 
   &__form {
@@ -43,10 +43,10 @@
       margin-top: 20px;
       flex-flow: column;
       align-items: flex-start;
-      &::before {
-        // decor ring
-        left: -75px;
-      }
+      // &::before {
+      //   // decor ring
+      //   left: -75px;
+      // }
     }
 
     .btn {

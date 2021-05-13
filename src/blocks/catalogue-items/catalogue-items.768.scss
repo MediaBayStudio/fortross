@@ -9,23 +9,23 @@
 
       &::before {
         // decor star
-        content: '';
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 160px;
-        height: 160px;
-        background: center/contain no-repeat;
-        transform: translate(50%, 100%);
-        z-index: -1;
-        pointer-events: none;
+        // content: '';
+        // position: absolute;
+        // bottom: 0;
+        // right: 0;
+        // width: 160px;
+        // height: 160px;
+        // background: center/contain no-repeat;
+        // transform: translate(50%, 100%);
+        // z-index: -1;
+        // pointer-events: none;
       }
     }
 
     .catalogue-items {
       &.lazyloaded {
         &::before {
-          background-image: url('../img/decor-3.svg');
+          // background-image: url('../img/decor-3.svg');
         }
       }
     }
@@ -138,6 +138,22 @@
       background: $green;
       transform: translateY(calc(60px + 0.5em - 50%));
       transition: transform .5s;
+    }
+  }
+
+  .catalogue-items.loadmore-view {
+    margin-top: 0;
+
+    .catalogue-items__left {
+      margin-top: 0;
+    }
+
+    .catalogue-items__right-item {
+      column-count: 1;
+    }
+
+    .catalogue-items__right {
+      margin-top: -40px;
     }
   }
 

@@ -18,6 +18,7 @@
     ];
     $category_preview_img = get_field( 'category_preivew', $first_category );
     $category_extra_img = get_field( 'category_extra_img', $first_category );
+    $category_extra_img_2 = get_field( 'category_extra_img_2', $first_category );
 
     if ( !$category_preview_img ) {
       $category_preview_img['url'] = get_the_post_thumbnail_url( get_posts( $args )[0]->ID );
@@ -28,12 +29,20 @@
       $category_extra_img['url'] = get_the_post_thumbnail_url( get_posts( $args )[0]->ID );
     }
 
-    $categories_right .= '<figure class="index-catalogue__fig"><img src="#" alt="#" data-src="' . $category_preview_img['url'] . '" class="index-catalogue__img lazy"><figcaption class="index-catalogue__figcaption">' . $category_descr . '</figcaption></figure><picture class="index-catalogue__pic"><img src="#" alt="#" data-src="' . $category_extra_img['url'] . '" class="index-catalogue__img lazy"></picture>'; ?>
+    if ( !$category_extra_img_2 ) {
+      $args['offset'] = 2;
+      $category_extra_img_2['url'] = get_the_post_thumbnail_url( get_posts( $args )[0]->ID );
+    }
+
+    $categories_right .= '<div class="index-catalogue__figures"><figure class="index-catalogue__fig"><img src="#" alt="#" data-src="' . $category_preview_img['url'] . '" class="index-catalogue__img lazy"><img src="#" alt="#" data-src="' . $category_extra_img['url'] . '" class="index-catalogue__img lazy"><figcaption class="index-catalogue__figcaption">' . $category_descr . '</figcaption></figure></div><picture class="index-catalogue__pic"><img src="#" alt="#" data-src="' . $category_extra_img_2['url'] . '" class="index-catalogue__img lazy"></picture>'; ?>
     <div class="index-catalogue__left">
       <hr class="index-catalogue__left-line"> <?php
       echo $categories_left ?>
     </div>
-    <a href="<?php echo get_category_link( $first_category ) ?>" class="index-catalogue__right"> <?php
+    <a href="<?php echo get_category_link( $first_category ) ?>" class="index-catalogue__right">
+      <div class="loader">
+        <div class="loader__circle"></div>
+      </div> <?php
       echo $categories_right ?>
     </a>
   </div>

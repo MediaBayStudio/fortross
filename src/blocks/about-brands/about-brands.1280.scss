@@ -14,9 +14,9 @@
   &__brand {
     // margin: 0 0 65px;
     width: 230px;
-    height: 98px;
+    // height: 98px;
     &:first-child {
-      margin: 0 65px 0 $sectionIndent1280 - 20px;
+      margin: 0 auto 0 $sectionIndent1280 - 20px;
     }
     &:nth-child(odd) {
     }

@@ -20,10 +20,11 @@
   &__title {
     margin: 145px 0 110px $sectionIndent1280;
     font-size: 42px;
-    &::before {
-      left: -110px;
-      bottom: -35px;
-    }
+    // &::before {
+    //   // decor ring
+    //   left: -110px;
+    //   bottom: -35px;
+    // }
   }
 
   &__pic {

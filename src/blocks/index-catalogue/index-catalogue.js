@@ -4,7 +4,8 @@
 
   if (indexCatalogue) {
     let activeButtonClassName = indexCatalogueClassName + '__category.active',
-      fig = q(indexCatalogueClassName + '__fig > img', indexCatalogue),
+      fig1 = q(indexCatalogueClassName + '__fig > img:first-of-type', indexCatalogue),
+      fig2 = q(indexCatalogueClassName + '__fig > img:last-of-type', indexCatalogue),
       buttons = qa(indexCatalogueClassName + '__category', indexCatalogue),
       initialActiveButton = q(activeButtonClassName, indexCatalogue),
       figcaption = q(indexCatalogueClassName + '__figcaption', indexCatalogue),
@@ -13,18 +14,20 @@
       link = q('.index-catalogue__right', indexCatalogue),
       cache = {
         [initialActiveButton.getAttribute('data-term-id')]: {
-          'fig': fig.getAttribute('data-src') || fig.src,
+          'fig1': fig1.getAttribute('data-src') || fig1.src,
+          'fig2': fig2.getAttribute('data-src') || fig2.src,
           'pic': pic.getAttribute('data-src') || pic.src,
           'url': link.href,
           'figcaption': figcaption.innerHTML
         }
       },
       setData = function(from) {
-        console.log('setData');
-        fig.src = from.fig;
+        fig1.src = from.fig1;
+        fig2.src = from.fig2;
         pic.src = from.pic;
         link.href = from.url;
-        fig.lazyObject = null;
+        fig1.lazyObject = null;
+        fig2.lazyObject = null;
         pic.lazyObject = null;
         figcaption.innerHTML = from.figcaption;
       };
@@ -32,16 +35,20 @@
     indexCatalogue.addEventListener('click', function(e) {
       let target = e.target;
       if (target.tagName === 'BUTTON' && !target.classList.contains('active')) {
+         target.blur();
+         target.setAttribute('tabindex', '-1');
+
         let termID = target.getAttribute('data-term-id'),
-          // targetIndex,
           targetHeight = target.offsetHeight,
           activeButton = q(activeButtonClassName, indexCatalogue),
           url = siteUrl + '/wp-admin/admin-ajax.php',
           data = 'action=getcatalogueterm&term_id=' + termID;
 
         if (activeButton) {
+          activeButton.removeAttribute('tabindex');
           activeButton.classList.remove('active');
         }
+
         indexCatalogue.classList.add('loading');
         target.classList.add('active');
         line.style.transform = 'translateY(' + (targetHeight / 2 + target.offsetTop - 1) + 'px)';
@@ -62,7 +69,7 @@
               let response = JSON.parse(xhr.response),
                 onloadCount = 0;
 
-              [response.fig, response.pic].forEach(function(src, i) {
+              [response.fig1, response.fig2, response.pic].forEach(function(src, i) {
                 img = new Image();
 
                 img.onload = function() {
@@ -77,7 +84,8 @@
 
               setData(response);
               cache[termID] = {
-                'fig': response.fig,
+                'fig1': response.fig1,
+                'fig2': response.fig2,
                 'pic': response.pic,
                 'url': response.url,
                 'figcaption': response.figcaption

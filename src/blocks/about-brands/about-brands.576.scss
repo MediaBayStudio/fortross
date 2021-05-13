@@ -4,14 +4,16 @@
 
 .about-brands-sect {
   &__wrap {
-    max-width: 90%;
-    text-align: center;
+    // max-width: 90%;
+    // text-align: center;
+    align-items: flex-end;
     &::before {
       // decor text
     }
   }
 
   &__brand {
+    width: 150px;
     &:nth-child(odd) {
     }
   }

@@ -58,18 +58,18 @@
     // overflow: hidden;
     &::after {
       // Декор звезда
-      content: '';
-      position: absolute;
-      bottom: 20px;
-      left: 0;
-      transform: translateX(-50%);
-      // left: responsive('320->575', '67->113');
-      // top: 43vw;
-      display: block;
-      width: 18vw;
-      height: 18vw;
-      background: url('../img/decor-1.svg') center/contain;
-      pointer-events: none;
+      // content: '';
+      // position: absolute;
+      // bottom: 20px;
+      // left: 0;
+      // transform: translateX(-50%);
+      // // left: responsive('320->575', '67->113');
+      // // top: 43vw;
+      // display: block;
+      // width: 18vw;
+      // height: 18vw;
+      // background: url('../img/decor-1.svg') center/contain;
+      // pointer-events: none;
     }
 
     >.slick-list {

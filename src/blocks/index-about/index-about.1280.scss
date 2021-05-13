@@ -21,15 +21,20 @@
     margin-right: 180px;
     width: 480px;
     height: 480px;
-    &::after {
-      // decor
-      transform: translate(100%, 0);
-    }
+    // &::after {
+    //   // decor
+    //   transform: translate(100%, 0);
+    // }
   }
 
   &__img {}
 
-  &__text {}
+  &__text {
+    &::after {
+      width: 625px;
+      height: 470px;
+    }
+  }
 
   &__decor-title {
     width: 580px;

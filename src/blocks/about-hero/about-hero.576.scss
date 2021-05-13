@@ -30,7 +30,11 @@
 
   &__bottom {}
 
-  &__text {}
+  &__text {
+    &::after {
+      // decor forest
+    }
+  }
 
   &__p {}
 }

@@ -19,11 +19,11 @@
       top: 10px;
       font-size: 12px;
     }
-    &::after {
-      // decor star
-      width: 125px;
-      height: 125px;
-    }
+    // &::after {
+    //   // decor star
+    //   width: 125px;
+    //   height: 125px;
+    // }
   }
 
   &__form {
@@ -46,9 +46,9 @@
 
     .form-bottom {
       margin-top: 35px;
-      &::before {
-        // decor ring
-      }
+      // &::before {
+      //   // decor ring
+      // }
     }
 
     .btn {}

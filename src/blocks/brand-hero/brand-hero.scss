@@ -26,15 +26,15 @@
     }
     &::after {
       // decor star
-      content: '';
-      position: absolute;
-      bottom: 0;
-      right: responsive('320->575', '77->162');
-      width: 70px;
-      height: 70px;
-      transform: translateY(100%);
-      background: url('../img/decor-3.svg') center/contain no-repeat;
-      pointer-events: none;
+      // content: '';
+      // position: absolute;
+      // bottom: 0;
+      // right: responsive('320->575', '77->162');
+      // width: 70px;
+      // height: 70px;
+      // transform: translateY(100%);
+      // background: url('../img/decor-3.svg') center/contain no-repeat;
+      // pointer-events: none;
     }
   }
 

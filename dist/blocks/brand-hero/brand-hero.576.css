@@ -1,1 +1,1 @@
-@charset "UTF-8";.brand-hero-sect__left::before{left:calc((50vw - 268px) * -1)}.brand-hero-sect__left::after{right:calc((100vw - 576px)/ (767 - 576)*(257 - 162) + 162px)}
+@charset "UTF-8";.brand-hero-sect__left::before{left:calc((50vw - 268px) * -1)}

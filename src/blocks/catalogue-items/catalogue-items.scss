@@ -9,20 +9,20 @@
     .catalogue-items-sect__title {
       font-size: 30px;
       display: inline-block;
-      position: relative;
+      // position: relative;
       &::before {
         // decor ring
-        content: '';
-        position: absolute;
-        bottom: 0;
-        right: 50px;
-        width: 115px;
-        height: 40px;
-        border-radius: 50%;
-        border: 1px solid $lightBeige;
-        transform: translate(100%, 100%) rotate(-15deg);
-        z-index: -1;
-        pointer-events: none;
+        // content: '';
+        // position: absolute;
+        // bottom: 0;
+        // right: 50px;
+        // width: 115px;
+        // height: 40px;
+        // border-radius: 50%;
+        // border: 1px solid $lightBeige;
+        // transform: translate(100%, 100%) rotate(-15deg);
+        // z-index: -1;
+        // pointer-events: none;
       }
     }
     .catalogue-items-sect__descr {
@@ -57,12 +57,18 @@
   }
 
   &__nav {}
+
+  &__loadmore {
+    margin: 50px auto 0;
+    width: 185px;
+    height: 50px;
+  }
 }
 
 .catalogue-items {
 
   &__left {
-    margin-top: 50px;
+    // margin-top: 50px;
     font: 400 14px/100% OpenSans;
     text-transform: uppercase;
     color: $darkBrown;
@@ -73,7 +79,7 @@
   }
 
   &__category {
-    margin: 0 10px 30px 0;
+    margin: 0 15px 30px 0;
     display: inline-block;
     &.active {
       color: $green;
@@ -161,6 +167,10 @@
   .catalogue-item__title::after {
     background-image: url('../img/icon-arrow-catalogue.svg');
   }
+}
+
+.catalogue-items-sect[data-id=brands] {
+  
 }
 
 .catalogue-items-sect[data-id=items],

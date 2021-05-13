@@ -5,11 +5,14 @@
 .category-child {
   .catalogue-items-sect[data-id=brands] {
     .catalogue-items {
+      position: relative;
+
       &::before {
         // decor star
-        width: 315px;
-        height: 315px;
-        transform: translate(50%, 50%);
+        // width: 315px;
+        // height: 315px;
+        // transform: translate(50%, 50%);
+
       }
     }
   }
@@ -38,42 +41,72 @@
   }
 }
 
+// loadmore
+.catalogue-items.loadmore-view {
+  column-count: 3;
+
+  .catalogue-items__item {
+    width: auto;
+
+    &:nth-child(n) {
+      margin-right: 0;
+    }
+  }
+}
+
 // Страница "товары", "бренды", "бренд"
 .catalogue-items-sect[data-id=items] {
-  &:last-of-type>.catalogue-items::before {
-    display: none;
-  }
+  // &:last-of-type>.catalogue-items::before {
+  //   // display: none;
+  // }
 
-  >.catalogue-items {
+  .catalogue-items:not(.loadmore-view) {
     position: relative;
 
     &::before {
       // decor big star
-      content: '';
-      position: absolute;
-      bottom: -$sectionPadding1024;
-      right: 0;
-      width: 300px;
-      height: 300px;
-      background: center/contain no-repeat;
-      transform: translate(50%, 50%);
-      z-index: -1;
-      pointer-events: none;
+      // content: '';
+      // position: absolute;
+      // bottom: -$sectionPadding1024;
+      // right: 0;
+      // width: 300px;
+      // height: 300px;
+      // background: center/contain no-repeat;
+      // transform: translate(50%, 50%);
+      // z-index: -1;
+      // pointer-events: none;
+
+      // decor forest
+      // content: '';
+      // width: 540px;
+      // height: 350px;
+      // position: absolute;
+      // left: 0;
+      // bottom: 0;
+      // background: center/contain no-repeat;
+      // pointer-events: none;
+      // transform: translate(-25%, 50%);
+      // z-index: -1;
     }
 
-    &.lazyloaded {
-      &::before {
-        background-image: url('../img/decor-2.svg');
-      }
+    // &.lazyloaded::before {
+    //   background-image: url('../img/decor-forest-1.png');
+    // }
 
-      .catalogue-items__item:last-child::before {
-        background-image: url('../img/decor-1.svg');
-      }
-    }
+
+    // &.lazyloaded {
+    //   &::before {
+    //     background-image: url('../img/decor-2.svg');
+    //   }
+
+    //   .catalogue-items__item:last-child::before {
+    //     background-image: url('../img/decor-1.svg');
+    //   }
+    // }
   }
 
-  .catalogue-items {
-    &__item {
+  .catalogue-items:not(.loadmore-view) {
+    .catalogue-items__item {
       width: calc((100% - 80px) / 3);
 
       &:nth-child(n) {
@@ -84,29 +117,29 @@
         margin-right: 0;
       }
 
-      &:last-child {
-        position: relative;
+      // &:last-child {
+      //   position: relative;
 
-        &::before {
-          // decor star
-          content: '';
-          position: absolute;
-          right: -40px;
-          top: 40px;
-          width: 125px;
-          height: 125px;
-          background: center/contain no-repeat;
-          transform: translate(100%, -50%);
-          z-index: -1;
-          pointer-events: none;
-        }
-      }
+      //   &::before {
+      //     // decor star
+      //     content: '';
+      //     position: absolute;
+      //     right: -40px;
+      //     top: 40px;
+      //     width: 125px;
+      //     height: 125px;
+      //     background: center/contain no-repeat;
+      //     transform: translate(100%, -50%);
+      //     z-index: -1;
+      //     pointer-events: none;
+      //   }
+      // }
 
-      &:nth-child(3n):last-child {
-        &::before {
-          display: none;
-        }
-      }
+      // &:nth-child(3n):last-child {
+      //   &::before {
+      //     display: none;
+      //   }
+      // }
 
     }
   }
@@ -134,7 +167,7 @@
     }
   }
 
-  .catalogue-items:not(.slick-slider) {
+  .catalogue-items:not(.slick-slider):not(.loadmore-view) {
     .catalogue-items__item {
       width: calc((100% - 80px) / 3);
 
@@ -161,10 +194,25 @@
     max-width: 455px;
   }
 
-  >.catalogue-items {
+  .catalogue-items {
     &.lazyloaded {
       .catalogue-items__category:last-child::before {
-        background-image: url('../img/decor-2.svg');
+        // background-image: url('../img/decor-2.svg');
+      }
+    }
+
+    &.loadmore-view {
+      .catalogue-items__right-item {
+        column-count: 2;
+      }
+      .catalogue-items__item {
+        width: auto;
+
+        &:nth-child(n) {
+          margin-right: 0;
+        }
+
+        &:first-child {}
       }
     }
   }
@@ -176,21 +224,22 @@
   }
 
   .catalogue-items__category {
-    &:last-child {
-      position: relative;
-      &::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: -20px;
-        width: 80px;
-        height: 80px;
-        background: center/contain no-repeat;
-        transform: translate(-100%, -50%);
-        pointer-events: none;
-        z-index: -1;
-      }
-    }
+    // &:last-child {
+    //   position: relative;
+
+    //   &::before {
+    //     content: '';
+    //     position: absolute;
+    //     top: 50%;
+    //     left: -20px;
+    //     width: 80px;
+    //     height: 80px;
+    //     background: center/contain no-repeat;
+    //     transform: translate(-100%, -50%);
+    //     pointer-events: none;
+    //     z-index: -1;
+    //   }
+    // }
   }
 
   .catalogue-items__right {
@@ -199,10 +248,10 @@
 
   .catalogue-items__right-item {
     display: none;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
 
     &.active {
-      display: flex;
+      display: block;
     }
   }
 

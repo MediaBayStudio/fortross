@@ -14,10 +14,10 @@
 
   &__brand {
     width: 170px;
-    height: 75px;
+    // height: 75px;
     // margin: 0 0 55px;
     &:first-child {
-      margin: 0 55px 0 $sectionIndent768 - 20px;
+      margin: 0 auto 0 $sectionIndent768 - 20px;
     }
     &:nth-child(odd) {
     }

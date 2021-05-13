@@ -223,9 +223,14 @@
     }
   }
 
-  &__nav-list {}
+  &__nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
   &__nav-li {
+    overflow: hidden;
     &.current {
       color: transparent;
       -webkit-text-stroke-width: 1px;

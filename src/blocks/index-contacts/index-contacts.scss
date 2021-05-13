@@ -27,17 +27,17 @@
       display: none;
     }
 
-    &::after {
-      // decor star
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 140px;
-      height: 140px;
-      transform: translate(50%, -50%);
-      background: center/contain no-repeat;
-    }
+    // &::after {
+    //   // decor star
+    //   content: '';
+    //   position: absolute;
+    //   right: 0;
+    //   top: 0;
+    //   width: 140px;
+    //   height: 140px;
+    //   transform: translate(50%, -50%);
+    //   background: center/contain no-repeat;
+    // }
   }
 
   &__form {
@@ -61,19 +61,19 @@
       width: 280px;
       position: relative;
 
-      &::before {
-        // decor ring
-        content: '';
-        position: absolute;
-        left: -10px;
-        bottom: 0;
-        width: 195px;
-        height: 65px;
-        border-radius: 50%;
-        border: 1px solid $lightBeige;
-        transform: rotate(13deg);
-        pointer-events: none;
-      }
+      // &::before {
+      //   // decor ring
+      //   content: '';
+      //   position: absolute;
+      //   left: -10px;
+      //   bottom: 0;
+      //   width: 195px;
+      //   height: 65px;
+      //   border-radius: 50%;
+      //   border: 1px solid $lightBeige;
+      //   transform: rotate(13deg);
+      //   pointer-events: none;
+      // }
     }
 
     .btn {

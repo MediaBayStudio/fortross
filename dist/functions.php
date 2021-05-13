@@ -63,26 +63,33 @@ function get_catalogue_term() {
     $term = get_term( $term_id );
     $term_fields = get_fields( $term );
 
-    $fig = $term_fields['category_preivew']['url'];
-    $pic = $term_fields['category_extra_img']['url'];
+    $fig_1 = $term_fields['category_preivew']['url'];
+    $fig_2 = $term_fields['category_extra_img']['url'];
+    $pic = $term_fields['category_extra_img_2']['url'];
 
     $args = [
       'numberposts' => 1,
       'category' => $term_id
     ];
 
-    if ( !$fig ) {
-      $fig = get_the_post_thumbnail_url( get_posts( $args )[0]->ID );
+    if ( !$fig_1 ) {
+      $fig_1 = get_the_post_thumbnail_url( get_posts( $args )[0]->ID );
+    }
+
+    if ( !$fig_2 ) {
+      $args['offset'] = 1;
+      $fig_2 = get_the_post_thumbnail_url( get_posts( $args )[0]->ID );
     }
 
     if ( !$pic ) {
-      $args['offset'] = 1;
+      $args['offset'] = 2;
       $pic = get_the_post_thumbnail_url( get_posts( $args )[0]->ID );
     }
 
     $response = [
       'id' => $term_id,
-      'fig' => $fig,
+      'fig1' => $fig_1,
+      'fig2' => $fig_2,
       'url' => get_category_link( $term ),
       'figcaption' => $term->description,
       'pic' => $pic
@@ -101,15 +108,28 @@ add_action( 'wp_ajax_nopriv_getcatalogueterm', 'get_catalogue_term' );
 add_action( 'wp_ajax_getcatalogueterm', 'get_catalogue_term' );
 
 
-function print_ctatlogue_item( $url, $title, $descr = '', $img_src, $print = true ) {
+function print_ctatlogue_item( $url, $title, $descr = '', $img_src, $print = true, $lazy = true, $styles = '' ) {
+  if ( $styles ) {
+    $styles = ' style="' . $styles . '"';
+  }
   $response = '
-  <div class="catalogue-items__item">
+  <div class="catalogue-items__item"' . $styles . '>
     <a href="' . $url . '" class="catalogue-item__link">
       <span class="catalogue-item__title">' . $title . '</span>';
       if ( $descr ) {
         $response .= '<span class="catalogue-item__descr">' . $descr . '</span>';
       }
-      $response .= '<img src="#" alt="' . $title . '" data-src="' . $img_src . '" class="catalogue-item__img lazy">
+      if ( $lazy ) {
+        $attr = 'src="#" alt="' . $title . '" data-src="' . $img_src . '"';
+        $lazy_class = ' lazy';
+      } else {
+        $attr = 'src="' . $img_src . '" alt="' . $title . '"';
+        $lazy_class = '';
+      }
+      if ( $lazy === 'no-lazy-class') {
+        $lazy_class = '';
+      }
+      $response .= '<img ' . $attr . ' class="catalogue-item__img' . $lazy_class . '">
     </a>
   </div>';
 

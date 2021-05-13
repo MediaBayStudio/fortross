@@ -21,12 +21,13 @@
   &__title {
     margin: 125px 0 125px $sectionIndent768;
     font-size: 28px;
-    &::before {
-      width: 300px;
-      height: 100px;
-      left: -105px;
-      bottom: -65px;
-    }
+    // &::before {
+    //   // decor ring
+    //   width: 300px;
+    //   height: 100px;
+    //   left: -105px;
+    //   bottom: -65px;
+    // }
   }
 
   &__pic {

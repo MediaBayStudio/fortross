@@ -29,17 +29,32 @@
     flex-shrink: 0;
     width: 390px;
     height: 390px;
-    &::after {
-      // decor
-      right: 0;
-      transform: translate(50%, 50%);
-      z-index: -1;
-    }
+    // &::after {
+    //   // decor
+    //   right: 0;
+    //   transform: translate(50%, 50%);
+    //   z-index: -1;
+    // }
   }
 
   &__img {}
 
-  &__text {}
+  &__text {
+    &::after {
+      // decor forest
+      content: '';
+      width: 550px;
+      height: 400px;
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      background: center/contain no-repeat;
+    }
+    &.lazyloaded::after {
+      background-image: url('../img/decor-forest-1.png');
+    }
+  }
 
   &__decor-title {
     transform: translateY(-50%);
