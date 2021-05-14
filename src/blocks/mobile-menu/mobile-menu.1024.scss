@@ -7,11 +7,13 @@
   background: $greyBeige;
 
   &::before {
-    right: 500px;
-    top: 50px;
+    right: 430px;
+    // top: 50px;
   }
 
-  &::after {}
+  &::after {
+    right: -25px;
+  }
 
   &__cnt {
     padding: 140px 0 0 calc(50vw - 356px);

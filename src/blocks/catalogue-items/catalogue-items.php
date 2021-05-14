@@ -48,6 +48,10 @@ if ( $selected === 'brands' ) {
     } // endif $that->parent
 
     $brands = get_terms( $args );
+
+    if ( $that->parent ) {
+      shuffle( $brands );
+    }
   } else {
     $brands = $section['brands'];
   } // endif $items_by_default
@@ -361,8 +365,9 @@ if ( $section_items ) : ?>
     if ( $section_title ) : ?>
       <div class="catalogue-items-sect__heading">
         <<?php echo $title_tag ?> class="catalogue-items-sect__title"><?php echo $section_title ?></<?php echo $title_tag ?>> <?php
-        if ( $section_descr ) : ?>
-          <p class="catalogue-items-sect__descr"><?php echo $section_descr ?></p> <?php
+        if ( $section_descr ) :
+          $section_descr_class = mb_strlen( $section_descr ) > 200 ? ' long-text' : '' ?>
+          <p class="catalogue-items-sect__descr<?php echo $section_descr_class ?>"><?php echo $section_descr ?></p> <?php
         endif ?>
         <div class="catalogue-items-sect__nav"><span class="catalogue-items-sect__counter"></span></div>
       </div> <?php
@@ -375,4 +380,4 @@ if ( $section_items ) : ?>
     #endif ?>
   </section> <?php
 endif;
-unset( $section_id, $section_class, $title_tag, $items_by_default, $selected, $section_items, $that, $section_items ) ?>
+unset( $section_id, $section_class, $title_tag, $items_by_default, $selected, $section_items, $that, $section_items, $section_descr_class, $section_descr ) ?>

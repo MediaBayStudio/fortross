@@ -5,13 +5,16 @@
 
 .menu {
   &::before {
-    width: 150px;
-    height: 150px;
+    // width: 150px;
+    // height: 150px;
+    right: 250px;
   }
 
   &::after {
-    width: 360px;
-    height: 360px;
+    left: auto;
+    right: -25px;
+    // width: 360px;
+    // height: 360px;
   }
 
   &__cnt {

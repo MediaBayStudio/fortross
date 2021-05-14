@@ -1070,33 +1070,41 @@ if (indexHeroSlider) {
   // }, 2000);
 
   if (catalogueHero) {
-    let catalogueRight = q('.catalogue-items__right', catalogueHero),
-      catalogueLeft = q('.catalogue-items__left', catalogueHero),
-      buttons = qa('.catalogue-items__category', catalogueHero),
-      line = q('.catalogue-items__left-line', catalogueHero),
+    let catalogueItems = q('.catalogue-items', catalogueHero),
+      catalogueRight = q('.catalogue-items__right', catalogueItems),
+      catalogueLeft = q('.catalogue-items__left', catalogueItems),
+      buttons = qa('.catalogue-items__category', catalogueItems),
+      line = q('.catalogue-items__left-line', catalogueItems),
       switchTab = function(e) {
-        let target = e && e.target || q('.catalogue-items__category.active', catalogueHero);
+        let target = e && e.target || q('.catalogue-items__category.active', catalogueItems);
+
         if (target.classList.contains('catalogue-items__category')) {
           e && e.preventDefault();
           let termID = target.getAttribute('data-term-id'),
             targetHeight = target.offsetHeight,
-            activeButton = q('.catalogue-items__category.active', catalogueHero),
+            activeButton = q('.catalogue-items__category.active', catalogueItems),
             rightTarget = q('.catalogue-items__right-item[data-term-id="' + termID + '"]'),
             rightActive = q('.catalogue-items__right-item.active');
 
-          [activeButton, rightActive].forEach(el => el.classList.remove('active'));
+          if (target === activeButton) return;
 
-          [target, rightTarget].forEach(el => el.classList.add('active'));
+          catalogueItems.classList.add('loading');
+
+          setTimeout(function() {
+            [activeButton, rightActive].forEach(el => el.classList.remove('active'));
+            catalogueItems.classList.remove('loading');
+            [target, rightTarget].forEach(el => el.classList.add('active'));
+          }, 500);
 
           line.style.transform = 'translateY(' + (targetHeight / 2 + target.offsetTop - 1) + 'px)';
 
-          history.pushState('', target.textContent, target.href);
+          // history.pushState('', target.textContent, target.href);
 
         }
       };
 
     if (catalogueRight && catalogueLeft) {
-      catalogueHero.addEventListener('click', switchTab);
+      catalogueItems.addEventListener('click', switchTab);
 
       switchTab();
     }

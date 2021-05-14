@@ -68,6 +68,7 @@
   }
 
   .catalogue-items-sect__heading {
+    margin: 0 0 25px;
     display: flex;
   }
 
@@ -96,7 +97,7 @@
 .catalogue-items-sect[data-id=catalogue-items] {
 
   >.catalogue-items-sect__heading {
-    margin: 0;
+    margin: 0 0 50px;
     display: flex;
     align-items: flex-start;
   }
@@ -138,6 +139,25 @@
       background: $green;
       transform: translateY(calc(60px + 0.5em - 50%));
       transition: transform .5s;
+    }
+
+    &::before {
+      // decor tree
+      content: '';
+      width: 285px;
+      height: 200px;
+      position: absolute;
+      bottom: 0;
+      left: 65px;
+      background: center/contain no-repeat;
+      transform: translateY(100%);
+      pointer-events: none;
+    }
+  }
+
+  .catalogue-items.lazyloaded {
+    .catalogue-items__left::before {
+      background-image: url('../img/decor-tree-3.svg');
     }
   }
 

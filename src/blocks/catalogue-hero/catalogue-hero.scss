@@ -8,42 +8,27 @@
   position: relative;
 
   &__decor {
-    position: absolute;
-    bottom: -$sectionPadding320;
-    right: 0;
-    width: 135px;
-    height: 135px;
-    object-fit: contain;
-    z-index: -1;
-    transform: translate(50%, 50%);
+    // position: absolute;
+    // bottom: -$sectionPadding320;
+    // right: 0;
+    // width: 135px;
+    // height: 135px;
+    // object-fit: contain;
+    // z-index: -1;
+    // transform: translate(50%, 50%);
   }
 
   &::before {
     // decor star
-    content: '';
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    top: 0;
-    right: 20px;
-    background: url('../img/decor-1.svg') center/contain no-repeat;
-    z-index: -1;
-    pointer-events: none;
-  }
-
-  &::after {
-    // decor ring
-    content: '';
-    position: absolute;
-    top: 30px;
-    right: 45px;
-    width: 155px;
-    height: 55px;
-    border-radius: 50%;
-    border: 1px solid $lightBeige;
-    transform: rotate(-15.5deg);
-    z-index: -1;
-    pointer-events: none;
+    // content: '';
+    // width: 80px;
+    // height: 80px;
+    // position: absolute;
+    // top: 0;
+    // right: 20px;
+    // background: url('../img/decor-1.svg') center/contain no-repeat;
+    // z-index: -1;
+    // pointer-events: none;
   }
 
   &__title {
@@ -57,8 +42,10 @@
   &__descr {
     margin: 0 0 55px;
     font: 400 16px/160% OpenSans;
+    position: relative;
 
     &::before {
+      // line
       margin: 0 5px 0 0;
       content: '';
       display: inline-block;
@@ -66,6 +53,19 @@
       height: 1px;
       background: $darkBrown;
       vertical-align: middle;
+    }
+
+    &::after {
+      // decor logo
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: 20px;
+      width: 125px;
+      height: 160px;
+      background: url('../img/decor-ftr-logo.svg') center/contain no-repeat;
+      z-index: -1;
+      pointer-events: none;
     }
   }
 
@@ -80,6 +80,12 @@
   &__catalogue-wrap {
     >.catalogue-hero-sect__catalogue-right {
       margin-top: -40px;
+    }
+    &.loading {
+      >.catalogue-hero-sect__catalogue-right {
+        opacity: 0;
+        pointer-events: none;
+      }
     }
   }
 
@@ -107,6 +113,7 @@
     display: grid;
     grid-template-rows: 100%;
     grid-template-columns: 100%;
+    transition: opacity .5s;
 
     &.lazyloaded {
       .catalogue-item__title::after {

@@ -5,17 +5,17 @@
 .catalogue-hero-sect {
   &::before {
     // decor star 
-    right: calc(50vw - 580px);
-  }
-  &::after {
-    // decor ring
-    right: calc(50vw - 530px);
+    // right: calc(50vw - 580px);
   }
   &__title {
     font-size: 48px;
   }
   &__descr {
     margin-right: 305px;
+    &::after {
+      // decor logo
+      // right: calc(50vw - 530px);
+    }
   }
   &__catalogue-wrap {
   }

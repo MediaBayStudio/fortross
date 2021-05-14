@@ -6,6 +6,7 @@
   .catalogue-hero-sect__title {
     max-width: 300px;
   }
+
   .catalogue-hero-sect__catalogue-wrap {
     margin-top: 30px
   }
@@ -17,43 +18,52 @@
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+
   &::before {
     // decor star
-    width: 100px;
-    height: 100px;
-    right: calc(50vw - 360px);
+    // width: 100px;
+    // height: 100px;
+    // right: calc(50vw - 360px);
   }
-  &::after {
-    // decor ring
-    width: 185px;
-    height: 65px;
-    right: calc(50vw - 330px);
-  }
+
   &__title {
     margin: -10px 0 0;
     font-size: 44px;
   }
+
   &__descr {
     margin: 0 0 0 auto;
     // max-width: 380px;
     max-width: 340px;
+
+    &::after {
+      // decor logo
+      top: 50%;
+      right: 0;
+      transform: translate(50%, -50%);
+    }
   }
+
   &__catalogue-wrap {
     margin-top: 70px;
     width: 100%;
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    > .catalogue-items__item {
+
+    >.catalogue-items__item {
       width: calc((100% - 40px) / 2);
+
       &:nth-child(n) {
         // margin-top: 40px;
       }
+
       &:nth-child(odd) {
         margin-right: 40px;
       }
     }
   }
+
   &__catalogue-left {
     margin: 0 auto 0 0;
     padding: 60px 0 0 125px;
@@ -64,19 +74,21 @@
     align-items: flex-start;
     border-top: 1px solid $greyBrown;
     position: relative;
+
     &::after {
       // decor star
-      content: '';
-      width: 215px;
-      height: 215px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      transform: translateY(100%);
-      background: url('../img/decor-2.svg') center/contain no-repeat;
-      z-index: -1;
+      // content: '';
+      // width: 215px;
+      // height: 215px;
+      // position: absolute;
+      // bottom: 0;
+      // left: 0;
+      // transform: translateY(100%);
+      // background: url('../img/decor-2.svg') center/contain no-repeat;
+      // z-index: -1;
     }
   }
+
   &__catalogue-left-line {
     display: block;
     width: 85px;
@@ -88,13 +100,16 @@
     transform: translateY(calc(60px + 0.5em - 50%));
     transition: transform .5s;
   }
+
   &__category {
     margin: 0 0 35px;
   }
+
   &__catalogue-right {
     flex-shrink: 0;
     width: 340px;
   }
+
   &__right-item {
     margin: 0;
   }
@@ -107,11 +122,11 @@
     }
   }
 }
+
 .catalogue-item {
-  &__link {
-  }
-  &__title {
-  }
-  &__img {
-  }
+  &__link {}
+
+  &__title {}
+
+  &__img {}
 }

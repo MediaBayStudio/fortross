@@ -104,6 +104,5 @@ if ( $_GET['brand'] ) {
   <div class="catalogue-hero-sect__catalogue-wrap lazy" data-src="#"><?php
     echo $catalogue_left . $catalogue_right . $catalogue ?>      
   </div>
-  <img src="#" alt="decor" data-src="<?php echo $template_directory ?>/img/decor-3.svg" class="catalogue-hero-sect__decor lazy">
 </section> <?php
 unset( $section_id, $category, $catalogue_left, $catalogue_right, $i ) ?>

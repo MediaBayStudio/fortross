@@ -14,6 +14,7 @@ print_breadcrumbs( $that_tag );
 $sections = get_field( 'sections', 367 );
 
 foreach ( $sections as $section ) {
+  $section_id = $section['id'] ? ' id="' . $section['id'] . '"' : '';
   require 'template-parts/' . $section['acf_fc_layout'] . '.php';
 }
 

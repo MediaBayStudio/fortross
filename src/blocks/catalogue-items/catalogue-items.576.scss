@@ -6,7 +6,9 @@
 .catalogue-items-sect {}
 
 // loadmore view
-.catalogue-items-sect:not([data-id=catalogue-items]) {
+.catalogue-items-sect[data-id=items],
+.catalogue-items-sect[data-id=related-items],
+.catalogue-items-sect[data-id=brands] {
 
   .catalogue-items.loadmore-view {
     margin-top: -60px;

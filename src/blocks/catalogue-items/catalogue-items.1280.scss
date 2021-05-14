@@ -24,8 +24,19 @@
   > .catalogue-items {
     &::before {
       // decor big star
-      bottom: -$sectionPadding1280;
-      transform: translate(0, 50%);
+      // bottom: -$sectionPadding1280;
+      // transform: translate(0, 50%);
+    }
+  }
+  .catalogue-items-sect__heading {
+    margin: 0 0 50px;
+  }
+  .catalogue-items-sect__descr {
+    &::after {
+      // decor tree
+      width: 330px;
+      height: 160px;
+      transform: translate(100%, -50%);
     }
   }
 }
@@ -52,12 +63,20 @@
 
   .catalogue-items-sect__descr {
     margin-right: 305px;
+    &.long-text {
+      margin-right: 0;
+      max-width: 760px;
+    }
   }
 
   >.catalogue-items {}
 
   .catalogue-items__left {
     width: 360px;
+    &::before {
+      // decor tree
+      left: 75px;
+    }
     &-line {}
   }
 

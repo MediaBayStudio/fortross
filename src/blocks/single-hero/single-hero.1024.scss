@@ -6,7 +6,7 @@
   padding-bottom: $sectionPadding1024;
 
   &__top {
-    margin: 0 0 40px;
+    margin: 0 0 75px;
     display: flex;
     align-items: flex-start;
     position: relative;
@@ -19,31 +19,16 @@
       left: -35px;
       width: 500px;
       height: calc(100% - 100px);
-      background: $white;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    &::after {
-      // decor star
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 405px;
-      width: 120px;
-      height: 120px;
-      transform: translate(0, 50%);
-      background: url('../img/decor-2.svg') center/contain no-repeat;
+      background: #eeece6;
       pointer-events: none;
       z-index: -1;
     }
 
     .single-hero-sect__img {
+      // slider images
       width: 570px;
       height: 330px;
       max-height: 330px;
-      &.img-horizontal {
-      }
     }
 
     .single-hero-sect__pic {}
@@ -80,7 +65,6 @@
 
     &::before {
       // decor ring
-      transform: rotate(-15deg);
     }
   }
 
@@ -91,100 +75,333 @@
   &__descr {}
 
   &__bottom {
-    display: flex;
-    flex-wrap: wrap;
+    grid-template-columns: 1fr 40px 1fr 40px 1fr;
 
-    .single-hero-sect__pic {
-      margin-top: 0;
-      width: calc((100% - 80px) / 3);
+    >.single-hero-sect__props {
+      grid-row: 1;
+      grid-column: 1;
     }
-  }
 
-  &__bottom-first-sect {
-    margin-top: 60px;
+    // with 4 images
+    &.pics-4 {
+      grid-template-rows: 1fr 40px auto;
 
-    &:first-child:last-child {
-      .single-hero-sect__bottom-first-sect {
-        width: 100%;
+      >.single-hero-sect__pic {
+        &:first-of-type {
+          grid-row: 1;
+          grid-column: 3;
+        }
+
+        &:nth-of-type(2) {
+          grid-row: 1;
+          grid-column: 5;
+        }
+
+        &:nth-of-type(3) {
+          grid-row: 3;
+          grid-column: 1;
+        }
+
+        &:last-of-type {
+          grid-row: 3;
+          grid-column: 3;
+        }
       }
 
-      // Если без картинок и второго описания
-      .single-hero-sect__props:first-child:last-child {
-        flex-flow: wrap;
-        padding: 0;
-        margin: 0;
+      >.single-hero-sect__descr-opt {
+        grid-row: 3;
+        grid-column: 5;
+      }
+
+      &.no-text {
+        grid-template-rows: 1fr 40px auto;
+      }
+
+    }
+
+    // with 3 images
+    &.pics-3 {
+      grid-template-rows: 1fr 40px auto;
+
+      >.single-hero-sect__pic {
+        &:first-of-type {
+          grid-row: 1;
+          grid-column: 3;
+        }
+
+        &:nth-of-type(2) {
+          grid-row: 1;
+          grid-column: 5;
+        }
+
+        &:last-of-type {
+          grid-row: 3;
+          grid-column: 1;
+        }
+      }
+
+      >.single-hero-sect__descr-opt {
+        grid-row: 3;
+
+        &.long-text {
+          grid-column: 3/span 3;
+        }
+
+        &.short-text {
+          grid-column: 3;
+        }
+      }
+
+      &.no-text {
+        grid-template-rows: 1fr 70px auto;
+        // position: relative;
+
+        >.single-hero-sect__props {
+          grid-column: 1/span 3;
+          flex-flow: row;
+        }
 
         .single-hero-sect__prop {
-          &:nth-child(1) {
-            max-width: 230px;
-          }
           &:nth-last-child(n+2) {
-            margin: 0 100px 0 0;
+            margin: 0 60px 0 0;
           }
-          &:nth-child(2) {
-            max-width: 250px;
+        }
+
+        >.single-hero-sect__pic {
+          &:first-of-type {
+            grid-row: 3;
+            grid-column: 1;
           }
-          &:nth-child(3) {
-            max-width: 300px;
+
+          &:nth-of-type(2) {
+            grid-row: 3;
+            grid-column: 3;
+          }
+
+          &:last-of-type {
+            grid-row: 3;
+            grid-column: 5;
+          }
+        }
+
+        // &::before {
+        //   content: '';
+        //   width: 220px;
+        //   height: 150px;
+        //   position: absolute;
+        //   right: 150px;
+        //   top: -65px;
+        //   background: center/contain no-repeat;
+        // }
+
+        // &.lazyloaded::before {
+        //   background-image: url('../img/decor-tree-3.svg');
+        // }
+      }
+    }
+
+    // with 2 images
+    &.pics-2 {
+      grid-template-rows: auto 40px 1fr;
+
+      >.single-hero-sect__pic {
+        &:first-of-type {
+          grid-row: 1;
+          grid-column: 3;
+        }
+
+        &:last-of-type {
+          grid-row: 1;
+          grid-column: 5;
+        }
+      }
+
+      >.single-hero-sect__descr-opt {
+        grid-row: 3;
+        position: relative;
+
+        &.lazyloaded::before {
+          background-image: url('../img/decor-tree-3.svg');
+        }
+
+        &::before {
+          content: '';
+          width: 450px;
+          height: 200px;
+          position: absolute;
+          bottom: 0;
+          left: 40px;
+          transform: translateX(-100%);
+          background: center/contain no-repeat;
+        }
+
+        &.long-text {
+          grid-column: 3/span 3;
+        }
+
+        &.short-text {
+          grid-column: 3;
+        }
+      }
+
+      &.no-text {
+        grid-template-rows: auto;
+      }
+    }
+
+    // with 1 images
+    &.pics-1 {
+      grid-template-rows: auto 40px 1fr;
+
+      >.single-hero-sect__props {
+        flex-flow: row;
+        grid-column: 1/span 4;
+      }
+
+      .single-hero-sect__prop {
+        &:nth-last-child(n+2) {
+          margin: 0 100px 0 0;
+        }
+      }
+
+      >.single-hero-sect__pic {
+        &:first-of-type {
+          grid-row: 1/span 3;
+          grid-column: 5;
+          // position: relative;
+
+          // &::before {
+          //   content: '';
+          //   width: 400px;
+          //   height: 220px;
+          //   position: absolute;
+          //   bottom: 0;
+          //   left: -35px;
+          //   transform: translate(-50%, 35%);
+          //   background: center/contain no-repeat;
+          //   z-index: -1;
+          // }
+
+          // &.lazyloaded::before {
+          //   background-image: url('../img/decor-tree-3.svg');
+          // }
+        }
+      }
+
+      >.single-hero-sect__descr-opt {
+        max-width: 550px;
+        grid-row: 3;
+        grid-column: 1/span 3;
+
+        &.short-text {
+          position: relative;
+
+          &.lazyloaded::before {
+            background-image: url('../img/decor-forest-2.svg');
+          }
+
+          &::before {
+            content: '';
+            width: 465px;
+            height: 235px;
+            position: absolute;
+            bottom: -25%;
+            left: 50%;
+            transform: translate(-50%, 100%);
+            background: center/contain no-repeat;
+          }
+        }
+      }
+
+      &.no-text {
+        grid-template-rows: auto;
+
+        &::before {
+          content: '';
+          margin-right: -55px;
+          width: 360px;
+          height: 250px;
+          grid-row: 1;
+          grid-column: 4/span 2;
+          justify-self: end;
+          align-self: center;
+          background: center/contain no-repeat;
+        }
+
+        &.lazyloaded::before {
+          background-image: url('../img/decor-tree-3.svg');
+        }
+
+        >.single-hero-sect__props {
+          flex-flow: column;
+          grid-column: 1;
+        }
+
+        .single-hero-sect__prop {
+          &:nth-last-child(n+2) {
+            margin: 0 0 60px 0;
+          }
+        }
+
+        >.single-hero-sect__pic {
+          &:first-of-type {
+            grid-column: 3;
+            grid-row: 1;
+            // &::before {
+            //   display: none;
+            // }
           }
         }
       }
     }
 
-    &.no-text {
-      flex: calc(100% - 275px - 40px);
+    // with no images
+    &.no-pics {
+      grid-template-rows: auto 40px 1fr;
+      position: relative;
 
-      +.no-text {
-        margin-left: 40px;
-        flex: 275px;
-        flex-flow: column;
+      &::before {
+        content: '';
+        width: 430px;
+        height: 210px;
+        position: absolute;
+        bottom: -55px;
+        right: 0;
+        background: center/contain no-repeat;
+      }
 
-        .single-hero-sect__pic {
-          width: 100%;
+      &.lazyloaded::before {
+        background-image: url('../img/decor-forest-2.svg');
+      }
 
-          &:nth-last-child(n+2) {
-            margin: 0 0 35px;
-          }
+      >.single-hero-sect__props {
+        flex-flow: row;
+        grid-column: 1/span 4;
+      }
+
+      .single-hero-sect__prop:nth-last-child(n+2) {
+        margin: 0 60px 0 0;
+      }
+
+      >.single-hero-sect__descr-opt {
+        max-width: 450px;
+        grid-row: 3;
+        grid-column: 1/span 3;
+      }
+
+      &.no-text {
+        grid-template-rows: 1fr;
+
+        &::before {
+          bottom: -125px;
         }
-      }
-    }
-
-    .single-hero-sect__pic {
-
-      &:first-child,
-      &:nth-child(2):last-child {
-        width: calc((100% - 40px) / 2);
-      }
-    }
-
-    .single-hero-sect__props {
-      &:first-child:nth-last-child(2) {
-        width: calc((100% - 40px) / 2);
-      }
-
-      &:first-child:last-child {
-        width: 100%;
-      }
-    }
-  }
-
-  &__bottom-second-sect {
-    margin-top: 60px;
-    flex: calc((100% - 80px)/ 3);
-
-    .single-hero-sect__pic {
-      &:first-of-type:last-of-type {
-        margin-right: 0;
       }
     }
   }
 
 
   &__props {
-    // margin-right: 40px;
-    padding-right: 40px;
     flex-flow: column;
-    width: calc((100% - 80px) / 3);
   }
 
   &__prop {
@@ -197,12 +414,5 @@
     &-text {}
   }
 
-  &__descr-opt {
-    margin: 0 0 0 40px;
-    flex: calc((100% - 80px) / 3);
-
-    &:first-child:last-child {
-      margin-left: 0;
-    }
-  }
+  &__descr-opt {}
 }

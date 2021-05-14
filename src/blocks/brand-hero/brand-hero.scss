@@ -20,7 +20,7 @@
       // width: 215px;
       width: 67%;
       height: 83%;
-      background: $white;
+      background: #eeece6;
       z-index: -1;
       pointer-events: none;
     }
@@ -43,11 +43,12 @@
     font: bold 30px/160% Oswald;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    position: relative;
+    // position: relative;
   }
 
   &__descr {
     &::before {
+      // line
       margin: -1px 5px 0 0;
       content: '';
       display: inline-block;

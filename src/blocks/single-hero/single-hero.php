@@ -10,31 +10,31 @@ $thumbnail = [
   'url' => get_the_post_thumbnail_url( $post_id ),
   'ID' => get_post_thumbnail_id( $post_id )
 ];
+$opt_descr = $fields['descr_opt'];
 
-// Массив с "прочими" изображения нужно разбить на 2 части по 2 картинки
-// и поместить по 2 шт в разные блоки
-// для удобства адаптирования
-if ( $other_images ) {
-  $other_images = array_chunk( $other_images, 2 );
+$block_classes = [
+  'single-hero-sect__bottom',
+  'lazy'
+];
 
-  $i = 0;
-  $html = '';
-  foreach ( $other_images as $two_images ) {
+// array_pop( $other_images );
+// array_pop( $other_images );
+// array_pop( $other_images );
+// array_pop( $other_images );
 
-    foreach ( $two_images as $img ) {
-      $html .= cretae_picture_form_img_field( 'single-hero-sect', $img, true, $title, false );
-    }
+// $opt_descr = null;
 
-    if ( $i === 0 ) {
-      $first_sect = $html;
-      $html = '';
-    } else if ( $i === 1 ) {
-      $second_sect = $html;
-      $html = '';
-    }
-    $i++;
-  }
-} ?>
+if ( !$other_images ) {
+  $block_classes[] = 'no-pics';
+} else {
+  $block_classes[] = 'pics-' . count( $other_images );
+}
+
+if ( !$opt_descr ) {
+  $block_classes[] = 'no-text';
+}
+
+?>
 <section class="single-hero-sect container"<?php echo $section_id ?>>
   <div class="single-hero-sect__top">
     <div class="single-hero-sect__slider-wrap">
@@ -68,46 +68,41 @@ if ( $other_images ) {
       <p class="single-hero-sect__descr"><?php the_field( 'descr', $post_id ) ?></p>
     </div>
   </div>
-  <div class="single-hero-sect__bottom"> <?php
-    $class = $fields['props'] ? '' : ' no-text' ?>
-    <div class="single-hero-sect__bottom-first-sect<?php echo $class ?>"> <?php
-      if ( $fields['props'] ) : ?>
-        <div class="single-hero-sect__props"> <?php
-          foreach ( $fields['props'] as $prop ) : ?>
-            <div class="single-hero-sect__prop"> <?php
-              if ( $prop['select'] === 'material' ) {
-                // Если выбран материал, то устанавливаем заголовок
-                $prop_title = 'Материал';
-                if ( $prop['material_by_default'] ) {
-                  // Если выбрано по умолчанию, то берем из другого поля
-                  $prop_descr = $fields['material'];
-                } else {
-                  // Если не по умолчанию, то берем материал из этого поля
-                  $prop_descr = $prop['text'];
-                }
+  <div class="<?php echo implode( ' ', $block_classes ) ?>" data-src="#"> <?php
+    if ( $fields['props'] ) : ?>
+      <div class="single-hero-sect__props"> <?php
+        foreach ( $fields['props'] as $prop ) : ?>
+          <div class="single-hero-sect__prop"> <?php
+            if ( $prop['select'] === 'material' ) {
+              // Если выбран материал, то устанавливаем заголовок
+              $prop_title = 'Материал';
+              if ( $prop['material_by_default'] ) {
+                // Если выбрано по умолчанию, то берем из другого поля
+                $prop_descr = $fields['material'];
               } else {
-                // Если выбрано "другое"
-                // то берем поля с заголовком и тектом
-                $prop_title = $prop['title'];
+                // Если не по умолчанию, то берем материал из этого поля
                 $prop_descr = $prop['text'];
-              } ?>
-              <span class="single-hero-sect__prop-title"><?php echo $prop_title ?></span>
-              <p class="single-hero-sect__prop-text"><?php echo $prop_descr ?></p>
-            </div> <?php
-          endforeach ?>
-        </div> <?php
-      endif;
-      echo $first_sect ?>
-    </div> <?php
-    if ( $fields['descr_opt'] || $second_sect ) :
-      $class = $fields['descr_opt'] ? '' : ' no-text' ?>
-      <div class="single-hero-sect__bottom-second-sect<?php echo $class ?>"> <?php
-        echo $second_sect;
-        if ( $fields['descr_opt'] ) : ?>
-          <p class="single-hero-sect__descr-opt"><?php echo $fields['descr_opt'] ?></p> <?php
-        endif ?>
+              }
+            } else {
+              // Если выбрано "другое"
+              // то берем поля с заголовком и тектом
+              $prop_title = $prop['title'];
+              $prop_descr = $prop['text'];
+            } ?>
+            <span class="single-hero-sect__prop-title"><?php echo $prop_title ?></span>
+            <p class="single-hero-sect__prop-text"><?php echo $prop_descr ?></p>
+          </div> <?php
+        endforeach ?>
       </div> <?php
+    endif;
+    foreach ( $other_images as $img ) {
+      cretae_picture_form_img_field( 'single-hero-sect', $img, true, $title );
+    }
+    if ( $opt_descr ) :
+      // $opt_descr = substr( $opt_descr, 0, 200 );
+      $opt_descr_class = mb_strlen( $opt_descr ) > 200 ? ' long-text' : ' short-text' ?>
+      <p class="single-hero-sect__descr-opt lazy<?php echo $opt_descr_class ?>" data-src="#"><?php echo $opt_descr ?> </p> <?php
     endif ?>
   </div>
 </section> <?php
-unset( $title, $post_id, $child_brand, $parent_brand, $fields, $other_images, $thumbnail );
+unset( $title, $post_id, $child_brand, $parent_brand, $fields, $other_images, $thumbnail, $opt_descr, $opt_descr_class, $block_classes );

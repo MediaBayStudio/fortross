@@ -14,6 +14,7 @@ print_breadcrumbs( $obj );
 $sections = get_field( 'sections', 140 );
 
 foreach ( $sections as $section ) {
+  $section_id = $section['id'] ? ' id="' . $section['id'] . '"' : '';
   if ( $section['acf_fc_layout'] === 'catalogue-items' && !$obj->parent ) {
     continue;
   }

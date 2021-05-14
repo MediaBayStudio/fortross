@@ -3,12 +3,21 @@
 @import '../../scss/assets/variables';
 
 .menu {
+  &::before {
+    width: 240px;
+    height: 200px;
+    right: calc(50vw - 200px);
+    top: 175px;
+  }
+
+  &::after {
+    width: 450px;
+    height: 200px;
+    right: -100px;
+  }
+
   &__cnt {
     padding-top: 170px;
-
-    &::before {}
-
-    &::after {}
   }
 
   &__nav {
@@ -28,7 +37,8 @@
     margin: 0 0 50px;
     max-width: 310px;
     font-size: 16px;
-    > .contacts-block__title {
+
+    >.contacts-block__title {
       margin: 0 0 10px;
       font-size: 16px;
     }

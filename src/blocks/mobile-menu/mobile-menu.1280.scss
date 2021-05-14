@@ -6,17 +6,18 @@
   // padding: 160px calc(50vw - 455px) 0;
 
   &::before {
-    width: 170px;
-    height: 170px;
-    right: 50%;
-    top: 160px;
-    transform: translateX(50%);
+    right: calc(50vw - 100px);
+    // width: 170px;
+    // height: 170px;
+    // right: 50%;
+    // top: 160px;
+    // transform: translateX(50%);
   }
 
   &::after {
-    width: 415px;
-    height: 415px;
-    transform: translate(40%, 30%);
+    // width: 415px;
+    // height: 415px;
+    // transform: translate(40%, 30%);
   }
 
   &__cnt {
