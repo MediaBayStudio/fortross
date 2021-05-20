@@ -1,0 +1,35 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.hero-404 {
+  &::before {
+    // decor text
+    left: $sectionHrPadding1280;
+  }
+   &::after {
+    // decor tree
+    width: 530px;
+    height: 240px;
+    right: 284px;
+    right: calc(50vw - 355px);
+  }
+  &__decor-title {
+    left: calc((50vw - 580px) + 115px);
+  }
+
+  &__pic {
+    width: 490px;
+  }
+
+  &__img {}
+
+  &__text-block {
+    max-width: 405px + 100px;
+    padding-left: 100px;
+  }
+
+  &__title {}
+
+  &__descr {}
+}

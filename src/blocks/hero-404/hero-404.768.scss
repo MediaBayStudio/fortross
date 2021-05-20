@@ -1,0 +1,59 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+$sect_pt: 100px;
+
+.hero-404 {
+  padding-top: $sect_pt;
+  &::before {
+    // decor text
+    top: $sect_pt;
+    left: $sectionHrPadding768;
+  }
+  &::after {
+    // decor tree
+    content: '';
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    bottom: -50px;
+    right: 100px;
+    background: url('../img/decor-tree-2.svg') center/contain no-repeat;
+    z-index: -1;
+  }
+  &__decor-title {
+    top: $sect_pt - 15px;
+    left: calc((50vw - 360px) + 115px);
+    font-size: 155px;
+  }
+
+  &__pic {
+    margin: 100px -120px 0 0;
+    float: right;
+    max-width: none;
+    width: 460px;
+    height: 550px;
+  }
+
+  &__img {
+    object-fit: cover;
+  }
+
+  &__text-block {
+    margin: 220px 0 0 0;
+    padding: 0 0 0 75px;
+    max-width: 350px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__title {
+    font-size: 48px;
+  }
+
+  &__descr {
+    margin: 15px 0 45px;
+    font-size: 18px;
+  }
+}

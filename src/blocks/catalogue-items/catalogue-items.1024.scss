@@ -42,7 +42,8 @@
 }
 
 // loadmore
-.catalogue-items-sect[data-id=related-items] {
+.catalogue-items-sect[data-id=related-items],
+.catalogue-items-sect[data-id=items] {
 
   .catalogue-items.loadmore-view {
     column-count: 3;

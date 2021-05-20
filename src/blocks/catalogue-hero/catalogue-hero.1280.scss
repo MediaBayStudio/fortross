@@ -2,6 +2,12 @@
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
 
+.category-child {
+  .catalogue-hero-sect__descr {
+    margin-right: 295px;
+  }
+}
+
 .catalogue-hero-sect {
   &::before {
     // decor star 

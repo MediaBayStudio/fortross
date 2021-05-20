@@ -13,6 +13,8 @@ if ( $_GET['brand'] ) {
     <p class="catalogue-hero-sect__descr"><?php echo $section_descr ?></p> <?php
   endif;
     if ( $queried_term_id && $queried_term->parent ) {
+      // Дочерняя страница каталога
+      $wrap_class = '';
       $catalogue = '';
 
       $posts = get_posts( [
@@ -47,6 +49,8 @@ if ( $_GET['brand'] ) {
       }
 
     } else {
+      // Основная страница каталога
+      $wrap_class = ' main-catalogue';
       $catalogue_left = '<div class="catalogue-hero-sect__catalogue-left"><hr class="catalogue-hero-sect__catalogue-left-line">';
       $catalogue_right = '<div class="catalogue-hero-sect__catalogue-right lazy" data-src="#"">';
       $i = 0;
@@ -69,27 +73,48 @@ if ( $_GET['brand'] ) {
           $active_class = $i === 0 ? ' active' : '';
         }
 
-
         $catalogue_left .= '<a href="' . $term_url . '" class="catalogue-hero-sect__category' . $active_class . '" data-term-id="' . $term->term_id . '">' . $term->name . '</a>';
 
         $catalogue_right .= '<div class="catalogue-hero-sect__right-item' . $active_class . '" data-term-id="' . $term->term_id . '">';
 
-        foreach ( $subcategories as $subcategory ) {
-          if ( !$category['is_subcategories'] ) {
-            $subcategory = $subcategory['subcategories'];
+        if ( $subcategories ) {
+          foreach ( $subcategories as $subcategory ) {
+            if ( !$category['is_subcategories'] ) {
+              $subcategory = $subcategory['subcategories'];
+            }
+
+            $url = get_term_link( $subcategory->term_id );
+            $title = $subcategory->name;
+            $img_src = get_field( 'category_preivew', $subcategory )['url'];
+
+            if ( !$img_src ) {
+              $img_src = $template_directory . '/img/img-placeholder.svg';
+            }
+
+            $catalogue_right .= print_ctatlogue_item( $url, $title, false, $img_src, false );
+
+            unset( $url, $title, $img_src, $subcategory );
           }
+        } else {
+          $posts = get_posts( [
+            'numberposts' => -1,
+            'category_name' => $term->slug,
+            'tag' => $_GET['brand']
+          ] );
 
-          $url = get_term_link( $subcategory->term_id );
-          $title = $subcategory->name;
-          $img_src = get_field( 'category_preivew', $subcategory )['url'];
+          foreach ( $posts as $p ) {
+            $url = get_post_permalink( $p->ID );
+            $title = $p->post_title;
+            $img_src = get_the_post_thumbnail_url( $p->ID );
 
-          if ( !$img_src ) {
-            $img_src = $template_directory . '/img/img-placeholder.svg';
+            if ( !$img_src ) {
+              $img_src = $template_directory . '/img/img-placeholder.svg';
+            }
+
+            $catalogue_right .= print_ctatlogue_item( $url, $title, false, $img_src, false );
+
+            unset( $url, $title, $img_src );
           }
-
-          $catalogue_right .= print_ctatlogue_item( $url, $title, false, $img_src, false );
-
-          unset( $url, $title, $img_src, $subcategory );
         }
 
         $catalogue_right .= '</div>';
@@ -101,8 +126,8 @@ if ( $_GET['brand'] ) {
       $catalogue_left .= '</div>';
       $catalogue_right .= '</div>';
     } ?>
-  <div class="catalogue-hero-sect__catalogue-wrap lazy" data-src="#"><?php
+  <div class="catalogue-hero-sect__catalogue-wrap<?php echo $wrap_class ?> lazy" data-src="#"><?php
     echo $catalogue_left . $catalogue_right . $catalogue ?>      
   </div>
 </section> <?php
-unset( $section_id, $category, $catalogue_left, $catalogue_right, $i ) ?>
+unset( $section_id, $category, $catalogue_left, $catalogue_right, $i, $wrap_class ) ?>

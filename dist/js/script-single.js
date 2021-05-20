@@ -1094,7 +1094,6 @@ thanksPopup = new Popup('.thanks-popup', {
         if (target.classList.contains('catalogue-items__category')) {
           e && e.preventDefault();
           let termID = target.getAttribute('data-term-id'),
-            targetHeight = target.offsetHeight,
             activeButton = q('.catalogue-items__category.active', catalogueItems),
             rightTarget = q('.catalogue-items__right-item[data-term-id="' + termID + '"]'),
             rightActive = q('.catalogue-items__right-item.active');
@@ -1109,16 +1108,17 @@ thanksPopup = new Popup('.thanks-popup', {
             [target, rightTarget].forEach(el => el.classList.add('active'));
           }, 500);
 
-          line.style.transform = 'translateY(' + (targetHeight / 2 + target.offsetTop - 1) + 'px)';
-
-          // history.pushState('', target.textContent, target.href);
-
+          moveLine(target);
         }
+      },
+      moveLine = function(target) {
+        target = target || q('.catalogue-items__category.active', catalogueItems);
+        line.style.transform = 'translateY(' + (target.offsetHeight / 2 + target.offsetTop - 1) + 'px)';
       };
 
     if (catalogueRight && catalogueLeft) {
       catalogueItems.addEventListener('click', switchTab);
-
+      moveLine();
       switchTab();
     }
   }

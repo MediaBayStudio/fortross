@@ -12,7 +12,6 @@
         if (target.classList.contains('catalogue-hero-sect__category')) {
           e && e.preventDefault();
           let termID = target.getAttribute('data-term-id'),
-            targetHeight = target.offsetHeight,
             activeButton = q('.catalogue-hero-sect__category.active', catalogueItems),
             rightTarget = q('.catalogue-hero-sect__right-item[data-term-id="' + termID + '"]'),
             rightActive = q('.catalogue-hero-sect__right-item.active');
@@ -27,16 +26,17 @@
             [target, rightTarget].forEach(el => el.classList.add('active'));
           }, 500);
 
-          line.style.transform = 'translateY(' + (targetHeight / 2 + target.offsetTop - 1) + 'px)';
-
-          // history.pushState('', target.textContent, target.href);
-
+          moveLine(target);
         }
+      },
+      moveLine = function(target) {
+        target = target || q('.catalogue-hero-sect__category.active', catalogueItems);
+        line.style.transform = 'translateY(' + (target.offsetHeight / 2 + target.offsetTop - 1) + 'px)';
       };
 
     if (catalogueRight && catalogueLeft) {
       catalogueItems.addEventListener('click', switchTab);
-
+      moveLine();
       switchTab();
     }
   }

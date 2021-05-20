@@ -2,6 +2,26 @@
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
 
+#catalogue-sect {
+  .catalogue-hero-sect__catalogue-wrap:not(.main-catalogue) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    .catalogue-items__item {
+      width: calc((100% - 40px) / 2);
+
+      &:nth-child(n) {
+        margin-right: 40px;
+      }
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+
 .catalogue-hero-sect {
   &__title {
   }

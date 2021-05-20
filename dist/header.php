@@ -5,6 +5,7 @@
     $site_url,
     $is_webp_support,
     $template_directory,
+    $media_queries,
     $logo_url;
     $page_style = str_replace( '.php', '', $GLOBALS['current_template'] ) ?>
 
@@ -107,6 +108,31 @@
   endforeach ?>
 
   <!-- other preload --> <?php
+
+  if ( is_404() ) {
+    $extname = $is_webp_support ? 'webp' : 'jpg';
+
+    $preload = [
+      0 => [
+        'is_file' => false,
+        'filepath' => '/img/decor-tree-2.svg',
+        'media' => '(min-width:767.98px)'
+      ],
+      1 => [
+        'is_file' => false,
+        'filepath' => '/img/hero-404-img.' . $extname,
+        'media' => $media_queries['1x']
+      ],
+      2 => [
+        'is_file' => false,
+        'filepath' => '/img/hero-404-img@2x.' . $extname,
+        'media' => $media_queries['2x']
+      ]
+    ];
+
+    unset( $extname );
+  }
+
   if ( !$preload ) {
     $preload = get_field( 'preload' );
   }

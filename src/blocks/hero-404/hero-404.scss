@@ -1,0 +1,60 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+$sect_pt: 40px;
+
+.hero-404 {
+  margin: 0 0 auto 0;
+  padding-top: $sect_pt;
+  padding-bottom: 75px;
+  &::before {
+    // decor text
+    left: 20px;
+    top: $sect_pt;
+  }
+  &__decor-title {
+    max-width: 525px;
+    font-size: responsive('320->575', '82->150');
+    z-index: 1;
+    top: $sect_pt;
+    left: 62px;
+  }
+
+  &__pic {
+    margin: 0 0 40px auto;
+    width: 80%;
+    max-width: 330px;
+    min-height: 270px;
+    display: flex;
+  }
+
+  &__text-block {
+    padding: 0 20px;
+    max-width: 280px;
+  }
+
+  &__img {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__title {
+    font: 500 30px/160% Oswald;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: $darkBrown;
+  }
+
+  &__descr {
+    margin: 5px 0 30px;
+    font: 600 16px/160% OpenSans;
+    color: $brown;
+  }
+
+  &__link {
+    width: 185px;
+    height: 50px;
+  }
+}

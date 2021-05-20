@@ -1,1 +1,1 @@
-@charset "UTF-8";
+@charset "UTF-8";#catalogue-sect .catalogue-hero-sect__catalogue-wrap:not(.main-catalogue){display:flex;flex-wrap:wrap;align-items:flex-start}#catalogue-sect .catalogue-hero-sect__catalogue-wrap:not(.main-catalogue) .catalogue-items__item{width:calc((100% - 40px)/ 2)}#catalogue-sect .catalogue-hero-sect__catalogue-wrap:not(.main-catalogue) .catalogue-items__item:nth-child(n){margin-right:40px}#catalogue-sect .catalogue-hero-sect__catalogue-wrap:not(.main-catalogue) .catalogue-items__item:nth-child(2n){margin-right:0}

@@ -1,0 +1,24 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.hero-404 {
+  &::before {
+    // decor text
+    left: $sectionHrPadding576;
+  }
+  &__decor-title {
+    left: calc((50vw - 268px) + 20px);
+    font-size: 160px;
+  }
+
+  &__pic {}
+
+  &__img {}
+
+  &__text-block {}
+
+  &__title {}
+
+  &__descr {}
+}

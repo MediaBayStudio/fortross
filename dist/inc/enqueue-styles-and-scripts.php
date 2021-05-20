@@ -70,6 +70,9 @@ add_action( 'wp_enqueue_scripts', function() {
   } else if ( is_single() ) {
     $style_name = 'style-single';
     $script_name = 'script-single';
+  } else if ( is_404() ) {
+    $style_name = 'style-404';
+    $script_name = 'script-404';
   }
 
   $GLOBALS['page_script_name'] = $script_name;
@@ -112,21 +115,22 @@ add_action( 'admin_enqueue_scripts', function() {
 
 // Убираем id и type в тегах script, добавляем нужным атрибут defer
   add_filter( 'script_loader_tag',   function( $html, $handle ) {
-    if ( !is_super_admin() && !is_admin_bar_showing() ) {
-      switch ( $handle ) {
-        case 'wp-polyfill':
-        case 'wp-hooks':
-        case 'wp-i18n':
-        case 'lodash':
-        case 'wp-url':
-        case 'wp-api-fetch':
-          return '';
-      }
-    }
+    // if ( !is_super_admin() && !is_admin_bar_showing() ) {
+    //   switch ( $handle ) {
+    //     case 'wp-polyfill':
+    //     case 'wp-hooks':
+    //     case 'wp-i18n':
+    //     case 'lodash':
+    //     case 'wp-url':
+    //     case 'wp-api-fetch':
+    //       return '';
+    //   }
+    // }
 
     switch ( $handle ) {
       case $GLOBALS['page_script_name']:
       case 'slick.min':
+      case 'Popup.min':
       case 'lazy.min':
       case 'contact-form-7':
       case 'fancybox.min':

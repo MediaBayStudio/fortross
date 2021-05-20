@@ -8,7 +8,23 @@
   }
 
   .catalogue-hero-sect__catalogue-wrap {
-    margin-top: 30px
+    margin-top: 30px;
+  }
+}
+
+#catalogue-sect {
+  .catalogue-hero-sect__catalogue-wrap:not(.main-catalogue) {
+    display: block;
+    column-count: 2;
+    column-gap: 40px;
+    .catalogue-items__item {
+      width: auto;
+      break-inside: avoid;
+
+      &:nth-child(n) {
+        margin-right: 0;
+      }
+    }
   }
 }
 
