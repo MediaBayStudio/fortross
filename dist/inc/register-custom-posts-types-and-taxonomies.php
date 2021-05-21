@@ -108,7 +108,6 @@ add_filter( 'taxonomy_labels_category', function( $labels ) {
   ];
 } );
 
-
 // Добавляем колонки в админке
 
 function manage_columns( $columns ) {
@@ -118,6 +117,7 @@ function manage_columns( $columns ) {
     'title' => 'Название',
     'thumbnail' => 'Миниатюра',
     'brand' => 'Бренд',
+    'descr' => 'Описание',
     'modified' => 'Дата изменения',
     'date' => 'Дата публикации'
   ];
@@ -146,6 +146,9 @@ function namage_custom_column( $colname, $post_id ) {
     case 'modified':
       echo '<p>Изменено<br>' . get_the_modified_date( 'd.m.Y, G:i' ) . '</p>';
       break;
+    case 'descr':
+      echo '<p>' . mb_substr( get_field( 'descr' , $post_id ), 0, 47 ) . '...</p>';
+    break;
   }
 }
 

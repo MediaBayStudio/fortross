@@ -12,6 +12,7 @@
 <!DOCTYPE html>
 <html <?php language_attributes() ?>>
 <head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=fetch%2CPromise.prototype.finally%2CPromise"></script>
   <script>
     var // Определяем бразуер пользователя
       browser = {

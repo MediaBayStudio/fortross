@@ -1125,15 +1125,8 @@ if (indexHeroSlider) {
       pic = q(indexCatalogueClassName + '__pic > img', indexCatalogue),
       line = q(indexCatalogueClassName + '__left-line', indexCatalogue),
       link = q('.index-catalogue__right', indexCatalogue),
-      cache = {
-        [initialActiveButton.getAttribute('data-term-id')]: {
-          'fig1': fig1.getAttribute('data-src') || fig1.src,
-          'fig2': fig2.getAttribute('data-src') || fig2.src,
-          'pic': pic.getAttribute('data-src') || pic.src,
-          'url': link.href,
-          'figcaption': figcaption.innerHTML
-        }
-      },
+      initialActiveButtonID = initialActiveButton.getAttribute('data-term-id'),
+      cache = {},
       setData = function(from) {
         fig1.src = from.fig1;
         fig2.src = from.fig2;
@@ -1145,11 +1138,20 @@ if (indexHeroSlider) {
         figcaption.innerHTML = from.figcaption;
       };
 
+    // for IE
+    cache[initialActiveButtonID] = {
+      'fig1': fig1.getAttribute('data-src') || fig1.src,
+      'fig2': fig2.getAttribute('data-src') || fig2.src,
+      'pic': pic.getAttribute('data-src') || pic.src,
+      'url': link.href,
+      'figcaption': figcaption.innerHTML
+    };
+
     indexCatalogue.addEventListener('click', function(e) {
       let target = e.target;
       if (target.tagName === 'BUTTON' && !target.classList.contains('active')) {
-         target.blur();
-         target.setAttribute('tabindex', '-1');
+        target.blur();
+        target.setAttribute('tabindex', '-1');
 
         let termID = target.getAttribute('data-term-id'),
           targetHeight = target.offsetHeight,

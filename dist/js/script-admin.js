@@ -46,3 +46,10 @@ function createImages() {
     }
   });
 }
+
+// Старт метаполей ACF
+// var mediaTypes = document.querySelector('.media-types.media-types-required-info');
+
+// if (mediaTypes) {
+//   mediaTypes.insertAdjacentHTML('afterend', '<div class="create-images-block"><button type="button" id="create-images" class="button button-small" onclick="createImages()">Создать адаптивные изобаржения</button><span class="spinner"></span><span class="success hidden" aria-hidden="true" style="text-align:left;color:#008a20">Создано!</span></div>');
+// }

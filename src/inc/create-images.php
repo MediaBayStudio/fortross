@@ -13,7 +13,7 @@
 
 
 add_filter('acf/load_value/name=create_images', function ( $value, $post_id, $field ) {
-  if ( !is_single() ) {
+  if ( !is_single() && !is_tag() ) {
     echo '<div class="create-images-block"><button type="button" id="create-images" class="button button-small" onclick="createImages()">Создать адаптивные изобаржения</button><span class="spinner"></span><span class="success hidden" aria-hidden="true" style="text-align:left;color:#008a20">Создано!</span></div>';
   }
   return $value;
