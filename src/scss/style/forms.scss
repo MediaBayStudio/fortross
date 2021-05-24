@@ -51,9 +51,9 @@ $checkbox_text_width: calc(100% - #{$checkbox_size + $checkbox_margin_right});
       background: transparent center/0 border-box no-repeat;
       transition: background .25s;
       pointer-events: none;
-      border: 1px solid $darkBrown;
+      border: 1px solid $greyBrown;
       &:checked {
-        background-color: $darkBrown;
+        background-color: $greyBrown;
         background-size: 56%;
       }
     }

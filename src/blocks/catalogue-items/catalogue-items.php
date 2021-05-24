@@ -9,13 +9,6 @@ $that = get_queried_object();
 
 $view_class = $section['view'] . '-view';
 
-// if ( $section['view'] === 'loadmore' ) {
-//   $args = [
-//     'numberposts' => -1
-//   ];
-// }
-
-
 if ( is_tag() && $that->parent ) {
   $section_title = $section['title'] ? $section['title'] : $that->name;
   $section_descr = get_field( 'brand_descr', $that );
@@ -23,8 +16,6 @@ if ( is_tag() && $that->parent ) {
   $section_title = $section['title'];
   $section_descr = $section['descr'];
 }
-
-// var_dump( $section );
 
 if ( $selected === 'brands' ) {
 
@@ -130,6 +121,16 @@ if ( $selected === 'brands' ) {
         } // endforeach $post_terms
 
       } // end foreach $posts
+
+      // Переносим спальни в конец
+      $mdy = $catalogue[52];
+      unset( $catalogue[52] );
+      $catalogue[] = $mdy;
+
+      // Переносим мебель для улицы в конец
+      $mdy = $catalogue[60];
+      unset( $catalogue[60] );
+      $catalogue[] = $mdy;
 
       $i = 0;
       foreach ( $catalogue as $parent_category_id => $parent_category ) {

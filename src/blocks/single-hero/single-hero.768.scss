@@ -194,6 +194,12 @@
       }
       &.no-text {
         grid-template-rows: 1fr;
+        > .single-hero-sect__props {
+
+        }
+        .single-hero-sect__prop {
+          max-width: none;
+        }
       }
     }
 
