@@ -28,35 +28,35 @@
 
   .catalogue-items {
     &__item {
-      width: calc((100% - 120px) / 3);
+      // width: calc((100% - 120px) / 3);
 
       &:nth-child(n) {
-        margin-right: 40px;
+        // margin-right: 40px;
       }
 
       &:nth-child(3n+3) {
-        margin-right: 0;
+        // margin-right: 0;
       }
     }
   }
 }
 
 // loadmore
-.catalogue-items-sect[data-id=related-items],
-.catalogue-items-sect[data-id=items] {
+// .catalogue-items-sect[data-id=related-items],
+// .catalogue-items-sect[data-id=items] {
 
-  .catalogue-items.loadmore-view {
-    column-count: 3;
+//   .catalogue-items.loadmore-view {
+//     column-count: 3;
 
-    .catalogue-items__item {
-      width: auto;
+//     .catalogue-items__item {
+//       width: auto;
 
-      &:nth-child(n) {
-        margin-right: 0;
-      }
-    }
-  }
-}
+//       &:nth-child(n) {
+//         margin-right: 0;
+//       }
+//     }
+//   }
+// }
 
 // Страница "товары", "бренды", "бренд"
 .catalogue-items-sect[data-id=items] {
@@ -109,16 +109,17 @@
     // }
   }
 
-  .catalogue-items:not(.loadmore-view) {
+  .catalogue-items {
+    column-count: 3;
     .catalogue-items__item {
-      width: calc((100% - 80px) / 3);
+      // width: calc((100% - 80px) / 3);
 
       &:nth-child(n) {
-        margin-right: 40px;
+        // margin-right: 40px;
       }
 
       &:nth-child(3n+3) {
-        margin-right: 0;
+        // margin-right: 0;
       }
 
       // &:last-child {
@@ -163,24 +164,32 @@
 // Главная страница - секция "бренды"
 .catalogue-items-sect[data-id=brands],
 .catalogue-items-sect[data-id=related-items] {
-  .slick-slide {
-    width: (960px - 80px) / 3;
+  // .slick-slide {
+  //   width: (960px - 80px) / 3;
 
-    @media (hover) {
-      width: (945px - 80px) / 3;
-    }
-  }
+  //   @media (hover) {
+  //     width: (945px - 80px) / 3;
+  //   }
+  // }
 
-  .catalogue-items:not(.slick-slider):not(.loadmore-view) {
+  .catalogue-items {
+    column-count: 3;
+    column-gap: 40px;
     .catalogue-items__item {
-      width: calc((100% - 80px) / 3);
+      // width: calc((100% - 80px) / 3);
+      // padding: 0 0 40px;
 
       &:nth-child(n) {
-        margin: 0 40px 40px 0;
+        // margin: 0 40px 40px 0;
+        // margin: 0 40px 0 0;
+      }
+
+      &:nth-child(3n+3) {
+        // margin-right: 0;
       }
 
       &:last-child {
-        margin-right: 0;
+        // margin-right: 0;
       }
     }
   }
@@ -203,29 +212,29 @@
     }
   }
 
-  .catalogue-items {
-    &.lazyloaded {
-      .catalogue-items__category:last-child::before {
-        // background-image: url('../img/decor-2.svg');
-      }
-    }
+  // .catalogue-items {
+  //   &.lazyloaded {
+  //     .catalogue-items__category:last-child::before {
+  //       // background-image: url('../img/decor-2.svg');
+  //     }
+  //   }
 
-    &.loadmore-view {
-      .catalogue-items__right-item {
-        column-count: 2;
-      }
+  //   &.loadmore-view {
+  //     .catalogue-items__right-item {
+  //       column-count: 2;
+  //     }
 
-      .catalogue-items__item {
-        width: auto;
+  //     .catalogue-items__item {
+  //       width: auto;
 
-        &:nth-child(n) {
-          margin-right: 0;
-        }
+  //       &:nth-child(n) {
+  //         margin-right: 0;
+  //       }
 
-        &:first-child {}
-      }
-    }
-  }
+  //       &:first-child {}
+  //     }
+  //   }
+  // }
 
   .catalogue-items__left {
     width: 290px;
@@ -261,19 +270,26 @@
   }
 
   .catalogue-items__right-item {
+    column-count: 2;
+    column-gap: 40px;
+    column-fill: auto;
     display: none;
     // flex-wrap: wrap;
 
     &.active {
       display: block;
+      // display: flex;
     }
   }
 
   .catalogue-items__item {
-    width: calc((100% - 40px) / 2);
+    break-after: avoid;
+    break-inside: avoid;
+    break-before: avoid;
+    // width: calc((100% - 40px) / 2);
 
     &:nth-child(2n) {
-      margin-right: 0;
+      // margin-right: 0;
     }
 
     &:first-child {}

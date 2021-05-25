@@ -4,19 +4,41 @@
 
 #catalogue-sect {
   .catalogue-hero-sect__catalogue-wrap:not(.main-catalogue) {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    // display: flex;
+    // flex-wrap: wrap;
+    // align-items: flex-start;
+    column-count: 2;
+    column-gap: 40px;
+    column-fill: auto;
     .catalogue-items__item {
-      width: calc((100% - 40px) / 2);
+      break-before: avoid;
+      break-inside: avoid;
+      break-after: avoid;
+      // width: calc((100% - 40px) / 2);
 
-      &:nth-child(n) {
-        margin-right: 40px;
-      }
+      // &:nth-child(n) {
+      //   margin-right: 40px;
+      // }
 
-      &:nth-child(2n) {
-        margin-right: 0;
-      }
+      // &:nth-child(2n) {
+      //   margin-right: 0;
+      // }
+    }
+  }
+}
+
+.catalogue-hero-sect__catalogue-wrap {
+  .catalogue-items__item {
+    position: relative;
+    &:last-child:nth-child(odd)::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -40px;
+      transform: translate(100%, -50%);
+      width: 200px;
+      height: 200px;
+      background: url('../img/decor-tree-3.svg') center/contain no-repeat;
     }
   }
 }

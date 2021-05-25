@@ -5,7 +5,7 @@
 .category-child {
   .catalogue-items-sect[data-id=brands] {
     .catalogue-items {
-      position: relative;
+      // position: relative;
 
       &::before {
         // decor star
@@ -80,17 +80,17 @@
 // Главная страница - секция "бренды"
 .catalogue-items-sect[data-id=brands],
 .catalogue-items-sect[data-id=related-items] {
-  .catalogue-items__item {
-    width: (720px - 40px) / 2;
-  }
+  // .catalogue-items__item {
+  //   width: (720px - 40px) / 2;
+  // }
 
-  .slick-slide {
-    width: 720px;
+  // .slick-slide {
+  //   width: 720px;
 
-    &:nth-last-child(n+2) {}
+  //   &:nth-last-child(n+2) {}
 
-    >div:first-child {}
-  }
+  //   >div:first-child {}
+  // }
 }
 
 // Страница каталог

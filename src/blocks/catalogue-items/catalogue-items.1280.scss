@@ -14,6 +14,26 @@
   }
 }
 
+// .catalogue-items__item:nth-child(1) {
+//   position: relative;
+//   .catalogue-item__img {
+//     position: relative;
+//     z-index: 1;
+//   }
+//   &::after {
+//     content: '';
+//     position: absolute;
+//     bottom: 40px;
+//     left: 50%;
+//     width: 155px;
+//     height: 200px;
+//     background: url('../img/decor-logo.svg') center/contain no-repeat;
+//     transform: translateX(-50%);
+//     pointer-events: none;
+//     opacity: 0.025;
+//   }
+// }
+
 .catalogue-items-sect {
   padding-top: $sectionPadding1280;
   padding-bottom: $sectionPadding1280;

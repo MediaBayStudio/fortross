@@ -6,46 +6,52 @@
 .catalogue-items-sect {}
 
 // loadmore view
-.catalogue-items-sect[data-id=items],
-.catalogue-items-sect[data-id=related-items],
-.catalogue-items-sect[data-id=brands] {
+// .catalogue-items-sect[data-id=items],
+// .catalogue-items-sect[data-id=related-items],
+// .catalogue-items-sect[data-id=brands] {
 
-  .catalogue-items.loadmore-view {
-    margin-top: -60px;
-    column-count: 2;
-    column-gap: 40px;
+//   .catalogue-items.loadmore-view {
+//     margin-top: -60px;
+//     column-count: 2;
+//     column-gap: 40px;
 
-    .catalogue-items__item {
-      padding-top: 40px;
-      break-inside: avoid;
-    }
-  }
-}
+//     .catalogue-items__item {
+//       padding-top: 40px;
+//       break-inside: avoid;
+//     }
+//   }
+// }
 
-.catalogue-items-sect[data-id=catalogue-items] {
+// .catalogue-items-sect[data-id=catalogue-items] {
 
-  .loadmore-view .catalogue-items__right-item {
-    column-count: 2;
-    column-gap: 40px;
+//   .loadmore-view .catalogue-items__right-item {
+//     column-count: 2;
+//     column-gap: 40px;
 
-    .catalogue-items__item {
-      padding-top: 60px;
-      break-inside: avoid;
-    }
-  }
-}
+//     .catalogue-items__item {
+//       padding-top: 60px;
+//       break-inside: avoid;
+//     }
+//   }
+// }
 
 // Страница "товары", "бренды", "бренд"
 .catalogue-items-sect[data-id=items] {
-  .catalogue-items:not(.loadmore-view) {
-    display: flex;
-    flex-wrap: wrap;
+  .catalogue-items {
+    column-count: 2;
+    column-gap: 40px;
+    column-fill: auto;
+    // display: flex;
+    // flex-wrap: wrap;
 
     .catalogue-items__item {
-      width: calc((100% - 40px) / 2);
+      break-after: avoid;
+      break-inside: avoid;
+      break-before: avoid;
+      // width: calc((100% - 40px) / 2);
 
       &:nth-child(odd) {
-        margin-right: 40px;
+        // margin-right: 40px;
       }
     }
   }
@@ -60,90 +66,112 @@
     align-items: center;
   }
 
-  .slick-list {
-    overflow: hidden;
-  }
+  // .slick-list {
+  //   overflow: hidden;
+  // }
 
-  .slick-slide {
-    width: 536px;
+  // .slick-slide {
+  //   width: 536px;
 
-    &:nth-last-child(n+2) {
-      margin-right: 40px;
-    }
+  //   &:nth-last-child(n+2) {
+  //     margin-right: 40px;
+  //   }
 
-    >div:first-child {
-      margin: 0 0 40px;
-    }
-  }
+  //   >div:first-child {
+  //     margin: 0 0 40px;
+  //   }
+  // }
 
-  .catalogue-items-sect__nav {
-    margin: 0 0 0 auto;
-    display: flex;
-    align-items: center;
-  }
+  // .catalogue-items-sect__nav {
+  //   margin: 0 0 0 auto;
+  //   display: flex;
+  //   align-items: center;
+  // }
 
-  .catalogue-items-sect__prev,
-  .catalogue-items-sect__next {
-    margin-right: -5px;
-    padding: 5px;
+  // .catalogue-items-sect__prev,
+  // .catalogue-items-sect__next {
+  //   margin-right: -5px;
+  //   padding: 5px;
 
-    >.arrow__svg {
-      width: 35px;
-      height: 8px;
-    }
-  }
+  //   >.arrow__svg {
+  //     width: 35px;
+  //     height: 8px;
+  //   }
+  // }
 
-  .catalogue-items-sect__prev {
-    order: 1;
-  }
+  // .catalogue-items-sect__prev {
+  //   order: 1;
+  // }
 
-  .catalogue-items-sect__counter {
-    margin: 0 20px;
-    order: 2;
-    font: 16px/100% OpenSans;
-  }
+  // .catalogue-items-sect__counter {
+  //   margin: 0 20px;
+  //   order: 2;
+  //   font: 16px/100% OpenSans;
+  // }
 
-  .catalogue-items-sect__next {
-    order: 3;
-  }
+  // .catalogue-items-sect__next {
+  //   order: 3;
+  // }
 
-  .slick-slider {
-    .catalogue-items__item {
-      width: (536px - 40px) / 2;
+  // .slick-slider {
+  //   .catalogue-items__item {
+  //     width: (536px - 40px) / 2;
 
-      &:nth-child(n) {
-        margin: 0;
-        padding: 0 20px;
-      }
+  //     &:nth-child(n) {
+  //       margin: 0;
+  //       padding: 0 20px;
+  //     }
 
-      &:first-child {
-        padding-left: 0;
-      }
+  //     &:first-child {
+  //       padding-left: 0;
+  //     }
 
-      &:last-child {
-        padding-right: 0;
-      }
-    }
-  }
+  //     &:last-child {
+  //       padding-right: 0;
+  //     }
+  //   }
+  // }
 
 
 
-  .catalogue-items:not(.slick-slider):not(.loadmore-view) {
+  // .catalogue-items:not(.slick-slider):not(.loadmore-view) {
+  .catalogue-items {
     margin: 0 0 -40px;
-    display: flex;
-    flex-wrap: wrap;
-
+    column-count: 2;
+    column-fill: auto;
+    column-gap: 40px;
+    // display: flex;
+    // flex-wrap: wrap;
     .catalogue-items__item {
       padding-top: 0;
-      width: calc((100% - 40px) / 2);
+      break-inside: avoid;
+      break-after: avoid;
+      break-before: avoid;
+      // width: calc((100% - 40px) / 2);
 
       &:nth-child(n) {
-        margin: 0 40px 40px 0;
+        // margin: 0 40px 40px 0;
+        margin: 0 0 40px 0;
       }
 
       &:nth-child(2n) {
         margin-right: 0;
       }
+
+      &:last-child:nth-child(odd) {
+        position: relative;
+        &::after {
+          content: '';
+          position: absolute;
+          right: -40px;
+          top: 50%;
+          transform: translate(100%, -50%);
+          width: 200px;
+          height: 200px;
+          background: url('../img/decor-tree-1.svg') center/contain no-repeat;
+        }
+      }
+
     }
   }
 

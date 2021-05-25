@@ -15,7 +15,7 @@
           <div class="ftr__bottom-left">
             <a href="<?php echo $site_url ?>/policy.pdf" rel="noopener noreferrer nofollow" target="_blank" class="ftr__policy" title="Посмотреть политику конфиденциальности">Политика конфиденциальности</a>
             <div class="ftr__dev">
-            Разработка сайта <a href="https://media-bay.ru" target="_blank" class="ftr__dev-link" title="Перейти на сайт разработчика">media bay</a>
+            Разработка сайта — <a href="https://media-bay.ru" target="_blank" class="ftr__dev-link" title="Перейти на сайт разработчика">media bay</a>
             </div>
           </div>
           <div class="ftr__bottom-right">

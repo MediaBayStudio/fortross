@@ -4,8 +4,8 @@
 
 .single-hero-sect {
   &__top {
-    // margin: 0 0 100px;
-    margin: 0 0 60px;
+    margin: 0 0 100px;
+    // margin: 0 0 60px;
 
     &::before {
       // decor background
@@ -72,4 +72,8 @@
 
     &-text {}
   }
+}
+
+.single-hero-sect__bottom.no-pics {
+  margin-top: -40px;
 }

@@ -9,19 +9,33 @@
 }
 
 #catalogue-sect {
+
+  .catalogue-hero-sect__catalogue-wrap {
+    .catalogue-items__item {
+      break-before: avoid;
+      break-inside: avoid;
+      break-after: avoid;
+    }
+  }
+
   .catalogue-hero-sect__catalogue-wrap:not(.main-catalogue) {
     column-count: 3;
-    .catalogue-items__item {
-      // width: calc((100% - 80px) / 3);
+    column-gap: 40px;
+    column-fill: auto;
+    // .catalogue-items__item {
+    //   break-before: avoid;
+    //   break-inside: avoid;
+    //   break-after: avoid;
+    //   // width: calc((100% - 80px) / 3);
 
-      &:nth-child(n) {
-        // margin-right: 40px;
-      }
+    //   // &:nth-child(n) {
+    //   //   margin-right: 40px;
+    //   // }
 
-      &:nth-child(3n+3) {
-        // margin-right: 0;
-      }
-    }
+    //   // &:nth-child(3n+3) {
+    //   //   margin-right: 0;
+    //   // }
+    // }
   }
 }
 
@@ -57,18 +71,23 @@
 
   &__catalogue-wrap {
     margin-top: 100px;
-
     .catalogue-hero-sect__right-item {
+      column-count: 2;
+      column-gap: 40px;
+      column-fill: auto;
     }
 
     .catalogue-items__item {
-      width: calc((100% - 40px) / 2);
+      break-before: avoid;
+      break-inside: avoid;
+      break-after: avoid;
+      // width: calc((100% - 40px) / 2);
 
-      &:nth-child(odd) {
-        margin-right: 40px;
-      }
+      // &:nth-child(odd) {
+      //   margin-right: 40px;
+      // }
 
-      &:first-child {}
+      // &:first-child {}
     }
   }
 
@@ -98,8 +117,9 @@
 
   &__right-item {
     &.active {
-      display: flex;
-      flex-wrap: wrap;
+      display: block;
+      // display: flex;
+      // flex-wrap: wrap;
     }
 
   }

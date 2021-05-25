@@ -112,8 +112,24 @@ function print_ctatlogue_item( $url, $title, $descr = '', $img_src, $print = tru
   if ( $styles ) {
     $styles = ' style="' . $styles . '"';
   }
+  if ( !is_string( $img_src ) ) {
+    $img_width = ' data-intristicwidth="' . $img_src[1] . '"';
+    $img_height = ' data-intristicheight="' . $img_src[2] . '"';
+
+    // if ( $img_src[1] > $img_src[2] && $img_src[2] < 750 ) {
+    //   $img_class = ' img-small';
+    // } else {
+    //   $img_class = '';
+    // }
+
+    $img_src = $img_src[0];
+
+  } else {
+    $img_width = '';
+    $img_height = '';
+  }
   $response = '
-  <div class="catalogue-items__item"' . $styles . '>
+  <div class="catalogue-items__item' . $img_class . '"' . $styles . '>
     <a href="' . $url . '" class="catalogue-item__link">
       <span class="catalogue-item__title">' . $title . '</span>';
       if ( $descr ) {
@@ -129,7 +145,7 @@ function print_ctatlogue_item( $url, $title, $descr = '', $img_src, $print = tru
       if ( $lazy === 'no-lazy-class') {
         $lazy_class = '';
       }
-      $response .= '<img ' . $attr . ' class="catalogue-item__img' . $lazy_class . '">
+      $response .= '<img ' . $attr . ' class="catalogue-item__img' . $lazy_class . '"' . $img_width . $img_height . '>
     </a>
   </div>';
 

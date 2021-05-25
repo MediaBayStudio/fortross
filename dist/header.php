@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html <?php language_attributes() ?>>
 <head>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=fetch%2CPromise.prototype.finally%2CPromise"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=DOMTokenList.prototype.forEach%2CArray.prototype.forEach%2CNodeList.prototype.forEach%2CElement.prototype.closest%2CIntersectionObserver%2CIntersectionObserverEntry%2CHTMLPictureElement%2CCustomEvent"></script>
   <script>
     var // Определяем бразуер пользователя
       browser = {
@@ -38,10 +38,7 @@
       // Название полифилла : условие
       let polyfills = {
           'custom-events': typeof window.CustomEvent !== 'function',
-          'intersection-observer': 'IntersectionObserver' in window === false,
-          'closest': !Element.prototype.closest,
           'svg4everybody': browser.isIE,
-          'picturefill': !window.HTMLPictureElement
         },
         scriptText = '',
         url = '<?php echo $template_directory ?>/js-polyfills.php',
