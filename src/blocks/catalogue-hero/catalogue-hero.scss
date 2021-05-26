@@ -130,6 +130,11 @@
 
     &.active {
       display: block;
+      @-moz-document url-prefix() {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
     }
   }
 }
