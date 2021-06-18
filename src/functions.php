@@ -29,6 +29,61 @@ $media_queries = [
   'w576' => '(max-width:575.98px)'
 ];
 
+// custom title
+add_filter( 'aioseop_title', function( $title ) {
+  global $post;
+
+  if ( is_single() ) {
+    $title = get_the_title( $post->ID ) . ' &mdash; Fortross';
+  } else if ( is_tag() ) {
+    $brand = get_queried_object();
+
+    if ( $brand->parent ) {
+      $parent_brand = get_term( $brand->parent );
+      $title = 'Коллекция ' . $brand->name . ' бренда ' . $parent_brand->name . ' &mdash; Fortross';
+    } else {
+      $title = 'Бренд ' . $brand->name . ' &mdash; Fortross';
+    }
+  }
+
+  return $title; 
+} , 10, 1 ); 
+
+// custom description
+add_filter( 'aioseop_description', function( $description ) { 
+  global $post;
+
+  $post_id = $post->ID;
+
+  if ( is_single() ) {
+    $brands = get_the_terms( $post_id, 'post_tag' );
+
+    foreach ( $brands as $brand ) {
+      if ( !$brand->parent ) {
+        $brand_country = get_field( 'brand_country', $brand );
+        $brand_name = $brand->name;
+        break;
+      }
+    }
+
+    $brand_country = mb_substr( $brand_country, 0, -1 ) . 'и';
+
+    $description = get_the_title( $post_id ) . ' из каталога бренда ' . $brand_name . '. Исключительное качество материалов и фурнитуры. Произведено в ' . $brand_country . '.';
+  } else if ( is_tag() ) {
+    $brand = get_queried_object();
+
+    if ( $brand->parent ) {
+      $parent_brand = get_term( $brand->parent );
+      $brand_country = get_field( 'brand_country', $parent_brand );
+      $brand_country = mb_substr( $brand_country, 0, -1 ) . 'и';
+      $description = 'Коллекция ' . $brand->name . ' бренда ' . $parent_brand->name . ' в каталоге салона Fortross. В коллекции представлены эксклюзивные дизайнерские предметы мебели, изготовленные в ' . $brand_country . '.';
+    } else {
+      $description = 'Эксклюзивная мебель из натурального массива дерева от бренда ' .$brand->name . ' в коллекции салона Fortross. Исключительное качество материалов и стильный дизайн.';
+    }
+  }
+  return $description;
+} , 10, 1 ); 
+
 // Запрет обновления плагинов
 add_filter( 'site_transient_update_plugins', function( $value ) {
   unset(
