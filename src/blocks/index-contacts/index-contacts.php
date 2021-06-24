@@ -2,7 +2,13 @@
   <div class="contacts-sect__left container">
     <div class="contacts-sect__form-wrap has-decor-text" data-decor-text="<?php echo $section['decor_text'] ?>">
       <h2 class="contacts-sect__title"><?php echo $section['title'] ?></h2> <?php
-      echo do_shortcode( '[contact-form-7 id="' . $section['form']->ID . '" html_class="contacts-sect__form"]' ) ?>
+      if ( is_single() ) {
+        $value = $post->post_title;
+      } else {
+        $value = 'Нет';
+      } ?>
+      <input type="text" name="product" form="contacts-sect-form" value="<?php echo $value ?>" class="cf7-form-field"> <?php
+      echo do_shortcode( '[contact-form-7 id="' . $section['form']->ID . '" html_class="contacts-sect__form" html_id="contacts-sect-form"]' ) ?>
     </div>
   </div>
   <div class="contacts-sect__right container">
