@@ -7,12 +7,16 @@ if ( $_GET['brand'] ) {
   $queried_term = get_queried_object();
   $queried_term_id = $queried_term->term_id;
   $section_title = $queried_term->parent ? $queried_term->name : $section['title'];
-  $section_descr = $queried_term->parent ? $queried_term->description : $section['descr'] ?>
+  $section_descr = $queried_term->parent ? $queried_term->description : $section['descr'];
+  if ( $queried_term->slug === 'sale' ) {
+    $section_title = 'Sale';
+    $section_descr = null;
+  } ?>
   <h1 class="catalogue-hero-sect__title"><?php echo $section_title ?></h1> <?php
   if ( $section_descr ) : ?>
     <p class="catalogue-hero-sect__descr"><?php echo $section_descr ?></p> <?php
   endif;
-    if ( $queried_term_id && $queried_term->parent ) {
+    if ( $queried_term->slug === 'sale' || $queried_term_id && $queried_term->parent ) {
       // Дочерняя страница каталога
       $wrap_class = '';
       $catalogue = '';
@@ -22,6 +26,8 @@ if ( $_GET['brand'] ) {
         'category' => $queried_term_id,
         'tag' => $_GET['brand']
       ] );
+
+      $beautifyRegExp = '/(\d)(?=(\d{3})+(?!\d))/';
 
       foreach ( $posts as $post ) {
         $brands = wp_get_post_tags( $post->ID );
@@ -43,7 +49,50 @@ if ( $_GET['brand'] ) {
         $material = get_field( 'material', $post );
         $descr = $material . '<br>' . $brand;
         $img_src = get_the_post_thumbnail_url( $post->ID );
-        $catalogue .= print_ctatlogue_item( $url, $title, $descr, $img_src, false );
+
+        if ( $queried_term->slug === 'sale' ) {
+          $size = get_field( 'size', $post->ID );
+          $descr = $material . '<br>' . $size;
+          $price = get_field( 'price', $post->ID );
+          $price_sale = get_field( 'price_sale', $post->ID );
+          $gallery = get_field( 'gallery', $post->ID );
+          $lazy = true;
+          $response = '
+          <div class="catalogue-items__item' . $img_class . '"' . $styles . '>
+            <div class="catalogue-item__title-block">
+              <span class="catalogue-item__title">' . $title . '</span>
+              <span class="catalogue-item__descr">' . $descr . '</span>
+            </div>
+            <div class="catalogue-item__price-block">
+              <span class="catalogue-item__new-price">' . number_format( $price_sale, 0, 0, ' ' ) . ' &#8381;</span>
+              <span class="catalogue-item__old-price">' . number_format( $price, 0, 0, ' ' ) . ' &#8381;</span>
+            </div>
+            <div class="catalogue-item__gallery-wrap">
+            <div class="catalogue-item__gallery">';
+
+            foreach ( $gallery as $img ) {
+              $img_src = $img['url'];
+              if ( $lazy ) {
+                $attr = 'src="#" alt="' . $title . '" data-src="' . $img_src . '"';
+                $lazy_class = ' lazy';
+              } else {
+                $attr = 'src="' . $img_src . '" alt="' . $title . '"';
+                $lazy_class = '';
+              }
+              if ( $lazy === 'no-lazy-class') {
+                $lazy_class = '';
+              }
+              $response .= '<a href="' . $img_src . '" class="catalogue-item__fancybox-link" data-fancybox="gallery"><img ' . $attr . ' class="catalogue-item__img' . $lazy_class . '"' . $img_width . $img_height . '></a>';
+            }
+
+            $response .= '</div><div class="catalogue-item__nav"><span class="catalogue-item__counter"></span></div><button type="button" class="catalogue-item__btn btn btn_brown">Заказать</button>
+            </div>
+          </div>';
+
+          $catalogue .= $response;
+        } else {
+          $catalogue .= print_ctatlogue_item( $url, $title, $descr, $img_src, false );
+        }
 
         unset( $url, $title, $img_src, $descr );
       }
@@ -130,4 +179,17 @@ if ( $_GET['brand'] ) {
     echo $catalogue_left . $catalogue_right . $catalogue ?>      
   </div>
 </section> <?php
+if ( $queried_term->slug === 'sale' ) : ?>
+  <div class="product-popup popup lazy" data-src="#">
+    <div class="product-popup__cnt popup__cnt">
+      <button type="button" class="product-popup__close">
+        <svg width="21" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20" class="product-popup__close-svg"><path stroke="currentColor" d="M20.4455.353553L1.35359 19.4454M19.7384 19.4455L.646481.353591" class="product-popup__close-path"/></svg>
+      </button>
+      <h2 class="product-popup__title">Заказ товара</h2>
+      <input type="text" name="product-name" class="cf7-form-field" id="product-name-inp">
+      <!-- <p class="product-popup__descr">Спасибо что написали нам, мы&nbsp;ответим вам в&nbsp;ближайшее время по&nbsp;указаным контактным данным.</p> --> <?php
+      echo do_shortcode( '[contact-form-7 id="12" html_class="product-popup__form" html_id="product-popup-form"]' ) ?>
+    </div>
+  </div> <?php
+endif;
 unset( $section_id, $category, $catalogue_left, $catalogue_right, $i, $wrap_class ) ?>

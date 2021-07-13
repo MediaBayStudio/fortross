@@ -163,3 +163,49 @@
 
   &__img {}
 }
+
+.product-popup {
+  &__cnt {}
+
+  &__close {}
+
+  &__close-svg {}
+
+  &__close-path {}
+
+  &__title {}
+
+  &__form {
+    .field {
+      &__inp {}
+
+      &__text {}
+
+      &__textarea {}
+    }
+
+    .field_name,
+    .field_tel,
+    .field_email {}
+
+    .field_name {}
+
+    .field_tel {}
+
+    .field_email {}
+
+    .field_msg {}
+
+    .form-bottom {}
+
+    .check {
+      &__inp {}
+
+      &__text {}
+
+      &__link {}
+    }
+
+    .btn {}
+  }
+}

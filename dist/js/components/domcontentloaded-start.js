@@ -56,7 +56,7 @@ body = document.body;
   //   id('contacts-form')
   // ];
 
-  let $forms = qa('.contacts-sect__form, .contacts-us-sect__form');
+  let $forms = qa('.contacts-sect__form, .contacts-us-sect__form, #product-popup-form');
 
   let formValidator = function(params) {
     let $form = params.form,
@@ -80,7 +80,7 @@ body = document.body;
           or: 'tel'
         },
         msg: {
-          required: true,
+          // required: true,
           pattern: /[^\<\>\[\]%\&'`]+$/
         },
         policy: {

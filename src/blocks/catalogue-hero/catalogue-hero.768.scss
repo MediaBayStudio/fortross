@@ -21,6 +21,7 @@
     column-gap: 40px;
     -webkit-column-fill: auto;
     column-fill: auto;
+
     .catalogue-items__item {
       // width: auto;
       break-inside: avoid;
@@ -33,6 +34,7 @@
 
     @-moz-document url-prefix() {
       display: flex;
+
       .catalogue-items__item {
         width: calc((100% - 40px) / 2);
       }
@@ -166,4 +168,58 @@
   &__title {}
 
   &__img {}
+}
+
+.product-popup {
+  align-items: center;
+  &__cnt {
+    padding: 20px 100px 40px;
+    max-width: 535px;
+  }
+
+  &__close {
+    margin-right: -80px;
+  }
+
+  &__close-svg {}
+
+  &__close-path {}
+
+  &__title {
+    font-size: 34px;
+  }
+
+  &__form {
+    .field {
+      &__inp {}
+
+      &__text {}
+
+      &__textarea {}
+    }
+
+    .field_name,
+    .field_tel,
+    .field_email {}
+
+    .field_name {}
+
+    .field_tel {}
+
+    .field_email {}
+
+    .field_msg {}
+
+    .form-bottom {}
+
+    .check {
+      &__inp {}
+
+      &__text {}
+
+      &__link {}
+    }
+
+    .btn {}
+  }
 }

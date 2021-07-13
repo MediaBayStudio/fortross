@@ -1,1 +1,55 @@
-function createImages(){var t,e=document.querySelectorAll(".acf-input label.selected input"),a=document.querySelector(".create-images-block > .spinner"),s=document.querySelector(".create-images-block > .success"),n=document.querySelector(".compat-attachment-fields #_acf_post_id").value,c=new XMLHttpRequest,i=new FormData;a.classList.add("is-active"),i.append("action","create_images"),i.append("id",n);for(var r=0,d=e.length;r<d;r++)i.append(e[r].value,!0);c.open("POST",siteUrl+"/wp-admin/admin-ajax.php"),c.send(i),c.addEventListener("readystatechange",function(){if(200===c.status&&4===c.readyState){a.classList.remove("is-active"),a.classList.add("hidden"),s.classList.remove("hidden");try{t=JSON.parse(c.response)}catch(e){return}for(var e in t)document.querySelector('tr[data-name="'+e+'"] input').setAttribute("value",t[e]);setTimeout(function(){s.classList.add("hidden")},5e3)}})}
+function createImages() {
+  var elements = document.querySelectorAll('.acf-input label.selected input'),
+    spinner = document.querySelector('.create-images-block > .spinner'),
+    success = document.querySelector('.create-images-block > .success'),
+    postID = document.querySelector('.compat-attachment-fields #_acf_post_id').value,
+    xhr = new XMLHttpRequest(),
+    formData = new FormData(),
+    response;
+
+
+  spinner.classList.add('is-active');
+
+  formData.append('action', 'create_images');
+  formData.append('id', postID);
+
+  for (var i = 0, len = elements.length; i < len; i++) {
+    formData.append(elements[i].value, true);
+  }
+
+  xhr.open('POST', siteUrl + '/wp-admin/admin-ajax.php')
+  xhr.send(formData);
+
+  xhr.addEventListener('readystatechange', function() {
+    if (xhr.status === 200 && xhr.readyState === 4) {
+
+      spinner.classList.remove('is-active');
+      spinner.classList.add('hidden');
+      success.classList.remove('hidden');
+
+      try {
+        response = JSON.parse(xhr.response)
+      } catch (err) {
+        console.log(err);
+        console.log(xhr.response);
+        return;
+      }
+
+      for (var key in response) {
+        // document.querySelector('tr[data-name="' + key + '"] input').setAttribute('placeholder', response[key]);
+        document.querySelector('tr[data-name="' + key + '"] input').setAttribute('value', response[key]);
+      }
+
+      setTimeout(function() {
+        success.classList.add('hidden');
+      }, 5000);
+    }
+  });
+}
+
+// Старт метаполей ACF
+// var mediaTypes = document.querySelector('.media-types.media-types-required-info');
+
+// if (mediaTypes) {
+//   mediaTypes.insertAdjacentHTML('afterend', '<div class="create-images-block"><button type="button" id="create-images" class="button button-small" onclick="createImages()">Создать адаптивные изобаржения</button><span class="spinner"></span><span class="success hidden" aria-hidden="true" style="text-align:left;color:#008a20">Создано!</span></div>');
+// }
