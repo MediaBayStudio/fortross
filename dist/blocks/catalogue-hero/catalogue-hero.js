@@ -58,20 +58,16 @@
             title = q('.catalogue-item__title', parent);
           productNameInput.value = title.textContent;
         }
-
-        console.log(productNameInput.value);
       });
-
-      productPopup.openPopup();
 
       for (let i = 0, len = catalogue.length; i < len; i++) {
         $catalogue = $(catalogue[i]);
         let slides = qa('.catalogue-item__fancybox-link', catalogue[i]);
 
-        $('[data-fancybox="gallery"]', $catalogue).fancybox({
+        $('[data-fancybox="gallery-' + i + '"]').fancybox({
           beforeClose: function(e, instance, slide) {
             if (slides.length && slides.length > 1) {
-              $('.catalogue-item__gallery').slick('slickGoTo', e.currIndex);
+              $('[data-slick="slider-' + i + '"]', $catalogue).slick('slickGoTo', e.currIndex);
             }
           }
         });
@@ -79,15 +75,15 @@
         if (qa('.catalogue-item__fancybox-link').length > 1) {
           let counter = q('.catalogue-item__counter', catalogue[i]);
 
-          $('.catalogue-item__gallery', $catalogue).on('init reInit afterChange', function(e, slick, currentSlide, nextSlide) {
+          $('[data-slick="slider-' + i + '"]').on('init reInit afterChange', function(e, slick, currentSlide, nextSlide) {
             let number = (currentSlide ? currentSlide : 0) + 1;
             counter.textContent = number + '/' + (slick.slideCount - slick.options.slidesToShow + slick.options.slidesToScroll);
           });
 
-          $('.catalogue-item__gallery', $(catalogue[i])).slick({
+          $('[data-slick="slider-' + i + '"]').slick({
             infinite: false,
             // slide: '.catalogue-item__fancybox-link',
-            appendArrows: $('.catalogue-item__nav'),
+            appendArrows: $('.catalogue-item__nav', $(catalogue[i])),
             prevArrow: SLIDER.createArrow('catalogue-item__prev', arrow),
             nextArrow: SLIDER.createArrow('catalogue-item__next', arrow)
           });

@@ -6,7 +6,7 @@
 // }
 
 /* Родительская категория на странице редактирования записи */
-#category-all>#categorychecklist>li:not(.popular-category)>label.selectit>input,
+#category-all>#categorychecklist>li:not(.popular-category):not(#category-78)>label.selectit>input,
 /* Скрытие тексового поля на странице информация о медиафайле */
 tr.acf-field[data-name="create_images"],
 /* Родительский бренд на странице редактирования записи
@@ -27,10 +27,9 @@ acf-field[data-name="category"] .children.acf-bl,
 }
 
 /* Делаем недоступным нажатие на label родительской категории (стр. редактирования товара) */
-#category-all>#categorychecklist>li:not(.popular-category)>label.selectit {
+#category-all>#categorychecklist>li:not(.popular-category):not(#category-78)>label.selectit {
   pointer-events: none;
 }
-
 /* Растягиваем настройки адаптивности изображений на всю ширину блока (стр с медифайлом) */
 // .compat-attachment-fields [data-name="images_variables"]>.acf-input
 

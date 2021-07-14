@@ -9,8 +9,8 @@ if ( $_GET['brand'] ) {
   $section_title = $queried_term->parent ? $queried_term->name : $section['title'];
   $section_descr = $queried_term->parent ? $queried_term->description : $section['descr'];
   if ( $queried_term->slug === 'sale' ) {
-    $section_title = 'Sale';
-    $section_descr = null;
+    $section_title = $queried_term->name;
+    $section_descr = $queried_term->description;
   } ?>
   <h1 class="catalogue-hero-sect__title"><?php echo $section_title ?></h1> <?php
   if ( $section_descr ) : ?>
@@ -21,14 +21,21 @@ if ( $_GET['brand'] ) {
       $wrap_class = '';
       $catalogue = '';
 
-      $posts = get_posts( [
+      $args = [
         'numberposts' => -1,
         'category' => $queried_term_id,
         'tag' => $_GET['brand']
-      ] );
+      ];
+
+      if ( $queried_term->slug === 'sale' ) {
+        $args['orderby'] = 'rand'; 
+      }
+
+      $posts = get_posts( $args );
 
       $beautifyRegExp = '/(\d)(?=(\d{3})+(?!\d))/';
 
+      $post_count = 0;
       foreach ( $posts as $post ) {
         $brands = wp_get_post_tags( $post->ID );
 
@@ -68,7 +75,7 @@ if ( $_GET['brand'] ) {
               <span class="catalogue-item__old-price">' . number_format( $price, 0, 0, ' ' ) . ' &#8381;</span>
             </div>
             <div class="catalogue-item__gallery-wrap">
-            <div class="catalogue-item__gallery">';
+            <div class="catalogue-item__gallery" data-slick="slider-' . $post_count . '">';
 
             foreach ( $gallery as $img ) {
               $img_src = $img['url'];
@@ -82,7 +89,7 @@ if ( $_GET['brand'] ) {
               if ( $lazy === 'no-lazy-class') {
                 $lazy_class = '';
               }
-              $response .= '<a href="' . $img_src . '" class="catalogue-item__fancybox-link" data-fancybox="gallery"><img ' . $attr . ' class="catalogue-item__img' . $lazy_class . '"' . $img_width . $img_height . '></a>';
+              $response .= '<a href="' . $img_src . '" class="catalogue-item__fancybox-link" data-fancybox="gallery-' . $post_count . '"><img ' . $attr . ' class="catalogue-item__img' . $lazy_class . '"' . $img_width . $img_height . '></a>';
             }
 
             $response .= '</div><div class="catalogue-item__nav"><span class="catalogue-item__counter"></span></div><button type="button" class="catalogue-item__btn btn btn_brown">Заказать</button>
@@ -95,6 +102,7 @@ if ( $_GET['brand'] ) {
         }
 
         unset( $url, $title, $img_src, $descr );
+        $post_count++;
       }
 
     } else {
