@@ -9,19 +9,23 @@
   font: 600 15px/100% OpenSans;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  border: 1px solid transparent;
   transition: background .5s, border-color .5s, color .5s;
 }
 
 .btn_brown {
   color: $greyBeige;
   background: $green;
-  border: 1px solid $green;
+  border-color: $green;
   &:focus {
     outline: 1px dotted $darkBrown;
   }
 }
 
-.btn_ol {}
+.btn_ol {
+  color: $green;
+  border-color: $green;
+}
 
 .btn_load {
   position: relative;

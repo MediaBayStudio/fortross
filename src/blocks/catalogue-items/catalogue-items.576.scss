@@ -35,6 +35,42 @@
 //   }
 // }
 
+.category-sale {
+  .catalogue-items {
+    display: block;
+    columns: 2 248px;
+    @-moz-document url-prefix() {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+  }
+  .catalogue-item__nav {
+    @-moz-document url-prefix() {
+      bottom: 64px;
+    }
+  }
+  .catalogue-items__item {
+    break-inside: avoid;
+    @-moz-document url-prefix() {
+      width: calc((100% - 40px) / 2);
+      &:nth-child(odd) {
+        margin-right: 40px;
+      }
+    }
+    .slick-track {
+      pointer-events: none;
+    }
+    .slick-list {
+      &:hover {
+        .slick-track {
+          pointer-events: auto;
+        }
+      }
+    }
+  }
+}
+
 // Страница "товары", "бренды", "бренд"
 .catalogue-items-sect[data-id=items] {
   .catalogue-items {

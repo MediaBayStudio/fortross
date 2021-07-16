@@ -81,7 +81,7 @@ add_action( 'wp_enqueue_scripts', function() {
 
   enqueue_style( 'hover', '' ); // подключаем стили для эффектов при наведении
 
-  if ( is_single() || is_category() && get_queried_object()->slug ) {
+  if ( is_front_page() || is_single() || is_category() && get_queried_object()->slug ) {
     enqueue_style( 'fancybox.min', '' );
     wp_enqueue_script( "fancybox.min", $template_directory . "/js/fancybox.min.js", [], null );
   }

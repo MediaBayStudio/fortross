@@ -33,8 +33,6 @@ if ( $_GET['brand'] ) {
 
       $posts = get_posts( $args );
 
-      $beautifyRegExp = '/(\d)(?=(\d{3})+(?!\d))/';
-
       $post_count = 0;
       foreach ( $posts as $post ) {
         $brands = wp_get_post_tags( $post->ID );

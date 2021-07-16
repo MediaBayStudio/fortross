@@ -19,6 +19,11 @@
   background: transparent;
 }
 
+.btn_ol:hover {
+  color: $white;
+  background: $green;
+}
+
 .index-hero-sect__dots .dot:hover {
   background: $beige;
 }

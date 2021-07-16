@@ -82,6 +82,7 @@
 
           $('[data-slick="slider-' + i + '"]').slick({
             infinite: false,
+            draggable: false,
             // slide: '.catalogue-item__fancybox-link',
             appendArrows: $('.catalogue-item__nav', $(catalogue[i])),
             prevArrow: SLIDER.createArrow('catalogue-item__prev', arrow),

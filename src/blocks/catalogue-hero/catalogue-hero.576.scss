@@ -36,6 +36,25 @@
   }
 }
 
+.category-sale {
+  .catalogue-items {
+
+  }
+  .catalogue-items__item {
+    .slick-track {
+      pointer-events: none;
+    }
+    .slick-list {
+      overflow: hidden;
+      &:hover {
+        .slick-track {
+          pointer-events: auto;
+        }
+      }
+    }
+  }
+}
+
 .catalogue-hero-sect__catalogue-wrap {
   .catalogue-items__item {
     position: relative;

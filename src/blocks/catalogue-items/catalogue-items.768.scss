@@ -32,6 +32,16 @@
   }
 }
 
+.category-sale {
+  .catalogue-items {
+    columns: 2 338px;
+    // column-gap: 40px;
+  }
+  .catalogue-items-sect__heading {
+    margin: 0 0 10px;
+  }
+}
+
 .catalogue-items-sect {
   padding-top: $sectionPadding768;
   padding-bottom: $sectionPadding768;
@@ -200,3 +210,57 @@
 
 // Похожие товары
 .catalogue-items-sect[data-id=related-items] {}
+
+.product-popup {
+  align-items: center;
+  &__cnt {
+    padding: 20px 100px 40px;
+    max-width: 535px;
+  }
+
+  &__close {
+    margin-right: -80px;
+  }
+
+  &__close-svg {}
+
+  &__close-path {}
+
+  &__title {
+    font-size: 34px;
+  }
+
+  &__form {
+    .field {
+      &__inp {}
+
+      &__text {}
+
+      &__textarea {}
+    }
+
+    .field_name,
+    .field_tel,
+    .field_email {}
+
+    .field_name {}
+
+    .field_tel {}
+
+    .field_email {}
+
+    .field_msg {}
+
+    .form-bottom {}
+
+    .check {
+      &__inp {}
+
+      &__text {}
+
+      &__link {}
+    }
+
+    .btn {}
+  }
+}

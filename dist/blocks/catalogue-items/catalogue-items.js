@@ -165,4 +165,58 @@
       switchTab();
     }
   }
+
+  if (q('[data-id="category-sale"]')) {
+      let catalogue = qa('[data-id="category-sale"] .catalogue-items__item'),
+        productNameInput = id('product-name-inp'),
+        arrow = '<svg class="arrow__svg" width="58" height="8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M57.354 4.354a.5.5 0 000-.708L54.172.464a.5.5 0 10-.707.708L56.293 4l-2.828 2.828a.5.5 0 10.707.708l3.182-3.182zM0 4.5h57v-1H0v1z" fill="currentColor"/></svg>',
+        productPopup = new Popup('.product-popup', {
+          openButtons: '.catalogue-item__btn',
+          closeButtons: '.product-popup__close'
+        });
+
+
+      productPopup.addEventListener('popupbeforeopen', function() {
+        let caller = this.caller;
+
+        if (caller) {
+          let parent = caller.closest('.catalogue-items__item'),
+            title = q('.catalogue-item__title', parent);
+          productNameInput.value = title.textContent;
+        }
+      });
+
+      for (let i = 0, len = catalogue.length; i < len; i++) {
+        $catalogue = $(catalogue[i]);
+        let slides = qa('.catalogue-item__fancybox-link', catalogue[i]);
+
+        $('[data-fancybox="gallery-' + i + '"]').fancybox({
+          beforeClose: function(e, instance, slide) {
+            if (slides.length && slides.length > 1) {
+              $('[data-slick="slider-' + i + '"]', $catalogue).slick('slickGoTo', e.currIndex);
+            }
+          }
+        });
+
+        if (qa('.catalogue-item__fancybox-link').length > 1) {
+          let counter = q('.catalogue-item__counter', catalogue[i]);
+
+          $('[data-slick="slider-' + i + '"]').on('init reInit afterChange', function(e, slick, currentSlide, nextSlide) {
+            let number = (currentSlide ? currentSlide : 0) + 1;
+            counter.textContent = number + '/' + (slick.slideCount - slick.options.slidesToShow + slick.options.slidesToScroll);
+          });
+
+          $('[data-slick="slider-' + i + '"]').slick({
+            infinite: false,
+            draggable: false,
+            // slide: '.catalogue-item__fancybox-link',
+            appendArrows: $('.catalogue-item__nav', $(catalogue[i])),
+            prevArrow: SLIDER.createArrow('catalogue-item__prev', arrow),
+            nextArrow: SLIDER.createArrow('catalogue-item__next', arrow)
+          });
+        }
+      }
+
+      console.log(catalogue);
+    }
 })();
