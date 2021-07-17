@@ -90,7 +90,7 @@ if ( $_GET['brand'] ) {
               $response .= '<a href="' . $img_src . '" class="catalogue-item__fancybox-link" data-fancybox="gallery-' . $post_count . '"><img ' . $attr . ' class="catalogue-item__img' . $lazy_class . '"' . $img_width . $img_height . '></a>';
             }
 
-            $response .= '</div><div class="catalogue-item__nav"><span class="catalogue-item__counter"></span></div><button type="button" class="catalogue-item__btn btn btn_brown">Заказать</button>
+            $response .= '</div><div class="catalogue-item__nav"><span class="catalogue-item__counter"></span></div><button type="button" class="catalogue-item__btn btn btn_ol">Заказать</button>
             </div>
           </div>';
 

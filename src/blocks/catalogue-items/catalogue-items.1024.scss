@@ -20,7 +20,8 @@
 
 .category-sale {
   .catalogue-items {
-    columns: 3 293.33px;
+    column-count: 3;
+    // columns: 3 293.33px;
   }
   .catalogue-items__item {
     @-moz-document url-prefix() {

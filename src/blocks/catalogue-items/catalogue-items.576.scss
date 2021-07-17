@@ -38,7 +38,9 @@
 .category-sale {
   .catalogue-items {
     display: block;
-    columns: 2 248px;
+    column-count: 2;
+    // columns: 2 248px;
+    column-gap: 40px;
     @-moz-document url-prefix() {
       display: flex;
       flex-wrap: wrap;
