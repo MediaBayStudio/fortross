@@ -43,7 +43,7 @@
 
     if (document.body.classList.contains('category-sale')) {
       let catalogue = qa('.catalogue-items__item', catalogueHero),
-        productNameInput = id('product-name-inp'),
+        productNameInput = q('[name="product-name"]'),
         productPopup = new Popup('.product-popup', {
           openButtons: '.catalogue-item__btn',
           closeButtons: '.product-popup__close'
@@ -54,7 +54,8 @@
         let caller = this.caller;
 
         if (caller) {
-          let parent = caller.closest('.catalogue-items__item'),
+          // let parent = caller.closest('.catalogue-items__item'),
+          let parent = caller.parentElement.parentElement,
             title = q('.catalogue-item__title', parent);
           productNameInput.value = title.textContent;
         }

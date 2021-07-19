@@ -192,7 +192,7 @@ if ( $queried_term->slug === 'sale' ) : ?>
         <svg width="21" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20" class="product-popup__close-svg"><path stroke="currentColor" d="M20.4455.353553L1.35359 19.4454M19.7384 19.4455L.646481.353591" class="product-popup__close-path"/></svg>
       </button>
       <h2 class="product-popup__title">Заказ товара</h2>
-      <input type="text" name="product-name" class="cf7-form-field" id="product-name-inp">
+      <input type="text" name="product-name" class="cf7-form-field" id="product-name-inp" form="product-popup-form">
       <!-- <p class="product-popup__descr">Спасибо что написали нам, мы&nbsp;ответим вам в&nbsp;ближайшее время по&nbsp;указаным контактным данным.</p> --> <?php
       echo do_shortcode( '[contact-form-7 id="12" html_class="product-popup__form" html_id="product-popup-form"]' ) ?>
     </div>

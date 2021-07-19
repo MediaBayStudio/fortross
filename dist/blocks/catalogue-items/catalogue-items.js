@@ -168,7 +168,7 @@
 
   if (q('[data-id="category-sale"]')) {
       let catalogue = qa('[data-id="category-sale"] .catalogue-items__item'),
-        productNameInput = id('product-name-inp'),
+        productNameInput = q('[name="product-name"]'),
         arrow = '<svg class="arrow__svg" width="58" height="8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M57.354 4.354a.5.5 0 000-.708L54.172.464a.5.5 0 10-.707.708L56.293 4l-2.828 2.828a.5.5 0 10.707.708l3.182-3.182zM0 4.5h57v-1H0v1z" fill="currentColor"/></svg>',
         productPopup = new Popup('.product-popup', {
           openButtons: '.catalogue-item__btn',
@@ -180,7 +180,8 @@
         let caller = this.caller;
 
         if (caller) {
-          let parent = caller.closest('.catalogue-items__item'),
+          // let parent = caller.closest('.catalogue-items__item'),
+          let parent = caller.parentElement.parentElement,
             title = q('.catalogue-item__title', parent);
           productNameInput.value = title.textContent;
         }
