@@ -183,6 +183,10 @@
           if ($uploadFilesBlock) {
             $uploadFilesBlock.innerHTML = '';
           }
+
+          if ($form.id === 'product-popup-form') {
+             fbq('track', 'Contact');
+          }
           // if ($form === $quizForm) {
           //   id('quiz').resetQuiz();
           // }
